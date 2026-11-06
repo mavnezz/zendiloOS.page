@@ -1,0 +1,19 @@
+name: Check
+
+# The pages are built from src/ and committed; this makes sure they were
+# rebuilt after every change.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: node build.mjs
+      - name: The committed pages match the sources
+        run: git diff --exit-code || { echo '::error::Run "node build.mjs" and commit the result.'; exit 1; }
