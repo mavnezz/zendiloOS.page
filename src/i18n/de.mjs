@@ -3,7 +3,7 @@ export default {
   locale: 'de_DE',
   title: 'zendiloOS: ein NAS, das Sie im Browser bedienen',
   description:
-    'zendiloOS macht aus Debian 13 ein NAS mit ZFS-Speicher, SMB- und NFS-Freigaben, App Store, Docker und signierten Updates, bedient über einen Desktop im Browser. Kostenlos und Open Source.',
+    'zendiloOS macht aus Debian 13 ein NAS mit ZFS-Speicher, über SMB und NFS freigegebenen Ordnern, einem App Center für Docker-Apps, Zwei-Faktor-Anmeldung, Firewall und signierten Updates, bedient über einen Desktop im Browser. Kostenlos und Open Source.',
   tourLabel: 'Ein Rundgang durch zendiloOS',
 
   nav: {
@@ -22,12 +22,12 @@ export default {
     pill: 'Kostenlos und Open Source',
     release: 'zendiloOS {version} ist da',
     title: 'Ein NAS, das sich wie ein <em>Desktop</em> anfühlt.',
-    lead: 'zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, Freigaben für jedes Gerät im Haus, Apps aus einem Store und Updates per Klick.',
+    lead: 'zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, freigegebene Ordner für jedes Gerät im Haus, Apps als Ihre eigenen Docker-Projekte und Updates per Klick.',
     download: 'ISO herunterladen',
     github: 'Auf GitHub ansehen',
     meta: 'Für x86-64-Rechner · Debian 13 als Basis · Apache-2.0',
     downloadMeta: 'Version {version} · {size} · x86-64 · Apache-2.0',
-    alt: 'Der zendiloOS-Desktop im Browser: Die Speicherverwaltung zeigt zwei intakte Pools, daneben zeigen Widgets Systemzustand, Auslastung, Netzwerk und Speicher.',
+    alt: 'Der zendiloOS-Desktop im Browser: Der Datei-Explorer zeigt den Ordner documents, daneben zeigen Widgets Systemzustand, Auslastung, Netzwerk und Speicher.',
     chipPool: ['Pool tank', 'Spiegel · intakt'],
     chipUpdate: ['Update installiert', 'Signatur geprüft'],
   },
@@ -37,7 +37,7 @@ export default {
   features: {
     eyebrow: 'Funktionen',
     title: 'Alles, was ein NAS braucht, auf einem Desktop.',
-    lead: 'Speicher, Freigaben, Dateien, Apps und das System drumherum, mit Fenstern, Dock und Widgets, wie Sie sie längst kennen.',
+    lead: 'Speicher, freigegebene Ordner, Apps und das System drumherum, mit Fenstern, Dock und Widgets, wie Sie sie längst kennen.',
     items: [
       {
         id: 'storage',
@@ -46,28 +46,28 @@ export default {
       },
       {
         id: 'shares',
-        title: 'Freigaben',
-        text: 'SMB für Windows und macOS, NFS für Linux, Rechte für jede Person und Gruppe.',
+        title: 'Freigegebene Ordner',
+        text: 'Ordner auf einem Volume, freigegeben über SMB für Windows und macOS und NFS für Linux, mit Rechten für jede Person und Gruppe.',
       },
       {
         id: 'snapshots',
         title: 'Snapshots',
-        text: 'Snapshots, die Windows als vorherige Versionen anzeigt, und ein Papierkorb für jede Freigabe.',
+        text: 'Snapshots, die Windows als vorherige Versionen anzeigt, und ein Papierkorb für alle Ordner.',
       },
       {
         id: 'files',
-        title: 'Dateien im Browser',
-        text: 'Hochladen, ganze Ordner herunterladen, Vorschau, Wiederherstellen aus einem Snapshot.',
+        title: 'Datei-Explorer',
+        text: 'Ein Baum Ihrer Ordner, Ziehen und Ablegen, eine Suche durch alle Unterordner und USB-Laufwerke zum Kopieren.',
       },
       {
         id: 'apps',
-        title: 'App Store',
-        text: 'Apps aus einem Community-Katalog, jede vor dem Start gegen dieselben Regeln geprüft.',
+        title: 'App Center',
+        text: 'Apps aus einem Community-Katalog, installiert als Ihre eigenen Docker-Projekte, die Sie ändern können.',
       },
       {
         id: 'docker',
         title: 'Docker',
-        text: 'Container, Images, Netzwerke, Logs und eigene Compose-Projekte.',
+        text: 'Container, Images, Netzwerke und Compose-Projekte, mit Live-Logs, Terminal und Image-Updates.',
       },
       {
         id: 'updates',
@@ -77,12 +77,12 @@ export default {
       {
         id: 'security',
         title: 'Sicherheit',
-        text: 'Grenzen für Fehlanmeldungen, gesperrte Adressen, beendbare Sitzungen und SSH, das sich selbst abschaltet.',
+        text: 'Zwei-Faktor-Anmeldung, eine Firewall, Zertifikate von Let’s Encrypt, Grenzen für Fehlanmeldungen und SSH, das sich selbst abschaltet.',
       },
       {
         id: 'monitor',
         title: 'Überwachung',
-        text: 'Prozessor, Speicher, Netzwerk und Platten im Verlauf, und eine Benachrichtigung, bevor es ernst wird.',
+        text: 'Prozessor, Speicher, Netzwerk und Platten im Verlauf, und Benachrichtigungen per E-Mail oder Webhook, bevor es ernst wird.',
       },
     ],
   },
@@ -98,44 +98,44 @@ export default {
         'Scrubs, die stille Fehler finden, bevor sie sich ausbreiten',
         'Eine Benachrichtigung, wenn eine Platte oder ein Pool Sie braucht',
       ],
-      alt: 'Die Speicherverwaltung mit allen Platten: Modell, Größe, Pool, Temperatur und SMART-Zustand.',
+      alt: 'Die Laufwerke in der Systemsteuerung: jede Platte mit Modell, Größe, Pool, Temperatur und SMART-Zustand.',
     },
     {
       id: 'shares',
-      eyebrow: 'Freigaben und Dateien',
-      title: 'Eine Freigabe für jedes Gerät im Haus.',
-      text: 'Legen Sie eine Freigabe auf einem Pool an und bestimmen Sie, wer lesen oder schreiben darf. Windows und macOS finden sie über SMB, Linux bindet sie über NFS ein, und an die Dateien kommt jeder auch im Browser.',
+      eyebrow: 'Dateien und Ordner',
+      title: 'Ein freigegebener Ordner für jedes Gerät im Haus.',
+      text: 'Jeder Ordner auf einem Volume lässt sich freigeben, und Sie bestimmen, wer lesen oder schreiben darf. Windows und macOS finden ihn über SMB, Linux bindet ihn über NFS ein, und an die Dateien kommt jeder auch im Browser, in einem Explorer.',
       checks: [
         'Rechte für jede Person und Gruppe',
-        'Vorherige Versionen aus Snapshots, ein Papierkorb für jede Freigabe',
-        'Ganze Ordner im Browser hoch- und herunterladen',
+        'Vorherige Versionen aus Snapshots, ein Papierkorb für alle Ordner',
+        'USB-Laufwerke im Explorer, zum Kopieren und Auswerfen',
       ],
-      alt: 'Freigaben: documents, media und photos mit Volume, Größe und Rechten.',
-      alt2: 'Die Dateiverwaltung im Browser mit den Ordnern der Freigabe documents.',
+      alt: 'Die Eigenschaften des Ordners documents: Die Gruppe family darf lesen und schreiben, guests darf lesen.',
+      alt2: 'Der Datei-Explorer im Browser mit dem Ordner documents.',
     },
     {
       id: 'apps',
-      eyebrow: 'App Store',
-      title: 'Apps per Klick, geprüft, bevor sie laufen.',
-      text: 'Wählen Sie eine App aus dem Community-Katalog oder fügen Sie einen eigenen Katalog hinzu. Jede App wird vorher gegen dieselben Regeln geprüft, und was über ihren Container hinausgeht, etwa ein Gerät oder der Docker-Socket, braucht Ihre Zustimmung.',
+      eyebrow: 'App Center',
+      title: 'Apps per Klick, und Sie können sie ändern.',
+      text: 'Wählen Sie eine App aus dem Community-Katalog oder fügen Sie einen eigenen Katalog hinzu. Sie wählen Ordner, Ports und Einstellungen und sehen die fertige compose.yaml, bevor sie startet; danach ist sie ein gewöhnliches Docker-Projekt von Ihnen. Was über ihren Container hinausgeht, etwa ein Gerät oder der Docker-Socket, braucht Ihre Zustimmung.',
       checks: [
-        'Pool und Ordner wählen, die eine App nutzen darf',
+        'Ordner und Ports wählen, die eine App nutzt',
         'Passwörter und Schlüssel werden für Sie erzeugt',
-        'Apps an einer Stelle starten, stoppen und entfernen',
+        'Bearbeiten, neu ausrollen und aktualisieren wie jedes Projekt',
       ],
-      alt: 'Der App Store mit Apps wie AdGuard Home, Immich, Jellyfin und Home Assistant.',
+      alt: 'Das App Center mit Apps wie AdGuard Home, Immich, Jellyfin und Home Assistant.',
     },
     {
       id: 'docker',
       eyebrow: 'Docker',
       title: 'Docker, wenn Sie es genau wissen wollen.',
-      text: 'Hinter dem Store steckt eine vollständige Docker-Verwaltung. Installieren Sie Docker per Klick, wenn Sie es brauchen, und behalten Sie Container, Images, Netzwerke und Logs im Blick, oder betreiben Sie eigene Compose-Projekte.',
+      text: 'Docker ist ein Plugin des App Centers: Installieren Sie es per Klick, wenn Sie es brauchen, und behalten Sie Container, Images, Netzwerke und Logs im Blick, oder betreiben Sie eigene Compose-Projekte.',
       checks: [
-        'Die Auslastung jedes Containers im Verlauf',
-        'Eigene Compose-Projekte neben den Apps aus dem Store',
+        'Eine Seite für jeden Container, mit Live-Log und Terminal',
+        'Container mit neuerem Image markiert und aus der Liste aktualisiert',
         'Docker aus Debians eigenen Paketen',
       ],
-      alt: 'Die Docker-Übersicht mit laufenden Projekten und Containern, Images und einem Diagramm der Prozessorlast je Container.',
+      alt: 'Die Container in der Docker-App: Homarr und Uptime Kuma laufen und sind gesund, für Homarr gibt es ein Update.',
     },
     {
       id: 'updates',
@@ -147,7 +147,7 @@ export default {
         'Jedes Release signiert und vor der Installation geprüft',
         'ZFS wird vor dem Neustart gegen einen neuen Kernel geprüft',
       ],
-      alt: 'Update & Wiederherstellung in der Systemsteuerung: die installierte Version und ein neues Release von zendiloOS, bereit zur Installation.',
+      alt: 'Aktualisieren & Wiederherstellen in der Systemsteuerung: zendiloOS 0.2.0 im stabilen Kanal und ein Sicherheitsupdate von Debian, bereit zur Installation.',
     },
   ],
 
@@ -163,7 +163,9 @@ export default {
     ],
     cards: [
       { title: 'Grenzen bei der Anmeldung', text: 'Zu viele Fehlversuche sperren die Adresse für eine Weile.' },
+      { title: 'Zwei-Faktor-Anmeldung', text: 'Ein Code aus einer Authenticator-App, und Wiederherstellungscodes für ein verlorenes Telefon.' },
       { title: 'Sitzungen im Blick', text: 'Sehen Sie, wo Sie angemeldet sind, und beenden Sie jede Sitzung.' },
+      { title: 'Firewall', text: 'Bestimmen Sie, wer welchen Dienst erreicht, die von Docker veröffentlichten Ports eingeschlossen.' },
       { title: 'SSH bei Bedarf', text: 'SSH für eine schnelle Aufgabe einschalten; danach schaltet es sich selbst ab.' },
       { title: 'Signierte Releases', text: 'Ein Update wird nur mit gültiger Signatur installiert.' },
     ],
@@ -179,17 +181,17 @@ export default {
   install: {
     eyebrow: 'Installation',
     title: 'In vier Schritten startklar.',
-    lead: 'Der Installer ist Debians eigener, mit vorausgefüllten Antworten. Er stellt fünf Fragen und richtet den Rest ein.',
+    lead: 'Der Installer ist Debians eigener, mit vorausgefüllten Antworten. Er stellt sechs Fragen und richtet den Rest ein.',
     steps: [
       { title: 'Herunterladen', text: 'Laden Sie das Installations-ISO des neuesten stabilen Releases herunter.' },
       { title: 'Schreiben', text: 'Schreiben Sie es mit einem Werkzeug wie balenaEtcher, Rufus oder dd auf einen USB-Stick.' },
       {
         title: 'Installieren',
-        text: 'Starten Sie den Rechner vom Stick und wählen Sie <b>Install zendiloOS</b>. Beantworten Sie Sprache, Tastatur, Name, das Passwort für root und die Platte für das System.',
+        text: 'Starten Sie den Rechner vom Stick und wählen Sie <b>Install zendiloOS</b>. Beantworten Sie Sprache, Standort, Tastatur, Name, das Passwort für root und die Platte für das System.',
       },
       {
         title: 'Einrichten',
-        text: 'Nach dem Neustart zeigt der Bildschirm Adresse und Einrichtungscode. Öffnen Sie die Adresse im Browser und legen Sie den ersten Administrator an.',
+        text: 'Nach dem Neustart zeigt der Bildschirm die Adresse. Öffnen Sie sie in einem Browser in Ihrem Netz und legen Sie gleich den ersten Administrator an: Wer zuerst kommt, richtet das NAS ein.',
       },
     ],
     needTitle: 'Was Sie brauchen',
@@ -245,7 +247,7 @@ export default {
       },
       {
         q: 'Was passiert mit meinen Daten, wenn ich zendiloOS entferne?',
-        a: 'Pools, Freigaben und ihre Daten bleiben, wo sie sind, ebenso Docker und seine Apps. Seine eigenen Einstellungen behält zendiloOS in <code>/var/lib/zendiloos</code>, bis Sie auch die entfernen.',
+        a: 'Pools, freigegebene Ordner und ihre Daten bleiben, wo sie sind, ebenso Docker und seine Apps. Seine eigenen Einstellungen behält zendiloOS in <code>/var/lib/zendiloos</code>, bis Sie auch die entfernen.',
       },
       {
         q: 'Wie funktionieren Updates?',

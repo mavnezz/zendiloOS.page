@@ -70,7 +70,7 @@ const FEATURE_ICONS = {
 }
 const TOUR_IMAGES = { storage: 'disks', shares: 'shares', apps: 'apps', docker: 'docker', updates: 'updates' }
 const NODE_ICONS = ['monitor', 'server', 'shield', 'layers']
-const GUARD_ICONS = ['ban', 'users', 'terminal', 'key']
+const GUARD_ICONS = ['ban', 'lock', 'users', 'shield', 'terminal', 'key']
 const VALUE_ICONS = ['cloudOff', 'layers', 'code']
 
 // The community catalog's apps, by name only.

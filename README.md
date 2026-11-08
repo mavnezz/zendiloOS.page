@@ -33,7 +33,8 @@ An imprint (Impressum) link appears in the footer when the page is built with
 `assets/img/*-light.webp` and `*-dark.webp` are taken from a zendiloOS test
 machine at twice the resolution; the page shows the one matching the
 visitor's colour scheme. Window shots have transparent rounded corners.
-`og-*.jpg` are the preview images for shared links (1200 × 630).
+`og-*.jpg` are the preview images for shared links (1200 × 630), shot from
+`tools/og.html` (`?lang=de` for German).
 
 ## Credits
 

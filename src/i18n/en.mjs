@@ -3,7 +3,7 @@ export default {
   locale: 'en_US',
   title: 'zendiloOS: a NAS you run from your browser',
   description:
-    'zendiloOS turns Debian 13 into a NAS with ZFS storage, SMB and NFS shares, an App Store, Docker and signed updates, all from a desktop in your browser. Free and open source.',
+    'zendiloOS turns Debian 13 into a NAS with ZFS storage, folders shared over SMB and NFS, an App Center for Docker apps, two-factor sign-in, a firewall and signed updates, all from a desktop in your browser. Free and open source.',
   tourLabel: 'A tour of zendiloOS',
 
   nav: {
@@ -22,12 +22,12 @@ export default {
     pill: 'Free and open source',
     release: 'zendiloOS {version} is out',
     title: 'A NAS that feels like a <em>desktop</em>.',
-    lead: 'zendiloOS turns a plain Debian 13 into a NAS you run from the browser: ZFS for your data, shares for every device in the house, apps from a store and updates with a click.',
+    lead: 'zendiloOS turns a plain Debian 13 into a NAS you run from the browser: ZFS for your data, shared folders for every device in the house, apps as Docker projects of your own and updates with a click.',
     download: 'Download the ISO',
     github: 'View on GitHub',
     meta: 'For x86-64 computers · Debian 13 underneath · Apache-2.0',
     downloadMeta: 'Version {version} · {size} · x86-64 · Apache-2.0',
-    alt: 'The zendiloOS desktop in a browser: the storage manager shows two healthy pools, widgets beside it show the system status, resources, network and storage.',
+    alt: 'The zendiloOS desktop in a browser: the file explorer shows the documents folder, widgets beside it show the system status, resources, network and storage.',
     chipPool: ['Pool tank', 'Mirror · healthy'],
     chipUpdate: ['Update installed', 'Signature verified'],
   },
@@ -37,7 +37,7 @@ export default {
   features: {
     eyebrow: 'Features',
     title: 'Everything a NAS needs, in one desktop.',
-    lead: 'Storage, shares, files, apps and the system around them, with windows, a dock and widgets you already know how to use.',
+    lead: 'Storage, shared folders, apps and the system around them, with windows, a dock and widgets you already know how to use.',
     items: [
       {
         id: 'storage',
@@ -47,27 +47,27 @@ export default {
       {
         id: 'shares',
         title: 'Shared folders',
-        text: 'SMB for Windows and macOS, NFS for Linux, permissions for each person and group.',
+        text: 'Folders on a volume, shared over SMB for Windows and macOS and NFS for Linux, with permissions for each person and group.',
       },
       {
         id: 'snapshots',
         title: 'Snapshots',
-        text: 'Snapshots that Windows shows as previous versions, and a recycle bin for every share.',
+        text: 'Snapshots that Windows shows as previous versions, and one recycle bin for all folders.',
       },
       {
         id: 'files',
-        title: 'Files in the browser',
-        text: 'Upload, download whole folders, preview files and restore them from a snapshot.',
+        title: 'File explorer',
+        text: 'A tree of your folders, drag and drop, a search through every subfolder, and USB drives to copy from and to.',
       },
       {
         id: 'apps',
-        title: 'App Store',
-        text: 'Apps from a community catalog, each checked against one policy before it runs.',
+        title: 'App Center',
+        text: 'Apps from a community catalog, installed as Docker projects of your own that you can change.',
       },
       {
         id: 'docker',
         title: 'Docker',
-        text: 'Containers, images, networks, logs and Compose projects of your own.',
+        text: 'Containers, images, networks and Compose projects, with live logs, a terminal and image updates.',
       },
       {
         id: 'updates',
@@ -77,12 +77,12 @@ export default {
       {
         id: 'security',
         title: 'Security',
-        text: 'Limits on failed sign-ins, blocked addresses, sessions to end and SSH that switches itself off.',
+        text: 'Two-factor sign-in, a firewall, certificates from Let’s Encrypt, limits on failed sign-ins and SSH that switches itself off.',
       },
       {
         id: 'monitor',
         title: 'Monitoring',
-        text: 'Processor, memory, network and disks over time, and a notification before trouble grows.',
+        text: 'Processor, memory, network and disks over time, and notifications by e-mail or webhook before trouble grows.',
       },
     ],
   },
@@ -98,44 +98,44 @@ export default {
         'Scrubs that find silent errors before they spread',
         'A notification when a disk or a pool needs you',
       ],
-      alt: 'The storage manager listing every disk with its model, size, pool, temperature and SMART health.',
+      alt: 'The disks page of the control panel, listing every disk with its model, size, pool, temperature and SMART health.',
     },
     {
       id: 'shares',
-      eyebrow: 'Shares and files',
-      title: 'A share for every device in the house.',
-      text: 'Create a shared folder on a pool and decide who may read or write. Windows and macOS find it over SMB, Linux mounts it over NFS, and everyone gets to their files in the browser too.',
+      eyebrow: 'Files and folders',
+      title: 'A shared folder for every device in the house.',
+      text: 'Every folder on a volume can be shared, and you decide who may read or write. Windows and macOS find it over SMB, Linux mounts it over NFS, and everyone gets to their files in the browser too, in one explorer.',
       checks: [
         'Permissions for each person and group',
-        'Previous versions from snapshots, a recycle bin for every share',
-        'Upload and download whole folders in the browser',
+        'Previous versions from snapshots, one recycle bin for all folders',
+        'USB drives in the explorer, to copy from and eject',
       ],
-      alt: 'Shared folders: documents, media and photos with their volume, size and permissions.',
-      alt2: 'The file manager in the browser, showing the folders of the documents share.',
+      alt: 'The properties of the documents folder: the family group may read and write, guests may read.',
+      alt2: 'The file explorer in the browser, showing the documents folder.',
     },
     {
       id: 'apps',
-      eyebrow: 'App Store',
-      title: 'Apps in a click, checked before they run.',
-      text: 'Pick an app from the community catalog or add a catalog of your own. Every app is checked against one policy first, and whatever reaches beyond its container, such as a device or the Docker socket, needs your consent.',
+      eyebrow: 'App Center',
+      title: 'Apps in a click, and yours to change.',
+      text: 'Pick an app from the community catalog or add a catalog of your own. You choose its folder, ports and settings and see the finished compose.yaml before it starts; from then on it is an ordinary Docker project of yours. Whatever reaches beyond its container, such as a device or the Docker socket, needs your consent.',
       checks: [
-        'Choose the pool and the folders an app may use',
+        'Choose the folders and ports an app uses',
         'Passwords and keys generated for you',
-        'Start, stop and remove apps in one place',
+        'Edit, redeploy and update it like any project',
       ],
-      alt: 'The App Store with apps such as AdGuard Home, Immich, Jellyfin and Home Assistant.',
+      alt: 'The App Center with apps such as AdGuard Home, Immich, Jellyfin and Home Assistant.',
     },
     {
       id: 'docker',
       eyebrow: 'Docker',
       title: 'Docker, when you want the details.',
-      text: 'Behind the store sits a complete Docker manager. Install Docker with a click when you need it, then follow your containers, images, networks and logs, or run Compose projects of your own.',
+      text: 'Docker is a plugin of the App Center: install it with a click when you need it, then follow your containers, images, networks and logs, or run Compose projects of your own.',
       checks: [
-        'Resource usage of every container over time',
-        'Your own Compose projects next to the apps from the store',
+        'A page for every container, with its live log and a terminal',
+        'Containers with a newer image marked and updated from the list',
         'Docker from Debian’s own packages',
       ],
-      alt: 'The Docker overview with running projects and containers, images, and a chart of the processor usage per container.',
+      alt: 'The containers in the Docker app: Homarr and Uptime Kuma running and healthy, an update available for Homarr.',
     },
     {
       id: 'updates',
@@ -147,7 +147,7 @@ export default {
         'Every release signed and verified before it is installed',
         'ZFS checked against a new kernel before you restart',
       ],
-      alt: 'Update & restore in the control panel: the installed version and a new release of zendiloOS ready to install.',
+      alt: 'Update & restore in the control panel: zendiloOS 0.2.0 on the stable channel and a Debian security update ready to install.',
     },
   ],
 
@@ -163,7 +163,9 @@ export default {
     ],
     cards: [
       { title: 'Sign-in limits', text: 'Too many failed attempts block the address for a while.' },
+      { title: 'Two-factor sign-in', text: 'A code from an authenticator app, and recovery codes for a lost phone.' },
       { title: 'Sessions in view', text: 'See where you are signed in and end any session.' },
+      { title: 'Firewall', text: 'Decide who reaches which service, Docker’s published ports included.' },
       { title: 'SSH on demand', text: 'Turn SSH on for a quick job; it switches itself off again.' },
       { title: 'Signed releases', text: 'An update is only installed with a valid signature.' },
     ],
@@ -179,17 +181,17 @@ export default {
   install: {
     eyebrow: 'Install',
     title: 'Up and running in four steps.',
-    lead: 'The installer is Debian’s own, with the answers filled in. It asks five questions and sets up the rest.',
+    lead: 'The installer is Debian’s own, with the answers filled in. It asks six questions and sets up the rest.',
     steps: [
       { title: 'Download', text: 'Get the installation ISO of the newest stable release.' },
       { title: 'Write', text: 'Put it on a USB stick with a tool such as balenaEtcher, Rufus or dd.' },
       {
         title: 'Install',
-        text: 'Start the computer from the stick and choose <b>Install zendiloOS</b>. Answer language, keyboard, name, root’s password and the disk for the system.',
+        text: 'Start the computer from the stick and choose <b>Install zendiloOS</b>. Answer language, location, keyboard, name, root’s password and the disk for the system.',
       },
       {
         title: 'Set up',
-        text: 'After the restart the screen shows the address and a setup code. Open the address in a browser and create the first administrator.',
+        text: 'After the restart the screen shows the address. Open it in a browser on your network and create the first administrator right away: whoever comes first sets the NAS up.',
       },
     ],
     needTitle: 'What you need',
@@ -245,7 +247,7 @@ export default {
       },
       {
         q: 'What happens to my data if I remove zendiloOS?',
-        a: 'Pools, shares and their data stay where they are, and so do Docker and its apps. zendiloOS keeps its own settings in <code>/var/lib/zendiloos</code> until you remove that too.',
+        a: 'Pools, shared folders and their data stay where they are, and so do Docker and its apps. zendiloOS keeps its own settings in <code>/var/lib/zendiloos</code> until you remove that too.',
       },
       {
         q: 'How do updates work?',

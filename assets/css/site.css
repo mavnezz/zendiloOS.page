@@ -990,7 +990,7 @@ code {
 .guards {
   margin-top: clamp(32px, 5vw, 56px);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 .guard {

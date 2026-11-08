@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- The preview images for shared links, assets/img/og-{en,de}.jpg: served
+     from the repository root, shot at 1200 × 630 (?lang=de for German). -->
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: 'Geist'; src: url('../assets/fonts/geist.woff2') format('woff2'); font-weight: 100 900; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; overflow: hidden; }
+body {
+  font-family: 'Geist', sans-serif; color: #fff;
+  background:
+    radial-gradient(700px 420px at 12% 0%, rgba(84, 104, 255, 0.45), transparent 70%),
+    radial-gradient(600px 400px at 100% 10%, rgba(32, 160, 140, 0.30), transparent 70%),
+    radial-gradient(800px 500px at 60% 120%, rgba(70, 60, 200, 0.35), transparent 70%),
+    #070a14;
+  position: relative;
+}
+.grid { position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 48px 48px; mask-image: radial-gradient(900px 600px at 30% 30%, #000, transparent 80%); }
+.left { position: absolute; left: 72px; top: 72px; bottom: 60px; width: 560px; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 16px; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.brand img { width: 52px; height: 52px; }
+h1 { margin-top: 44px; font-size: 60px; line-height: 1.04; font-weight: 700; letter-spacing: -0.035em; }
+h1 em { font-style: normal; background: linear-gradient(95deg, #9db4ff 10%, #7fe3d3 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+p.lead { margin-top: 22px; width: 540px; font-size: 22px; line-height: 1.45; color: rgba(255,255,255,0.72); }
+.pills { margin-top: auto; display: flex; gap: 12px; }
+.pills span { padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); font-size: 18px; font-weight: 500; }
+.shot { position: absolute; left: 670px; top: 110px; width: 760px; height: 475px; border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.shot img { width: 760px; display: block; }
+</style></head>
+<body>
+<div class="grid"></div>
+<div class="left">
+<div class="brand"><img src="../favicon.svg" alt="">zendiloOS</div>
+<h1 id="t"></h1>
+<p class="lead" id="l"></p>
+<div class="pills"><span id="p1"></span><span>Debian 13</span></div>
+</div>
+<div class="shot"><img src="../assets/img/hero-dark.webp" alt=""></div>
+<script>
+const de = new URLSearchParams(location.search).get('lang') === 'de'
+document.getElementById('t').innerHTML = de ? 'Ein NAS, das sich wie ein <em>Desktop</em> anfühlt.' : 'A NAS that feels like a <em>desktop</em>.'
+document.getElementById('l').textContent = de
+  ? 'ZFS-Speicher, freigegebene Ordner, Apps als Docker-Projekte und signierte Updates, bedient im Browser.'
+  : 'ZFS storage, shared folders, apps as Docker projects and signed updates, run from your browser.'
+document.getElementById('p1').textContent = de ? 'Kostenlos und Open Source' : 'Free and open source'
+</script>
+</body></html>
