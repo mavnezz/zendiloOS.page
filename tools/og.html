@@ -41,10 +41,10 @@ p.lead { margin-top: 22px; width: 540px; font-size: 22px; line-height: 1.45; col
 <div class="shot"><img src="../assets/img/hero-dark.webp" alt=""></div>
 <script>
 const de = new URLSearchParams(location.search).get('lang') === 'de'
-document.getElementById('t').innerHTML = de ? 'Ein NAS, das sich wie ein <em>Desktop</em> anfühlt.' : 'A NAS that feels like a <em>desktop</em>.'
+document.getElementById('t').innerHTML = de ? 'Das Open-Source-NAS ohne <em>Haken</em>.' : 'The open-source NAS, no <em>strings attached</em>.'
 document.getElementById('l').textContent = de
-  ? 'ZFS-Speicher, freigegebene Ordner, Apps als Docker-Projekte und signierte Updates, bedient im Browser.'
-  : 'ZFS storage, shared folders, apps as Docker projects and signed updates, run from your browser.'
-document.getElementById('p1').textContent = de ? 'Kostenlos und Open Source' : 'Free and open source'
+  ? 'Kein Konto, kein Abo, keine Telemetrie. ZFS-Speicher, freigegebene Ordner, Docker-Apps und signierte Updates im Browser.'
+  : 'No account, no subscription, no telemetry. ZFS storage, shared folders, Docker apps and signed updates in your browser.'
+document.getElementById('p1').textContent = 'Apache-2.0'
 </script>
 </body></html>

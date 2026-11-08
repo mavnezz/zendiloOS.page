@@ -21,8 +21,8 @@ export default {
   hero: {
     pill: 'Kostenlos und Open Source',
     release: 'zendiloOS {version} ist da',
-    title: 'Ein NAS, das sich wie ein <em>Desktop</em> anfühlt.',
-    lead: 'zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, freigegebene Ordner für jedes Gerät im Haus, Apps als Ihre eigenen Docker-Projekte und Updates per Klick.',
+    title: 'Das Open-Source-NAS ohne <em>Haken</em>.',
+    lead: 'Kein Konto, kein Abo, keine Telemetrie. zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, freigegebene Ordner für jedes Gerät im Haus, Apps als Ihre eigenen Docker-Projekte und Updates per Klick.',
     download: 'ISO herunterladen',
     github: 'Auf GitHub ansehen',
     meta: 'Für x86-64-Rechner · Debian 13 als Basis · Apache-2.0',
