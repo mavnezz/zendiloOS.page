@@ -24,10 +24,13 @@ heading a `#` names.
 ## A test release
 
 While a test release is out beside the stable one, `next` in `build.mjs`
-names its version and page: the hero points to it, and what only it has
-carries a badge, marked `[[next]]` in the texts (`[[preview]]` marks a
-preview). Once that version is out as a stable release, set `next` to
-`null` and build: the pointer and the badges go, and the texts stay true.
+names its version, its page and its ISOs: the hero points to them, and
+what only it has carries a badge, marked `[[next]]` in the texts
+(`[[preview]]` marks a preview). Text in `{{ }}` is shown only while there
+is a test release, for what is true of it alone ("installed from the test
+release's ISO"). Once that version is out as a stable release, set `next`
+to `null` and build: the pointer, the badges and that text go, and the
+rest stays true.
 
 No dependencies, no framework, no requests to other sites except one: the
 page asks GitHub's API for the newest release, to show its version and the

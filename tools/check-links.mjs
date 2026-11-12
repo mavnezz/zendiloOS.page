@@ -7,7 +7,9 @@
 // alternate links and the sitemap's addresses have to be pages of the site
 // under SITE_URL. With ZENDILOOS_REPO set to a clone of zendiloOS, links
 // into its README and docs on GitHub are checked too: the file there, and
-// the heading a #fragment names.
+// the heading a #fragment names. Other addresses are not fetched; the
+// releases' files among them are listed, as they exist only once CI made
+// the release (a test release's ISOs before its tag, say).
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -104,12 +106,14 @@ const checkRepo = (from, url) => {
 }
 
 let links = 0
+const assets = new Set()
 for (const page of pages) {
   const html = fs.readFileSync(page, 'utf8')
   for (const [, attr, value] of html.matchAll(/\s(href|src|srcset)="([^"]*)"/g)) {
     const link = unescape(value)
     links++
     if (/^(mailto|data|javascript):/.test(link)) continue
+    if (link.startsWith(`${github}/releases/download/`)) assets.add(link)
     if (link.startsWith(site)) checkSite(path.relative(root, page), link.split('#')[0])
     else if (repo && (link === github || link.startsWith(`${github}#`) || link.startsWith(`${github}/blob/`))) checkRepo(page, link)
     else if (/^[a-z]+:|^\/\//.test(link)) continue
@@ -136,3 +140,4 @@ if (problems.length) {
   process.exit(1)
 }
 console.log(`${pages.length} pages, ${links} links, ${addresses.length} sitemap addresses: all lead somewhere${repo ? ' (the repository too)' : ''}`)
+if (assets.size) console.log(`Not checked, files of a release:\n${[...assets].map((a) => `  ${a}`).join('\n')}`)

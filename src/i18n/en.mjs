@@ -1,7 +1,8 @@
 // [[next]] marks what is only in the test release (a badge while there is
-// one), [[preview]] a preview; {nextVersion} and {next} are the test
-// release's version and page, {repo} the repository, {features} the page
-// of features in detail.
+// one), [[preview]] a preview, and text in {{ }} is there only while there
+// is a test release; {nextVersion}, {next}, {nextIsoAmd64} and
+// {nextIsoArm64} are the test release's version, page and ISOs (build.mjs),
+// {repo} the repository, {features} the page of features in detail.
 export default {
   lang: 'en',
   locale: 'en_US',
@@ -36,6 +37,8 @@ export default {
     next: {
       link: 'Try the test release {nextVersion}',
       text: 'Virtual machines, backups, bridges and bonds, arm64. For trying out, not yet for data you would miss.',
+      isoAmd64: 'ISO for x86-64',
+      isoArm64: 'ISO for arm64',
     },
     alt: 'The zendiloOS desktop in a browser: the file explorer shows the documents folder, widgets beside it show the system status, resources, network and storage.',
     chipPool: ['Pool tank', 'Mirror · healthy'],
@@ -217,7 +220,7 @@ export default {
     title: 'Up and running in four steps.',
     lead: 'The installer is Debian’s own, with the answers filled in. It asks six questions and sets up the rest.',
     steps: [
-      { title: 'Download', text: 'Get the installation ISO of the newest stable release.' },
+      { title: 'Download', text: 'Get the installation ISO of the newest stable release{{, or for arm64 that of the <a href="{next}">test release</a>}}.' },
       { title: 'Write', text: 'Put it on a USB stick with a tool such as balenaEtcher, Rufus or dd.' },
       {
         title: 'Install',
@@ -231,7 +234,7 @@ export default {
     needTitle: 'What you need',
     need: [
       'An x86-64 computer: a NAS, a mini PC or one of your own',
-      'Or an arm64 board that starts a USB stick through UEFI [[next]]',
+      'Or an arm64 board that starts a USB stick through UEFI{{, installed from the test release’s ISO}} [[next]]',
       'A disk for the system, one or more for your data',
       'A network connection: the packages come from Debian’s mirror',
     ],
@@ -275,12 +278,12 @@ export default {
       },
       {
         q: 'Which hardware does it run on?',
-        a: 'Any x86-64 computer with a disk for the system, one or more disks for data and a network connection. Also arm64 boards that start a USB stick through UEFI and run Debian’s own kernel [[next]]; no real arm64 board has run it yet. <a href="{features}#hardware">Hardware in detail</a>.',
+        a: 'Any x86-64 computer with a disk for the system, one or more disks for data and a network connection. Also arm64 boards that start a USB stick through UEFI and run Debian’s own kernel{{, installed from the test release’s ISO}} [[next]]; no real arm64 board has run it yet. <a href="{features}#hardware">Hardware in detail</a>.',
       },
       {
         q: 'What is the test release?',
         next: true,
-        a: 'Before a stable release, zendiloOS publishes release candidates on the test channel. {nextVersion} brings virtual machines as a preview, the Backup app, bridges, bonds and VLANs, a configuration backup that a fresh installation restores, and arm64. It is for trying out: on an installed zendiloOS, choose the test channel under Updates, or install its package on Debian 13. <a href="{next}">The release on GitHub</a>.',
+        a: 'Before a stable release, zendiloOS publishes release candidates on the test channel. {nextVersion} brings virtual machines as a preview, the Backup app, bridges, bonds and VLANs, a configuration backup that a fresh installation restores, and arm64. It is for trying out: install it fresh from its ISO, for <a href="{nextIsoAmd64}">x86-64</a> or <a href="{nextIsoArm64}">arm64</a>, or take it over the test channel, which you choose under Updates on an installed zendiloOS; on Debian 13 its package installs like any release’s. <a href="{next}">The release on GitHub</a>.',
       },
       {
         q: 'Can I install it on a Debian I already have?',
@@ -330,7 +333,7 @@ export default {
   details: {
     title: 'zendiloOS in detail: storage, shares, apps, VMs, backups and more',
     description:
-      'What zendiloOS does, area by area: ZFS storage, SMB and NFS shares, apps and Docker, virtual machines, backups, network, security, updates, monitoring and hardware, with what is a preview and what is in the test release.',
+      'What zendiloOS does, area by area: ZFS storage, SMB and NFS shares, apps and Docker, virtual machines, backups, network, security, updates, monitoring and hardware, with what is a preview{{ and what is in the test release}}.',
     eyebrow: 'Features in detail',
     heading: 'What zendiloOS does, <em>area by area</em>.',
     lead: 'Each area in a few sentences, with its specifics, what is still a preview, and where the documentation tells more.',
@@ -543,15 +546,15 @@ export default {
         title: 'From a mini PC to a NAS board.',
         text: [
           'zendiloOS runs on Debian 13. On x86-64 that is a NAS appliance, a mini PC or a machine of your own, with UEFI or a BIOS. It needs a disk for the system, one or more disks for data (SATA or NVMe) and a network connection: the installer fetches Debian’s packages from its mirror.',
-          'zendiloOS is now built for arm64 too: packages, and an installation ISO that starts through UEFI, for NAS boards and single-board computers whose firmware starts a USB stick through UEFI and whose hardware Debian’s own kernel supports. Boards that need their vendor’s kernel do not work. [[next]]',
+          'zendiloOS is now built for arm64 too: packages, and an installation ISO that starts through UEFI, for NAS boards and single-board computers whose firmware starts a USB stick through UEFI and whose hardware Debian’s own kernel supports. Boards that need their vendor’s kernel do not work.{{ Until a stable release has it, arm64 is installed from the test release’s ISO.}} [[next]]',
           'zendiloOS is tested end to end in virtual machines. Trial runs on real NAS hardware are still to come, and no real arm64 board has run it yet.',
         ],
         specs: [
           ['x86-64', 'UEFI or BIOS; the ISO has both boot menus and the graphical installer'],
-          ['arm64 [[next]]', 'UEFI only (EDK2 or U-Boot’s), the text installer, which a serial console shows too; built and its tests run on arm64 in CI; not yet tried on a real board'],
+          ['arm64 [[next]]', 'UEFI only (EDK2 or U-Boot’s), the text installer, which a serial console shows too{{; the ISO is the test release’s}}; built and its tests run on arm64 in CI; not yet tried on a real board'],
           ['Virtual machines', 'On x86-64 only, with Intel VT-x or AMD-V; PCI devices need an IOMMU'],
           ['Installer', 'Debian’s own, with six questions: language, location, keyboard, name, root’s password and the system’s disk, which is never chosen for you'],
-          ['A release holds', 'The packages, signed checksums and, for stable releases, the installation ISOs; packages for arm64 and a software bill of materials for each package [[next]]'],
+          ['A release holds', 'The packages, signed checksums and the installation ISOs; packages and an ISO for arm64, and a software bill of materials for each package [[next]]'],
           ['NAS models', 'Bay layouts of known models, the UGREEN DXP4800 Plus first, not yet confirmed on the real machine'],
           ['Tested', 'The installation from the ISO, unattended in a fresh virtual machine. On arm64 the backend’s tests run natively; the emulated installation has not been run to its end yet.'],
         ],

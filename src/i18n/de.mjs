@@ -1,7 +1,8 @@
 // [[next]] markiert, was es nur im Testrelease gibt (ein Abzeichen, solange
-// es eines gibt), [[preview]] eine Vorschau; {nextVersion} und {next} sind
-// Version und Seite des Testreleases, {repo} das Repository, {features} die
-// Seite mit den Funktionen im Detail.
+// es eines gibt), [[preview]] eine Vorschau, und Text in {{ }} steht nur da,
+// solange es ein Testrelease gibt; {nextVersion}, {next}, {nextIsoAmd64} und
+// {nextIsoArm64} sind Version, Seite und ISOs des Testreleases (build.mjs),
+// {repo} das Repository, {features} die Seite mit den Funktionen im Detail.
 export default {
   lang: 'de',
   locale: 'de_DE',
@@ -36,6 +37,8 @@ export default {
     next: {
       link: 'Testrelease {nextVersion} ausprobieren',
       text: 'Virtuelle Maschinen, Backups, Bridges und Bonds, arm64. Zum Ausprobieren, noch nicht für Daten, die Ihnen fehlen würden.',
+      isoAmd64: 'ISO für x86-64',
+      isoArm64: 'ISO für arm64',
     },
     alt: 'Der zendiloOS-Desktop im Browser: Der Datei-Explorer zeigt den Ordner documents, daneben zeigen Widgets Systemzustand, Auslastung, Netzwerk und Speicher.',
     chipPool: ['Pool tank', 'Spiegel · intakt'],
@@ -217,7 +220,7 @@ export default {
     title: 'In vier Schritten startklar.',
     lead: 'Der Installer ist Debians eigener, mit vorausgefüllten Antworten. Er stellt sechs Fragen und richtet den Rest ein.',
     steps: [
-      { title: 'Herunterladen', text: 'Laden Sie das Installations-ISO des neuesten stabilen Releases herunter.' },
+      { title: 'Herunterladen', text: 'Laden Sie das Installations-ISO des neuesten stabilen Releases herunter{{, für arm64 das des <a href="{next}">Testreleases</a>}}.' },
       { title: 'Schreiben', text: 'Schreiben Sie es mit einem Werkzeug wie balenaEtcher, Rufus oder dd auf einen USB-Stick.' },
       {
         title: 'Installieren',
@@ -231,7 +234,7 @@ export default {
     needTitle: 'Was Sie brauchen',
     need: [
       'Einen x86-64-Rechner: ein NAS, einen Mini-PC oder einen eigenen',
-      'Oder ein arm64-Board, das einen USB-Stick über UEFI startet [[next]]',
+      'Oder ein arm64-Board, das einen USB-Stick über UEFI startet{{, installiert vom ISO des Testreleases}} [[next]]',
       'Eine Platte für das System, eine oder mehrere für Ihre Daten',
       'Eine Netzwerkverbindung: Die Pakete kommen von Debians Spiegelserver',
     ],
@@ -275,12 +278,12 @@ export default {
       },
       {
         q: 'Auf welcher Hardware läuft es?',
-        a: 'Auf jedem x86-64-Rechner mit einer Platte für das System, einer oder mehreren Platten für Daten und einer Netzwerkverbindung. Dazu arm64-Boards, die einen USB-Stick über UEFI starten und mit Debians eigenem Kernel laufen [[next]]; auf einem echten arm64-Board lief es noch nicht. <a href="{features}#hardware">Hardware im Detail</a>.',
+        a: 'Auf jedem x86-64-Rechner mit einer Platte für das System, einer oder mehreren Platten für Daten und einer Netzwerkverbindung. Dazu arm64-Boards, die einen USB-Stick über UEFI starten und mit Debians eigenem Kernel laufen{{, installiert vom ISO des Testreleases}} [[next]]; auf einem echten arm64-Board lief es noch nicht. <a href="{features}#hardware">Hardware im Detail</a>.',
       },
       {
         q: 'Was ist das Testrelease?',
         next: true,
-        a: 'Vor einem stabilen Release veröffentlicht zendiloOS Release-Kandidaten im Testkanal. {nextVersion} bringt virtuelle Maschinen als Vorschau, die Backup-App, Bridges, Bonds und VLANs, eine Konfigurationssicherung, die eine frische Installation wiederherstellt, und arm64. Es ist zum Ausprobieren gedacht: Wählen Sie auf einem installierten zendiloOS unter Updates den Testkanal, oder installieren Sie sein Paket auf Debian 13. <a href="{next}">Das Release auf GitHub</a>.',
+        a: 'Vor einem stabilen Release veröffentlicht zendiloOS Release-Kandidaten im Testkanal. {nextVersion} bringt virtuelle Maschinen als Vorschau, die Backup-App, Bridges, Bonds und VLANs, eine Konfigurationssicherung, die eine frische Installation wiederherstellt, und arm64. Es ist zum Ausprobieren gedacht: Installieren Sie es frisch von seinem ISO, für <a href="{nextIsoAmd64}">x86-64</a> oder <a href="{nextIsoArm64}">arm64</a>, oder holen Sie es über den Testkanal, den Sie auf einem installierten zendiloOS unter Updates wählen; auf Debian 13 installiert sich sein Paket wie das jedes Releases. <a href="{next}">Das Release auf GitHub</a>.',
       },
       {
         q: 'Kann ich es auf einem vorhandenen Debian installieren?',
@@ -330,7 +333,7 @@ export default {
   details: {
     title: 'zendiloOS im Detail: Speicher, Freigaben, Apps, VMs, Backups und mehr',
     description:
-      'Was zendiloOS kann, Bereich für Bereich: ZFS-Speicher, Freigaben über SMB und NFS, Apps und Docker, virtuelle Maschinen, Backups, Netzwerk, Sicherheit, Updates, Überwachung und Hardware, mit dem, was noch Vorschau ist und was im Testrelease steckt.',
+      'Was zendiloOS kann, Bereich für Bereich: ZFS-Speicher, Freigaben über SMB und NFS, Apps und Docker, virtuelle Maschinen, Backups, Netzwerk, Sicherheit, Updates, Überwachung und Hardware, mit dem, was noch Vorschau ist{{ und was im Testrelease steckt}}.',
     eyebrow: 'Funktionen im Detail',
     heading: 'Was zendiloOS kann, <em>Bereich für Bereich</em>.',
     lead: 'Jeder Bereich in wenigen Sätzen, mit den Einzelheiten, dem, was noch Vorschau ist, und dem Weg zur ausführlichen Dokumentation.',
@@ -543,15 +546,15 @@ export default {
         title: 'Vom Mini-PC bis zum NAS-Board.',
         text: [
           'zendiloOS läuft auf Debian 13. Auf x86-64 ist das ein NAS-Gerät, ein Mini-PC oder ein eigener Rechner, mit UEFI oder BIOS. Es braucht eine Platte für das System, eine oder mehrere für Daten (SATA oder NVMe) und eine Netzwerkverbindung: Der Installer holt Debians Pakete von dessen Spiegelserver.',
-          'zendiloOS wird jetzt auch für arm64 gebaut: Pakete und ein Installations-ISO, das über UEFI startet, für NAS-Boards und Einplatinenrechner, deren Firmware einen USB-Stick über UEFI startet und deren Hardware Debians eigener Kernel unterstützt. Boards, die den Kernel ihres Herstellers brauchen, funktionieren nicht. [[next]]',
+          'zendiloOS wird jetzt auch für arm64 gebaut: Pakete und ein Installations-ISO, das über UEFI startet, für NAS-Boards und Einplatinenrechner, deren Firmware einen USB-Stick über UEFI startet und deren Hardware Debians eigener Kernel unterstützt. Boards, die den Kernel ihres Herstellers brauchen, funktionieren nicht.{{ Bis ein stabiles Release es enthält, wird arm64 vom ISO des Testreleases installiert.}} [[next]]',
           'Getestet wird zendiloOS von Anfang bis Ende in virtuellen Maschinen. Der Probebetrieb auf echter NAS-Hardware steht noch aus, und auf einem echten arm64-Board lief es noch nicht.',
         ],
         specs: [
           ['x86-64', 'UEFI oder BIOS; das ISO hat beide Startmenüs und den grafischen Installer'],
-          ['arm64 [[next]]', 'Nur UEFI (EDK2 oder das von U-Boot), der Text-Installer, den auch eine serielle Konsole zeigt; in der CI gebaut und seine Tests auf arm64 ausgeführt; auf einem echten Board noch nicht ausprobiert'],
+          ['arm64 [[next]]', 'Nur UEFI (EDK2 oder das von U-Boot), der Text-Installer, den auch eine serielle Konsole zeigt{{; das ISO ist das des Testreleases}}; in der CI gebaut und seine Tests auf arm64 ausgeführt; auf einem echten Board noch nicht ausprobiert'],
           ['Virtuelle Maschinen', 'Nur auf x86-64, mit Intel VT-x oder AMD-V; PCI-Geräte brauchen eine IOMMU'],
           ['Installer', 'Debians eigener, mit sechs Fragen: Sprache, Standort, Tastatur, Name, Passwort für root und die Platte für das System, die nie für Sie gewählt wird'],
-          ['Ein Release enthält', 'Die Pakete, signierte Prüfsummen und, bei stabilen Releases, die Installations-ISOs; Pakete für arm64 und eine Stückliste der Software je Paket [[next]]'],
+          ['Ein Release enthält', 'Die Pakete, signierte Prüfsummen und die Installations-ISOs; Pakete und ein ISO für arm64 und eine Stückliste der Software je Paket [[next]]'],
           ['NAS-Modelle', 'Schachtaufbau bekannter Modelle, zuerst das UGREEN DXP4800 Plus, auf dem echten Gerät noch nicht bestätigt'],
           ['Getestet', 'Die Installation vom ISO, unbeaufsichtigt in einer frischen virtuellen Maschine. Auf arm64 laufen die Tests des Backends nativ; die emulierte Installation lief noch nicht bis zum Ende.'],
         ],

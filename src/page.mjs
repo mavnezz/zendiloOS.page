@@ -140,14 +140,18 @@ function site(t, c, home) {
   const features = home ? './' : 'features/'
 
   // A badge for what is only in the test release (while there is one) or
-  // a preview; in the texts as [[next]] and [[preview]].
+  // a preview; in the texts as [[next]] and [[preview]]. Text in {{ }} is
+  // there only while there is a test release.
   const badge = (kind) =>
     kind === 'next' && !c.next ? '' : `<span class="badge badge-${kind}">${t.badges[kind]}</span>`
   const fill = (s) =>
     String(s)
+      .replace(/\{\{([\s\S]*?)\}\}/g, (_, text) => (c.next ? text : ''))
       .replaceAll('[[next]]', badge('next'))
       .replaceAll('[[preview]]', badge('preview'))
       .replaceAll('{nextVersion}', c.next ? c.next.version : '')
+      .replaceAll('{nextIsoAmd64}', c.next ? c.next.iso.amd64 : '')
+      .replaceAll('{nextIsoArm64}', c.next ? c.next.iso.arm64 : '')
       .replaceAll('{next}', c.next ? c.next.url : '')
       .replaceAll('{repo}', c.repo)
       .replaceAll('{features}', features)
@@ -370,7 +374,7 @@ export function renderHome(t, c) {
           <li class="step reveal">
             <span class="step-num">0${i + 1}</span>
             <h3>${st.title}</h3>
-            <p>${st.text}</p>
+            <p>${fill(st.text)}</p>
           </li>`,
     )
     .join('')
@@ -399,10 +403,16 @@ export function renderHome(t, c) {
 
   const next = c.next
     ? `
-      <p class="hero-next">
-        <a href="${c.next.url}"><span>${fill(t.hero.next.link)}</span>${icon('arrowRight', 14)}</a>
-        <span>${fill(t.hero.next.text)}</span>
-      </p>`
+      <div class="hero-next">
+        <a class="hero-next-link" href="${c.next.url}"><span>${fill(t.hero.next.link)}</span>${icon('arrowRight', 14)}</a>
+        <p>${fill(t.hero.next.text)}</p>
+        <p class="hero-next-isos">${[
+          ['amd64', t.hero.next.isoAmd64],
+          ['arm64', t.hero.next.isoArm64],
+        ]
+          .map(([arch, label]) => `<a href="${c.next.iso[arch]}">${icon('download', 14)}<span>${label}</span></a>`)
+          .join('')}</p>
+      </div>`
     : ''
 
   const ld = {
@@ -614,7 +624,7 @@ export function renderFeatures(t, c) {
     })
     .join('\n')
 
-  return `${s.head({ title: d.title, description: d.description })}${s.header()}
+  return `${s.head({ title: d.title, description: fill(d.description) })}${s.header()}
 <main id="main">
   <section class="hero hero-page">
     <div class="container hero-text">
