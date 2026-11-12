@@ -9,7 +9,9 @@
 // into its README and docs on GitHub are checked too: the file there, and
 // the heading a #fragment names. Other addresses are not fetched; the
 // releases' files among them are listed, as they exist only once CI made
-// the release (a test release's ISOs before its tag, say).
+// the release (a test release's ISOs before its tag, say). With
+// --releases, the releases' pages and files are asked for on GitHub too
+// (HEAD requests to github.com, not its API).
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -113,7 +115,7 @@ for (const page of pages) {
     const link = unescape(value)
     links++
     if (/^(mailto|data|javascript):/.test(link)) continue
-    if (link.startsWith(`${github}/releases/download/`)) assets.add(link)
+    if (link.startsWith(`${github}/releases/download/`) || link.startsWith(`${github}/releases/tag/`)) assets.add(link)
     if (link.startsWith(site)) checkSite(path.relative(root, page), link.split('#')[0])
     else if (repo && (link === github || link.startsWith(`${github}#`) || link.startsWith(`${github}/blob/`))) checkRepo(page, link)
     else if (/^[a-z]+:|^\/\//.test(link)) continue
@@ -134,10 +136,19 @@ for (const page of pages.filter((p) => p.endsWith('index.html'))) {
   if (!listed.has(dir ? `${dir}/` : '')) problems.push(`sitemap.xml: ${path.relative(root, page)} is missing`)
 }
 
+const online = process.argv.includes('--releases')
+if (online) {
+  for (const link of assets) {
+    const answer = await fetch(link, { method: 'HEAD', redirect: 'follow' }).catch((e) => ({ ok: false, status: e.message }))
+    if (!answer.ok) problems.push(`${link}: ${answer.status}`)
+  }
+}
+
 if (problems.length) {
   console.error(problems.join('\n'))
   console.error(`${problems.length} broken links`)
   process.exit(1)
 }
 console.log(`${pages.length} pages, ${links} links, ${addresses.length} sitemap addresses: all lead somewhere${repo ? ' (the repository too)' : ''}`)
-if (assets.size) console.log(`Not checked, files of a release:\n${[...assets].map((a) => `  ${a}`).join('\n')}`)
+if (online) console.log(`${assets.size} pages and files of releases found on GitHub`)
+else if (assets.size) console.log(`Not checked, pages and files of releases:\n${[...assets].map((a) => `  ${a}`).join('\n')}`)

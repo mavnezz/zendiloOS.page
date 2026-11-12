@@ -19,7 +19,8 @@ python3 -m http.server    # look at it on http://localhost:8000
 
 `ZENDILOOS_REPO=~/zendiloOS node tools/check-links.mjs` also checks the
 links into zendiloOS's README and docs against a clone: the file, and the
-heading a `#` names.
+heading a `#` names; `--releases` asks GitHub for the releases' pages and
+files the page links (a test release's ISOs, once CI has made them).
 
 ## A test release
 
@@ -51,9 +52,11 @@ An imprint (Impressum) link appears in the footer when the page is built with
 `assets/img/*-light.webp` and `*-dark.webp` are taken from a zendiloOS test
 machine at twice the resolution; the page shows the one matching the
 visitor's colour scheme. Window shots have transparent rounded corners.
+`tools/shoot.mjs` takes them through a headless Chromium (its header says
+how); which ones there are, how they were made and which are still
+missing: `tools/screenshots-needed.md`.
 `og-*.jpg` are the preview images for shared links (1200 × 630), shot from
-`tools/og.html` (`?lang=de` for German). Which shots are still missing, and
-with what data: `tools/screenshots-needed.md`.
+`tools/og.html` (`?lang=de` for German).
 
 ## Credits
 

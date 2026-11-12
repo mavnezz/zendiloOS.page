@@ -99,21 +99,30 @@ const FEATURE_AREAS = {
   security: 'security',
   monitor: 'monitor',
 }
-// The features page's sections: the tile they show and the screenshots of
-// the tour that fit them ([image, tour row, its alt text]).
+// The features page's sections: the tile they show and their screenshots
+// (assets/img; a second one stands in front of the first).
 const AREAS = {
-  storage: { tile: 'storage', shots: [['disks', 'storage', 'alt']], fit: true },
-  files: { tile: 'shares', shots: [['shares', 'shares', 'alt'], ['files', 'shares', 'alt2']] },
-  apps: { tile: 'apps', shots: [['apps', 'apps', 'alt'], ['docker', 'docker', 'alt']] },
-  vms: { tile: 'vms' },
-  backup: { tile: 'backup' },
+  storage: { tile: 'storage', shots: ['disks', 'pool-wizard'] },
+  files: { tile: 'shares', shots: ['shares', 'files'] },
+  apps: { tile: 'apps', shots: ['apps', 'docker'] },
+  vms: { tile: 'vms', shots: ['vms', 'vm-console'] },
+  backup: { tile: 'backup', shots: ['backup', 'backup-restore'] },
   network: { tile: 'network' },
   security: { tile: 'security' },
-  updates: { tile: 'updates', shots: [['updates', 'updates', 'alt']] },
+  updates: { tile: 'updates', shots: ['updates', 'config-backup'] },
   monitor: { tile: 'monitor' },
   hardware: { tile: 'hardware' },
 }
-const TOUR_IMAGES = { storage: 'disks', shares: 'shares', apps: 'apps', docker: 'docker', updates: 'updates' }
+// The tour's rows on the home page and their screenshots, likewise.
+const TOUR_IMAGES = {
+  storage: ['disks', 'pool-wizard'],
+  shares: ['shares', 'files'],
+  apps: ['apps'],
+  docker: ['docker'],
+  vms: ['vms', 'vm-console'],
+  backup: ['backup', 'backup-restore'],
+  updates: ['updates'],
+}
 const NODE_ICONS = ['monitor', 'server', 'shield', 'layers']
 const GUARD_ICONS = ['ban', 'lock', 'users', 'shield', 'terminal', 'key']
 const VALUE_ICONS = ['cloudOff', 'layers', 'code']
@@ -152,6 +161,8 @@ function site(t, c, home) {
       .replaceAll('{nextVersion}', c.next ? c.next.version : '')
       .replaceAll('{nextIsoAmd64}', c.next ? c.next.iso.amd64 : '')
       .replaceAll('{nextIsoArm64}', c.next ? c.next.iso.arm64 : '')
+      .replaceAll('{nextDebAmd64}', c.next ? c.next.deb.amd64 : '')
+      .replaceAll('{nextDebArm64}', c.next ? c.next.deb.arm64 : '')
       .replaceAll('{next}', c.next ? c.next.url : '')
       .replaceAll('{repo}', c.repo)
       .replaceAll('{features}', features)
@@ -165,11 +176,12 @@ function site(t, c, home) {
     const [w, h] = c.images[name]
     return `<picture class="${cls}"><source srcset="${c.root}assets/img/${name}-dark.webp" media="(prefers-color-scheme: dark)"><img src="${c.root}assets/img/${name}-light.webp" width="${w}" height="${h}" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
   }
-  // One screenshot on a tinted stage, or two with the second in front.
-  const stage = (id, shots, fit) =>
-    shots.length > 1
-      ? `<div class="stage stack" style="${tint(id)}">${shot(shots[0][0], shots[0][1])}${shot(shots[1][0], shots[1][1], { cls: 'back' })}</div>`
-      : `<div class="stage${fit ? ' fit' : ''}" style="${tint(id)}">${shot(shots[0][0], shots[0][1])}</div>`
+  // One screenshot on a tinted stage, or two with the second in front; the
+  // alt texts are the language's (t.shots).
+  const stage = (id, [first, second]) =>
+    second
+      ? `<div class="stage stack" style="${tint(id)}">${shot(first, t.shots[first])}${shot(second, t.shots[second], { cls: 'back' })}</div>`
+      : `<div class="stage" style="${tint(id)}">${shot(first, t.shots[first])}</div>`
 
   const langs = Object.keys(c.alternates)
     .map(
@@ -318,14 +330,11 @@ export function renderHome(t, c) {
 
   const rows = t.tour
     .map((r, i) => {
-      const image =
-        r.id === 'shares'
-          ? s.stage(r.id, [['shares', r.alt], ['files', r.alt2]])
-          : s.stage(r.id, [[TOUR_IMAGES[r.id], r.alt]], r.id === 'storage')
+      const image = s.stage(r.id, TOUR_IMAGES[r.id])
       return `
       <div class="row${i % 2 ? ' flip' : ''} reveal" id="tour-${r.id}">
         <div class="row-text">
-          <p class="eyebrow-app" style="${tint(r.id)}">${tile(r.id, 16)}<span>${r.eyebrow}</span></p>
+          <p class="eyebrow-app" style="${tint(r.id)}">${tile(r.id, 16)}<span>${r.eyebrow}</span>${s.badges(r.marks)}</p>
           <h3>${r.title}</h3>
           <p>${fill(r.text)}</p>
           <ul class="checks">${r.checks.map((x) => `<li>${icon('check', 18)}<span>${fill(x)}</span></li>`).join('')}</ul>
@@ -586,7 +595,6 @@ export function renderFeatures(t, c) {
   const s = site(t, c, '../')
   const { fill } = s
   const d = t.details
-  const tourAlt = (id, key) => t.tour.find((r) => r.id === id)[key]
 
   const toc = d.areas
     .map((a) => `<a href="#${a.id}">${tile(AREAS[a.id].tile, 14)}<span>${a.label}</span></a>`)
@@ -595,7 +603,7 @@ export function renderFeatures(t, c) {
   const areas = d.areas
     .map((a) => {
       const area = AREAS[a.id]
-      const shots = (area.shots ?? []).map(([image, row, key]) => [image, tourAlt(row, key)])
+      const shots = area.shots ?? []
       const specs = a.specs
         .map(([term, text]) => `
             <div><dt>${fill(term)}</dt><dd>${fill(text)}</dd></div>`)
@@ -617,7 +625,7 @@ export function renderFeatures(t, c) {
       </div>
       <div class="area-side">
         <dl class="card specs reveal">${specs}
-        </dl>${shots.length ? `\n        <div class="reveal">${s.stage(area.tile, shots, area.fit)}</div>` : ''}
+        </dl>${shots.length ? `\n        <div class="reveal">${s.stage(area.tile, shots)}</div>` : ''}
       </div>
     </div>
   </section>`

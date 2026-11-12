@@ -1049,9 +1049,6 @@ code {
   max-width: none;
   filter: var(--shot-shadow);
 }
-.stage.fit img {
-  width: 100%;
-}
 .stage.stack picture:not(.back) img {
   width: 104%;
 }

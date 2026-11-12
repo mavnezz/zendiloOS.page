@@ -1,8 +1,9 @@
 // [[next]] marks what is only in the test release (a badge while there is
 // one), [[preview]] a preview, and text in {{ }} is there only while there
-// is a test release; {nextVersion}, {next}, {nextIsoAmd64} and
-// {nextIsoArm64} are the test release's version, page and ISOs (build.mjs),
-// {repo} the repository, {features} the page of features in detail.
+// is a test release; {nextVersion}, {next}, {nextIsoAmd64}, {nextIsoArm64},
+// {nextDebAmd64} and {nextDebArm64} are the test release's version, page,
+// ISOs and packages (build.mjs), {repo} the repository, {features} the page
+// of features in detail.
 export default {
   lang: 'en',
   locale: 'en_US',
@@ -120,6 +121,22 @@ export default {
     ],
   },
 
+  // The screenshots' alt texts (assets/img), by image.
+  shots: {
+    disks: 'The disks page of the control panel: a note that the pool apps has no redundancy, and the NAS drawn with each disk in its bay, with its model, size, temperature and pool.',
+    'pool-wizard': 'The new pool wizard: two disks chosen, and a mirror of them with about 8 GiB usable, twice the read speed and one disk that may fail.',
+    shares: 'The properties of the documents folder: the family group may read and write, guests may read.',
+    files: 'The file explorer in the browser, showing the documents folder as a grid of folders and files.',
+    apps: 'The App Center with apps such as AdGuard Home, Immich, Jellyfin and Home Assistant.',
+    docker: 'The containers in the Docker app: Homarr and Uptime Kuma running and healthy, an update available for Homarr.',
+    vms: 'The Virtual machines app: four VMs, one of them running with its processor and memory load, and above them how many run and what they take of the NAS.',
+    'vm-console': 'The console of a running VM in the browser, showing top in Alpine Linux.',
+    backup: 'The tasks of the Backup app: the documents mirrored into another share every hour, versions of the media and, encrypted, of the documents on a USB drive, each with its last run.',
+    'backup-restore': 'Restoring from a backup: a version of the media picked, and only the Movies folder chosen.',
+    updates: 'Updates in the control panel: zendiloOS 0.5.0~rc.1 installed; the newest kernel has no ZFS module yet, so the NAS keeps starting the one before.',
+    'config-backup': 'The configuration backup in the control panel: weekly on Sunday at 03:00 into the share backups, the newest 7 kept, and the last backup’s file.',
+  },
+
   tour: [
     {
       id: 'storage',
@@ -132,7 +149,6 @@ export default {
         'Your NAS drawn with each disk in its bay, and a disk that blinks to be found',
         'A wizard that estimates the space and protection of each layout [[next]]',
       ],
-      alt: 'The disks page of the control panel, listing every disk with its model, size, pool, temperature and SMART health.',
     },
     {
       id: 'shares',
@@ -145,8 +161,6 @@ export default {
         'USB drives in the explorer, to copy from and eject',
         'Files as a list or a grid, with a toolbar of what you can do [[next]]',
       ],
-      alt: 'The properties of the documents folder: the family group may read and write, guests may read.',
-      alt2: 'The file explorer in the browser, showing the documents folder.',
     },
     {
       id: 'apps',
@@ -158,7 +172,6 @@ export default {
         'Passwords and keys generated for you',
         'Edit, redeploy and update it like any project',
       ],
-      alt: 'The App Center with apps such as AdGuard Home, Immich, Jellyfin and Home Assistant.',
     },
     {
       id: 'docker',
@@ -171,7 +184,30 @@ export default {
         'Volumes backed up into a shared folder on a schedule, and restored',
         'Docker from Debian’s own packages',
       ],
-      alt: 'The containers in the Docker app: Homarr and Uptime Kuma running and healthy, an update available for Homarr.',
+    },
+    {
+      id: 'vms',
+      marks: ['preview', 'next'],
+      eyebrow: 'Virtual machines',
+      title: 'Virtual machines beside your data.',
+      text: 'Install the Virtual machines plugin from the App Center and run Linux or Windows next to your shares, their disks on your pools. Each VM opens its console in the browser, takes snapshots of all its disks at once and is backed up into a share or onto a USB drive. A preview, on x86-64.',
+      checks: [
+        'Several disks and network cards, ISOs from an image library',
+        'A TPM and Secure Boot for Windows 11',
+        'USB and PCI devices of the host handed to a VM',
+      ],
+    },
+    {
+      id: 'backup',
+      marks: ['next'],
+      eyebrow: 'Backup',
+      title: 'A second copy, somewhere else.',
+      text: 'The Backup app copies your shares to another pool, a USB drive, an rsync server or a cloud, on a schedule or as soon as the drive is plugged in. Restore a whole version or only the folders you pick, back where they came from or somewhere else.',
+      checks: [
+        'Mirrors, or dated versions kept by number and age',
+        'Names and contents encrypted if you like',
+        'Every run logged, a failed one notified',
+      ],
     },
     {
       id: 'updates',
@@ -184,7 +220,6 @@ export default {
         'ZFS checked against a new kernel before you restart',
         'A kernel without its ZFS module never started: GRUB keeps one that has it [[next]]',
       ],
-      alt: 'Update & restore in the control panel: zendiloOS 0.2.0 on the stable channel and a Debian security update ready to install.',
     },
   ],
 
@@ -283,7 +318,7 @@ export default {
       {
         q: 'What is the test release?',
         next: true,
-        a: 'Before a stable release, zendiloOS publishes release candidates on the test channel. {nextVersion} brings virtual machines as a preview, the Backup app, bridges, bonds and VLANs, a configuration backup that a fresh installation restores, and arm64. It is for trying out: install it fresh from its ISO, for <a href="{nextIsoAmd64}">x86-64</a> or <a href="{nextIsoArm64}">arm64</a>, or take it over the test channel, which you choose under Updates on an installed zendiloOS; on Debian 13 its package installs like any release’s. <a href="{next}">The release on GitHub</a>.',
+        a: 'Before a stable release, zendiloOS publishes release candidates. {nextVersion} brings virtual machines as a preview, the Backup app, bridges, bonds and VLANs, a configuration backup that a fresh installation restores, and arm64. It is for trying out: install it fresh from its ISO, for <a href="{nextIsoAmd64}">x86-64</a> or <a href="{nextIsoArm64}">arm64</a>, or put its package on Debian 13 or on an existing installation: <code>sudo apt install ./{nextDebAmd64}</code>, on arm64 <code>./{nextDebArm64}</code>. Both are on <a href="{next}">the release’s page</a>.',
       },
       {
         q: 'Can I install it on a Debian I already have?',

@@ -34,6 +34,8 @@ const project = {
       amd64: 'https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-amd64-netinst.iso',
       arm64: 'https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-arm64-netinst.iso',
     },
+    // Its packages as GitHub names them, with "." where the version has "~".
+    deb: { amd64: 'zendiloos_0.5.0.rc.1_amd64.deb', arm64: 'zendiloos_0.5.0.rc.1_arm64.deb' },
   },
   // A page with the provider's details (Impressum), if there is one.
   imprint: process.env.IMPRINT_URL ?? '',
