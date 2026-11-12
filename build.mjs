@@ -7,6 +7,7 @@
 // The output is committed; GitHub Pages serves the repository as it is.
 // SITE_URL is where the site lives, for canonical links, the sitemap and
 // the preview image of shared links.
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -69,13 +70,20 @@ const pages = [
   { name: 'features', sub: 'features/', render: renderFeatures },
 ]
 
+// The stylesheet's and the script's addresses carry a hash of their content:
+// GitHub Pages lets a browser keep them for ten minutes, and a new page with
+// the old stylesheet showed its new parts unstyled.
+const versioned = (file) =>
+  `${file}?v=${crypto.createHash('sha256').update(fs.readFileSync(path.join(here, file))).digest('hex').slice(0, 12)}`
+const assets = { css: versioned('assets/css/site.css'), js: versioned('assets/js/site.js') }
+
 const written = []
 for (const page of pages) {
   const alternates = Object.fromEntries(languages.map((l) => [l.t.lang, `${l.dir}${page.sub}`]))
   for (const { t } of languages) {
     const dir = alternates[t.lang]
     const root = '../'.repeat(dir.split('/').filter(Boolean).length)
-    const html = page.render(t, { ...project, site, dir, root, alternates, images })
+    const html = page.render(t, { ...project, site, dir, root, alternates, images, assets })
     fs.mkdirSync(path.join(here, dir || '.'), { recursive: true })
     fs.writeFileSync(path.join(here, dir, 'index.html'), html)
     console.log(`${dir}index.html`)

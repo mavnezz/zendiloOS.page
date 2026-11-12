@@ -218,7 +218,7 @@ ${Object.entries(c.alternates)
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="${c.root}assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${c.root}assets/css/site.css">
+<link rel="stylesheet" href="${c.root}${c.assets.css}">
 <script>document.documentElement.classList.add('js')${
       t.lang === 'en'
         ? `
@@ -305,7 +305,7 @@ try { if (!localStorage.getItem('zendiloos.lang') && /^de\\b/i.test(navigator.la
   </div>
 </footer>
 
-<script src="${c.root}assets/js/site.js" defer></script>
+<script src="${c.root}${c.assets.js}" defer></script>
 </body>
 </html>
 `

@@ -54,7 +54,9 @@ const fileOf = (target) => {
 }
 
 const checkLocal = (from, link) => {
-  const [address, fragment] = link.split('#')
+  const [withQuery, fragment] = link.split('#')
+  // A version in the query (`site.css?v=…`) names the same file.
+  const address = withQuery.split('?')[0]
   const file = address ? fileOf(path.resolve(path.dirname(from), address) + (address.endsWith('/') ? '/' : '')) : from
   if (!file) return problems.push(`${path.relative(root, from)}: ${link} leads to no file`)
   if (fragment && file.endsWith('.html') && !idsOf(file).has(decodeURIComponent(fragment))) {
