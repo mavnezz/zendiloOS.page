@@ -1,18 +1,33 @@
 # zendiloOS.page
 
-The homepage of [zendiloOS](https://github.com/mavnezz/zendiloOS): one static
-page in English (`/`) and German (`/de/`), served by GitHub Pages.
+The homepage of [zendiloOS](https://github.com/mavnezz/zendiloOS): a home
+page and a page of its features in detail, in English (`/`, `/features/`)
+and German (`/de/`, `/de/features/`), static and served by GitHub Pages.
 
 ## Editing
 
-The texts live in `src/i18n/en.mjs` and `src/i18n/de.mjs`, the page's
+The texts live in `src/i18n/en.mjs` and `src/i18n/de.mjs`, the pages'
 structure in `src/page.mjs`, the design in `assets/css/site.css`. After a
-change, build and commit the result; CI checks that nothing was forgotten.
+change, build and commit the result; CI checks that nothing was forgotten
+and that no link leads nowhere.
 
 ```sh
-node build.mjs            # index.html, de/index.html, sitemap.xml, robots.txt
+node build.mjs            # both pages in both languages, sitemap.xml, robots.txt
+node tools/check-links.mjs  # every link of the site leads to a file and an id
 python3 -m http.server    # look at it on http://localhost:8000
 ```
+
+`ZENDILOOS_REPO=~/zendiloOS node tools/check-links.mjs` also checks the
+links into zendiloOS's README and docs against a clone: the file, and the
+heading a `#` names.
+
+## A test release
+
+While a test release is out beside the stable one, `next` in `build.mjs`
+names its version and page: the hero points to it, and what only it has
+carries a badge, marked `[[next]]` in the texts (`[[preview]]` marks a
+preview). Once that version is out as a stable release, set `next` to
+`null` and build: the pointer and the badges go, and the texts stay true.
 
 No dependencies, no framework, no requests to other sites except one: the
 page asks GitHub's API for the newest release, to show its version and the
@@ -34,7 +49,8 @@ An imprint (Impressum) link appears in the footer when the page is built with
 machine at twice the resolution; the page shows the one matching the
 visitor's colour scheme. Window shots have transparent rounded corners.
 `og-*.jpg` are the preview images for shared links (1200 × 630), shot from
-`tools/og.html` (`?lang=de` for German).
+`tools/og.html` (`?lang=de` for German). Which shots are still missing, and
+with what data: `tools/screenshots-needed.md`.
 
 ## Credits
 

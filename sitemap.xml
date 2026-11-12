@@ -10,4 +10,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mavnezz.github.io/zendiloOS.page/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://mavnezz.github.io/zendiloOS.page/de/"/>
   </url>
+  <url>
+    <loc>https://mavnezz.github.io/zendiloOS.page/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mavnezz.github.io/zendiloOS.page/features/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mavnezz.github.io/zendiloOS.page/de/features/"/>
+  </url>
+  <url>
+    <loc>https://mavnezz.github.io/zendiloOS.page/de/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mavnezz.github.io/zendiloOS.page/features/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mavnezz.github.io/zendiloOS.page/de/features/"/>
+  </url>
 </urlset>

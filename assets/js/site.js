@@ -68,11 +68,13 @@
   })
 
   // The newest release: its version on the badge and under the download
-  // button. Kept for an hour, so a visitor asks GitHub once.
+  // button. Kept for an hour, so a visitor asks GitHub once; a page that
+  // shows neither does not ask.
+  if (!document.querySelector('[data-release], [data-version-text], [data-download-meta]')) return
   const show = (release) => {
     if (!release || !release.version) return
     const pill = document.querySelector('[data-release]')
-    pill.querySelector('[data-release-text]').textContent = pill.dataset.release.replace('{version}', release.version)
+    if (pill) pill.querySelector('[data-release-text]').textContent = pill.dataset.release.replace('{version}', release.version)
     document.querySelectorAll('[data-version-text]').forEach((el) => (el.textContent = release.version))
     const meta = document.querySelector('[data-download-meta]')
     if (meta && release.bytes) {

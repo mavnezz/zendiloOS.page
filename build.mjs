@@ -1,5 +1,6 @@
-// Builds the static site: one page per language from src/page.mjs and the
-// texts in src/i18n, plus sitemap.xml and robots.txt. No dependencies:
+// Builds the static site: the home page and the page of features in detail,
+// one of each per language, from src/page.mjs and the texts in src/i18n,
+// plus sitemap.xml and robots.txt. No dependencies:
 //
 //   node build.mjs
 //
@@ -9,7 +10,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { render } from './src/page.mjs'
+import { renderHome, renderFeatures } from './src/page.mjs'
 import en from './src/i18n/en.mjs'
 import de from './src/i18n/de.mjs'
 
@@ -22,6 +23,13 @@ const project = {
   catalog: 'https://github.com/mavnezz/zendiloOS.community.applications',
   // Only stable releases carry the ISO, under the same name every time.
   iso: 'https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso',
+  // The test release beside the stable one, while there is one: the hero
+  // points to it, and what only it has carries a badge. Set it to null once
+  // that version is out as a stable release, and the badges go.
+  next: {
+    version: '0.5.0~rc.1',
+    url: 'https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1',
+  },
   // A page with the provider's details (Impressum), if there is one.
   imprint: process.env.IMPRINT_URL ?? '',
 }
@@ -44,26 +52,41 @@ for (const file of fs.readdirSync(path.join(here, 'assets/img'))) {
   if (file.endsWith('-light.webp')) images[file.slice(0, -'-light.webp'.length)] = webpSize(path.join(here, 'assets/img', file))
 }
 
-const pages = [
+const languages = [
   { t: en, dir: '' },
   { t: de, dir: 'de/' },
 ]
-const alternates = Object.fromEntries(pages.map((p) => [p.t.lang, p.dir]))
+// Each page in every language; the features page sits below its home page.
+const pages = [
+  { name: 'home', sub: '', render: renderHome },
+  { name: 'features', sub: 'features/', render: renderFeatures },
+]
 
-for (const { t, dir } of pages) {
-  const root = dir ? '../'.repeat(dir.split('/').filter(Boolean).length) : ''
-  const html = render(t, { ...project, site, dir, root, alternates, images })
-  fs.mkdirSync(path.join(here, dir || '.'), { recursive: true })
-  fs.writeFileSync(path.join(here, dir, 'index.html'), html)
-  console.log(`${dir}index.html`)
+const written = []
+for (const page of pages) {
+  const alternates = Object.fromEntries(languages.map((l) => [l.t.lang, `${l.dir}${page.sub}`]))
+  for (const { t } of languages) {
+    const dir = alternates[t.lang]
+    const root = '../'.repeat(dir.split('/').filter(Boolean).length)
+    const html = page.render(t, { ...project, site, dir, root, alternates, images })
+    fs.mkdirSync(path.join(here, dir || '.'), { recursive: true })
+    fs.writeFileSync(path.join(here, dir, 'index.html'), html)
+    console.log(`${dir}index.html`)
+  }
+  written.push(alternates)
 }
 
-const links = pages.map((p) => `    <xhtml:link rel="alternate" hreflang="${p.t.lang}" href="${site}${p.dir}"/>`).join('\n')
+const urls = written.flatMap((alternates) => {
+  const links = Object.entries(alternates)
+    .map(([lang, dir]) => `    <xhtml:link rel="alternate" hreflang="${lang}" href="${site}${dir}"/>`)
+    .join('\n')
+  return Object.values(alternates).map((dir) => `  <url>\n    <loc>${site}${dir}</loc>\n${links}\n  </url>`)
+})
 fs.writeFileSync(
   path.join(here, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${pages.map((p) => `  <url>\n    <loc>${site}${p.dir}</loc>\n${links}\n  </url>`).join('\n')}
+${urls.join('\n')}
 </urlset>
 `,
 )

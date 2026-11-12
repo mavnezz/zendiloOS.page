@@ -1,7 +1,7 @@
 name: Check
 
 # The pages are built from src/ and committed; this makes sure they were
-# rebuilt after every change.
+# rebuilt after every change, and that their links lead somewhere.
 on:
   push:
   pull_request:
@@ -16,4 +16,6 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: node build.mjs
       - name: The committed pages match the sources
-        run: git diff --exit-code || { echo '::error::Run "node build.mjs" and commit the result.'; exit 1; }
+        run: git diff --exit-code && test -z "$(git status --porcelain)" || { echo '::error::Run "node build.mjs" and commit the result.'; exit 1; }
+      - name: No link leads nowhere
+        run: node tools/check-links.mjs

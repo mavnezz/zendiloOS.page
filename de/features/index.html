@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zendiloOS im Detail: Speicher, Freigaben, Apps, VMs, Backups und mehr</title>
+<meta name="description" content="Was zendiloOS kann, Bereich für Bereich: ZFS-Speicher, Freigaben über SMB und NFS, Apps und Docker, virtuelle Maschinen, Backups, Netzwerk, Sicherheit, Updates, Überwachung und Hardware, mit dem, was noch Vorschau ist und was im Testrelease steckt.">
+<link rel="canonical" href="https://mavnezz.github.io/zendiloOS.page/de/features/">
+<link rel="alternate" hreflang="en" href="https://mavnezz.github.io/zendiloOS.page/features/">
+<link rel="alternate" hreflang="de" href="https://mavnezz.github.io/zendiloOS.page/de/features/">
+<link rel="alternate" hreflang="x-default" href="https://mavnezz.github.io/zendiloOS.page/features/">
+<meta name="theme-color" content="#070a16">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="zendiloOS">
+<meta property="og:title" content="zendiloOS im Detail: Speicher, Freigaben, Apps, VMs, Backups und mehr">
+<meta property="og:description" content="Was zendiloOS kann, Bereich für Bereich: ZFS-Speicher, Freigaben über SMB und NFS, Apps und Docker, virtuelle Maschinen, Backups, Netzwerk, Sicherheit, Updates, Überwachung und Hardware, mit dem, was noch Vorschau ist und was im Testrelease steckt.">
+<meta property="og:url" content="https://mavnezz.github.io/zendiloOS.page/de/features/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://mavnezz.github.io/zendiloOS.page/assets/img/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header class="header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="../" aria-label="zendiloOS">
+      <img src="../../favicon.svg" width="30" height="30" alt="">
+      <span>zendiloOS</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Hauptmenü"><a href="./" aria-current="page">Funktionen</a><a href="../#security">Sicherheit</a><a href="../#apps">Apps</a><a href="../#install">Installation</a><a href="../#faq">FAQ</a></nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Sprache"><a href="../../features/" hreflang="en" lang="en" data-lang="en">EN</a><a href="../../de/features/" hreflang="de" lang="de" data-lang="de" aria-current="page">DE</a></div>
+      <a class="btn btn-small btn-glass" href="https://github.com/mavnezz/zendiloOS" aria-label="GitHub"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span class="hide-sm">GitHub</span></a>
+      <button class="menu-button" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero-page">
+    <div class="container hero-text">
+      <p class="eyebrow">Funktionen im Detail</p>
+      <h1>Was zendiloOS kann, <em>Bereich für Bereich</em>.</h1>
+      <p class="lead">Jeder Bereich in wenigen Sätzen, mit den Einzelheiten, dem, was noch Vorschau ist, und dem Weg zur ausführlichen Dokumentation.</p>
+      <p class="hero-status"><span class="badge badge-next">Testrelease</span> nur in 0.5.0~rc.1, noch nicht im stabilen Release · <span class="badge badge-preview">Vorschau</span> kann sich noch ändern · Getestet wird alles in virtuellen Maschinen; der Probebetrieb auf echter NAS-Hardware steht noch aus.</p>
+      <nav class="toc" aria-label="Bereiche"><a href="#storage"><span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><span>Speicher und Platten</span></a><a href="#files"><span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span><span>Freigaben und Dateien</span></a><a href="#apps"><span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span>Apps und Docker</span></a><a href="#vms"><span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span><span>Virtuelle Maschinen</span></a><a href="#backup"><span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span><span>Backups</span></a><a href="#network"><span class="tile" style="--c1:#67e8f9;--c2:#0891b2"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span><span>Netzwerk</span></a><a href="#security"><span class="tile" style="--c1:#fda4af;--c2:#e11d48"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Sicherheit</span></a><a href="#updates"><span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span>Updates und Wiederherstellung</span></a><a href="#monitor"><span class="tile" style="--c1:#5eead4;--c2:#0d9488"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><span>Überwachung und Benachrichtigungen</span></a><a href="#hardware"><span class="tile" style="--c1:#cbd5e1;--c2:#475569"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></span><span>Hardware und Architekturen</span></a></nav>
+    </div>
+  </section>
+
+  <section class="area" id="storage" aria-labelledby="storage-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#a78bfa;--c2:#7c3aed"><span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><span>Speicher und Platten</span></p>
+        <h2 id="storage-title">Ihre Daten auf ZFS, mit Leitplanken.</h2>
+        <p>zendiloOS legt Ihre Daten auf OpenZFS ab. ZFS prüft jeden Block, den es liest, und repariert ihn aus einer zweiten Kopie, wo die Anordnung eine hat. Ein Pool besteht aus einer oder mehreren Platten in einer Anordnung, und zendiloOS sagt Ihnen vor der Wahl, was jede davon übersteht.</p>
+        <p>Platten kennt zendiloOS an ihrer Seriennummer, nie an Namen wie sdb, die sich ändern können. Bevor ein Pool entsteht oder gelöscht wird, zeigt ein Plan jede Platte, die gelöscht wird, und Sie tippen den Namen des Pools noch einmal ein; der Agent prüft erneut, bevor er eine Platte anrührt.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#5-storage-concept">Speicherkonzept<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#47-storage-guard-rails">Leitplanken<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Anordnungen</dt><dd>Einzelne Platte, Spiegel (ab 2 Platten), RAIDZ1 (ab 3), RAIDZ2 (ab 4), RAIDZ3 (ab 5)</dd></div>
+            <div><dt>Voreinstellungen</dt><dd>Kompression mit lz4, keine Zugriffszeiten, 4K-Sektoren; jeder Pool als Volume eingehängt</dd></div>
+            <div><dt>Prüfungen</dt><dd>SMART alle sechs Stunden, kurze und lange Selbsttests nach Zeitplan, ein Scrub jeden Monat und wann immer Sie einen starten</dd></div>
+            <div><dt>Wo jede Platte sitzt</dt><dd>Schächte aus einem Katalog von NAS-Modellen oder nach eigenem Aufbau, eine Platte, die zum Finden blinkt, Kaufdatum und Garantie jeder Platte</dd></div>
+            <div><dt>Neuer Pool <span class="badge badge-next">Testrelease</span></dt><dd>Ein Assistent in drei Schritten: Platten und Anordnung nebeneinander, mit geschätztem nutzbarem Platz, Tempo und Schutz, dann ein Name und der Plan zur Bestätigung</dd></div>
+            <div><dt>Pools einer früheren Installation <span class="badge badge-next">Testrelease</span></dt><dd>Gefunden und importiert, wenn Sie es wollen, nie von selbst: Ein Pool, den ein anderer Rechner noch nutzt, nähme Schaden</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: ein Spiegel angelegt, eine Platte gezogen und ersetzt, Resilver, Scrub, Löschen verweigert, solange Freigaben, Docker oder VMs auf dem Pool liegen. Die Schachtreihenfolge der eingebauten NAS-Modelle ist auf den echten Geräten noch nicht bestätigt.</dd></div>
+        </dl>
+        <div class="reveal"><div class="stage fit" style="--c1:#a78bfa;--c2:#7c3aed"><picture class=""><source srcset="../../assets/img/disks-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/disks-light.webp" width="2064" height="1520" alt="Die Laufwerke in der Systemsteuerung: jede Platte mit Modell, Größe, Pool, Temperatur und SMART-Zustand." loading="lazy" decoding="async"></picture></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="files" aria-labelledby="files-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#fdba74;--c2:#f97316"><span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span><span>Freigaben und Dateien</span></p>
+        <h2 id="files-title">Ein freigegebener Ordner für jedes Gerät im Haus.</h2>
+        <p>Eine Freigabe ist ein Ordner auf einem Volume mit einem eigenen ZFS-Dataset. Sie legen für jede Person und Gruppe fest, wer lesen oder schreiben darf, und Samba, NFS und der Datei-Explorer halten sich alle an dieselbe Regel. Windows findet das NAS über WS-Discovery, macOS über Bonjour.</p>
+        <p>Snapshots halten frühere Stände einer Freigabe fest, von Hand oder nach Zeitplan, und Windows bietet sie als vorherige Versionen an. Der Explorer im Browser erreicht persönliche Ordner, Freigaben und USB-Laufwerke in einem Fenster.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#44-share-and-file-permissions">Rechte an Freigaben und Dateien<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Protokolle</dt><dd>SMB ab Version 2.0, nie SMB1; NFS. Jedes als Ganzes ein- oder ausgeschaltet</dd></div>
+            <div><dt>Zugriff</dt><dd>Lesen und Schreiben oder nur Lesen, für jede Person und Gruppe; NFS für jeden Rechner oder jedes Netz</dd></div>
+            <div><dt>Je Freigabe</dt><dd>Ein Kontingent, die Kompression (lz4, zstd oder aus) und die Blockgröße</dd></div>
+            <div><dt>Snapshots</dt><dd>Stündlich, täglich, wöchentlich und monatlich, jeweils 1 bis 100 behalten; Dateien daraus zurückkopiert; eine Freigabe zurückgesetzt, nachdem Sie ihren Namen eingetippt haben</dd></div>
+            <div><dt>Papierkorb</dt><dd>Einer für alle Ordner im Explorer; Löschen über SMB oder NFS ist endgültig, die Snapshots behalten, was da war</dd></div>
+            <div><dt>Explorer</dt><dd>Ein Baum der Ordner, Ziehen und Ablegen, Hochladen, Ordner als Archiv herunterladen, eine Suche durch alle Unterordner</dd></div>
+            <div><dt>USB-Laufwerke</dt><dd>FAT, exFAT, NTFS und ext4: eingehängt, zum Kopieren in beide Richtungen, ausgeworfen</dd></div>
+            <div><dt>Liste und Raster <span class="badge badge-next">Testrelease</span></dt><dd>Große Symbole im Raster, eine Leiste mit den Aktionen, die Seitenleiste in Abschnitten</dd></div>
+            <div><dt>Getestet</dt><dd>Mit echten SMB- und NFS-Clients in einer virtuellen Maschine. Ein Windows- oder macOS-Rechner hat noch keine Freigabe benutzt.</dd></div>
+        </dl>
+        <div class="reveal"><div class="stage stack" style="--c1:#fdba74;--c2:#f97316"><picture class=""><source srcset="../../assets/img/shares-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/shares-light.webp" width="1792" height="924" alt="Die Eigenschaften des Ordners documents: Die Gruppe family darf lesen und schreiben, guests darf lesen." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../../assets/img/files-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/files-light.webp" width="2064" height="1400" alt="Der Datei-Explorer im Browser mit dem Ordner documents." loading="lazy" decoding="async"></picture></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="apps" aria-labelledby="apps-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#93c5fd;--c2:#2563eb"><span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span>Apps und Docker</span></p>
+        <h2 id="apps-title">Apps per Klick, und Sie können sie ändern.</h2>
+        <p>Das App Center installiert Apps aus dem Community-Katalog oder aus Katalogen, die Sie hinzufügen. Sie wählen Ordner, Ports und Einstellungen einer App und sehen ihre compose.yaml, bevor sie startet; danach ist sie ein gewöhnliches Docker-Compose-Projekt von Ihnen, das Sie in der Docker-App ändern, aktualisieren und entfernen.</p>
+        <p>Was über einen Container hinausgeht, etwa ein Gerät, das Netz des Rechners oder der Docker-Socket, wird genannt und braucht Ihre Zustimmung. Docker selbst ist ein Plugin des App Centers aus Debians eigenen Paketen, installiert, wenn Sie es brauchen.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#49-apps-docker">Apps und Docker<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Kataloge</dt><dd>Der Community-Katalog fest eingebaut; weitere aus einem GitHub-Repository oder über eine Adresse</dd></div>
+            <div><dt>Zustimmung</dt><dd>Geräte, das Netz des Rechners, der Docker-Socket und Ordner des Rechners werden genannt, bevor ein Projekt startet</dd></div>
+            <div><dt>Docker-App</dt><dd>Container, Images, Netzwerke und Compose-Projekte; eine Seite für jeden Container mit Live-Log und Terminal</dd></div>
+            <div><dt>Image-Updates</dt><dd>Container mit neuerem Image markiert, aus der Liste oder nach Zeitplan aktualisiert</dd></div>
+            <div><dt>Volumes</dt><dd>Mit den Containern aufgelistet, die sie nutzen, täglich, wöchentlich oder monatlich in eine Freigabe gesichert, unter ihrem Namen oder in ein anderes Volume wiederhergestellt</dd></div>
+            <div><dt>Plugins</dt><dd>Docker, Zertifikate von Let’s Encrypt; virtuelle Maschinen und Backup <span class="badge badge-next">Testrelease</span></dd></div>
+            <div><dt>Architekturen <span class="badge badge-next">Testrelease</span></dt><dd>Jede App sagt, für welche Architekturen ihre Images gebaut sind; eine ohne passendes Image für Ihren Rechner lässt sich nicht installieren</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: Docker als Plugin installiert, Projekte mit Zustimmung, das Terminal, Image-Updates, Volumes gesichert und wiederhergestellt, eine App aus dem Katalog als eigenes Projekt.</dd></div>
+        </dl>
+        <div class="reveal"><div class="stage stack" style="--c1:#93c5fd;--c2:#2563eb"><picture class=""><source srcset="../../assets/img/apps-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/apps-light.webp" width="2064" height="1480" alt="Das App Center mit Apps wie AdGuard Home, Immich, Jellyfin und Home Assistant." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../../assets/img/docker-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/docker-light.webp" width="2064" height="1520" alt="Die Container in der Docker-App: Homarr und Uptime Kuma laufen und sind gesund, für Homarr gibt es ein Update." loading="lazy" decoding="async"></picture></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="vms" aria-labelledby="vms-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#a78bfa;--c2:#4f46e5"><span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span><span>Virtuelle Maschinen</span><span class="badges"><span class="badge badge-preview">Vorschau</span><span class="badge badge-next">Testrelease</span></span></p>
+        <h2 id="vms-title">Virtuelle Maschinen neben Ihren Daten.</h2>
+        <p>Das Plugin Virtuelle Maschinen im App Center bringt libvirt und QEMU aus Debian mit und dazu eine App, in der Administratoren VMs anlegen, ändern, starten und stoppen. Eine VM kann mehrere Platten und Netzwerkkarten haben, ihre ISOs kommen aus einer Image-Bibliothek, und ihre Konsole öffnet sich im Browser.</p>
+        <p>Snapshots erfassen alle Platten einer VM auf einmal, von Hand oder nach Zeitplan. Backups gehen in eine Freigabe oder auf ein USB-Laufwerk und werden als neue VM oder über die alte wiederhergestellt. Für Windows 11 bekommt eine VM ein TPM und Secure Boot.</p>
+        <p>Virtuelle Maschinen sind eine Vorschau und gibt es nur auf x86-64. Das Plugin prüft zuerst, ob der Prozessor sie ausführen kann (Intel VT-x oder AMD-V).</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#413-virtual-machines">Virtuelle Maschinen<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Hardware</dt><dd>Bis zu 8 Platten (virtio oder SATA), bis zu 4 Netzwerkkarten (virtio oder e1000e), bis zu 3 Laufwerke für ISOs; UEFI oder BIOS</dd></div>
+            <div><dt>Vorlagen</dt><dd>Linux, Windows (mit TPM und Secure Boot) und Sonstige</dd></div>
+            <div><dt>Netzwerke</dt><dd>Über das NAS, an einer Bridge, direkt an einer Netzwerkkarte (macvtap) oder in einem internen Netz, von dem sich das NAS selbst fernhält</dd></div>
+            <div><dt>Speicher</dt><dd>Platten als ZFS-Volumes auf einem oder mehreren Pools; jeder Pool zeigt seinen Zustand, seinen Platz und die VMs darauf</dd></div>
+            <div><dt>Images</dt><dd>ISOs aus einer Freigabe kopiert oder aus dem Browser hochgeladen</dd></div>
+            <div><dt>Konsole und Last</dt><dd>Die Konsole im Browser (noVNC); Prozessor und Speicher jeder VM live</dd></div>
+            <div><dt>Snapshots</dt><dd>Alle Platten auf einmal, die Dateisysteme des Gasts eingefroren, wenn sein QEMU Guest Agent antwortet; stündlich, täglich, wöchentlich oder monatlich; zurückgesetzt, während die VM aus ist</dd></div>
+            <div><dt>Backups</dt><dd>Jede Platte mit zstd komprimiert und beim Wiederherstellen an ihrer Prüfsumme geprüft</dd></div>
+            <div><dt>Geräte des Rechners</dt><dd>USB-Geräte, auch während die VM läuft; PCI-Geräte mit IOMMU und ausgeschalteter VM. Geräte, die der Rechner selbst braucht, etwa der Controller seiner Platten, werden verweigert</dd></div>
+            <div><dt>Getestet</dt><dd>In verschachtelten virtuellen Maschinen: VMs mit mehreren Platten und Karten, die Image-Bibliothek, die Konsole, Snapshots per Prüfsumme verglichen, Backups wiederhergestellt, TPM und Secure Boot. Noch nicht: durchgereichte Geräte auf echter Hardware und eine Installation von Windows 11.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="backup" aria-labelledby="backup-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#fbbf24;--c2:#ea580c"><span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span><span>Backups</span><span class="badges"><span class="badge badge-next">Testrelease</span></span></p>
+        <h2 id="backup-title">Eine zweite Kopie, an einem anderen Ort.</h2>
+        <p>ZFS schützt Ihre Daten vor einer ausfallenden Platte, nicht vor einem gelöschten Ordner, einem Brand oder einem Diebstahl. Das Backup-Plugin bringt rsync und rclone aus Debian mit und dazu eine App, in der Administratoren Sicherungsaufgaben einrichten: von einer Freigabe auf einen anderen Pool, ein USB-Laufwerk, einen Server oder in eine Cloud, nach Zeitplan oder immer dann, wenn das Laufwerk eingesteckt wird.</p>
+        <p>Jeder Lauf ist ein Auftrag mit Protokoll und Dateiliste, und ein fehlgeschlagener oder unvollständiger Lauf wird gemeldet. Eine Wiederherstellung holt eine Version ganz oder teilweise zurück, an ihren alten Ort oder in einen anderen Ordner.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#414-backup">Backup<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Ziele</dt><dd>Eine andere Freigabe oder ein anderer Pool, ein USB-Laufwerk, ein rsync-Server über seinen Daemon oder über SSH mit festgehaltenem Host-Schlüssel, Google Drive, OneDrive</dd></div>
+            <div><dt>Von einem Server</dt><dd>Ein Ordner eines Servers ins NAS gesichert</dd></div>
+            <div><dt>Spiegel oder Versionen</dt><dd>Ein Spiegel, der auf Wunsch einige Tage behält, was ein Lauf löscht oder ersetzt; oder datierte Versionen, unveränderte Dateien als Hardlink auf die vorige, behalten nach Anzahl und Alter</dd></div>
+            <div><dt>Verschlüsselung</dt><dd>Namen und Inhalte mit rclones crypt verschlüsselt, in eine Freigabe, auf ein Laufwerk, in eine Cloud oder auf einen SSH-Server</dd></div>
+            <div><dt>Zeitpläne</dt><dd>Stündlich, täglich oder wöchentlich in der Zeitzone des NAS, oder wenn das Laufwerk eingesteckt wird</dd></div>
+            <div><dt>Abschottung</dt><dd>Jeder Lauf in einer eigenen Unit, die nur ihre Ordner sieht und nur ins Ziel schreibt; Passwörter und Schlüssel nie auf einer Befehlszeile; Google Drive gibt nur die Dateien frei, die das NAS schreibt</dd></div>
+            <div><dt>Ebenfalls gesichert</dt><dd>Docker-Volumes in eine Freigabe; virtuelle Maschinen in eine Freigabe oder auf ein USB-Laufwerk; die Konfiguration, siehe Updates und Wiederherstellung</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: Spiegel und Versionen zwischen Pools, ein USB-Laufwerk, ein rsync-Daemon und SSH, Wiederherstellungen, ein verschlüsseltes Backup. Google Drive und OneDrive nur gegen Attrappen: Ein Backup in ein echtes Konto gab es noch nicht.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="network" aria-labelledby="network-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#67e8f9;--c2:#0891b2"><span class="tile" style="--c1:#67e8f9;--c2:#0891b2"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span><span>Netzwerk</span></p>
+        <h2 id="network-title">Netzwerkänderungen, die auf Ihre Bestätigung warten.</h2>
+        <p>Jede Netzwerkkarte bekommt ihre Adressen per DHCP oder fest, IPv6 aus Router-Ankündigungen und bis zu drei Nameserver. zendiloOS verwaltet das Netzwerk über systemd-networkd, jetzt auch auf Installationen vom ISO, und übernimmt ein Debian, das mit ifupdown eingerichtet ist, wenn Sie es wünschen.</p>
+        <p>Eine Änderung bleibt erst, wenn Sie sie innerhalb von zwei Minuten bestätigen, von der neuen Adresse aus, falls sie sich geändert hat; sonst geht alles von selbst zurück. Änderungen an zendiloOS vorbei, etwa an der Konsole, fallen auf, und Sie entscheiden, ob zendiloOS seine Einstellungen wiederherstellt oder die Dateien übernimmt.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#6-further-decisions">Netzwerk<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Je Karte</dt><dd>IPv4 per DHCP, fest oder aus; IPv6 aus Router-Ankündigungen oder aus; bis zu drei Nameserver</dd></div>
+            <div><dt>Bestätigung</dt><dd>Zwei Minuten zum Bestätigen im Browser, sonst geht die Änderung zurück; vor dem Abschalten einer Karte kommt eine Rückfrage <span class="badge badge-next">Testrelease</span></dd></div>
+            <div><dt>Bridges <span class="badge badge-next">Testrelease</span></dt><dd>Kabelgebundene Karten, Bonds und VLANs als Mitglieder, oder keine, nur für VMs; STP aus, wenn nicht gewünscht</dd></div>
+            <div><dt>Bonds <span class="badge badge-next">Testrelease</span></dt><dd>Active-Backup, 802.3ad (LACP) oder balance-alb</dd></div>
+            <div><dt>VLANs <span class="badge badge-next">Testrelease</span></dt><dd>IDs 1 bis 4094, auf einer Karte, einem Bond oder einer Bridge</dd></div>
+            <div><dt>ISO und ifupdown <span class="badge badge-next">Testrelease</span></dt><dd>Installationen vom ISO ab dem ersten Start verwaltet; ein Debian mit ifupdown auf Wunsch übernommen, und was sich nicht übernehmen lässt, mit Datei, Zeile und Grund genannt und so belassen</dd></div>
+            <div><dt>Änderungen von außen <span class="badge badge-next">Testrelease</span></dt><dd>Eine Benachrichtigung und ein Hinweis auf der Netzwerkseite, dann wiederherstellen oder die Dateien übernehmen</dd></div>
+            <div><dt>Name des Rechners <span class="badge badge-next">Testrelease</span></dt><dd>In der Oberfläche geändert, bis zu 15 Zeichen; SMB, mDNS (name.local) und WS-Discovery ziehen mit, und das eigene Zertifikat wird neu erstellt</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: Adressen geändert, eine Änderung, die den Rechner abschneidet, geht zurück, die Übernahme von ifupdown mit und ohne Bestätigung, Bridges, Bonds und VLANs.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="security" aria-labelledby="security-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#fda4af;--c2:#e11d48"><span class="tile" style="--c1:#fda4af;--c2:#e11d48"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Sicherheit</span></p>
+        <h2 id="security-title">Nichts ändert sich ohne Prüfung.</h2>
+        <p>Die Weboberfläche und ihre API laufen ohne Rechte. Was das System verändert, geht durch zendiloos-agent, einen kleinen, abgeschotteten Dienst, der jede Anfrage gegen strenge Regeln prüft und die Werkzeuge mit festen Argumenten aufruft.</p>
+        <p>Die Anmeldung kann einen Code aus einer Authenticator-App verlangen, Fehlversuche sperren die Adresse für eine Weile, und jede Sitzung lässt sich beenden. Die Firewall bestimmt, wer welchen Dienst erreicht, die von Docker veröffentlichten Ports eingeschlossen, und eine Änderung an ihr geht zurück, wenn Sie sie nicht bestätigen.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#4-security-and-permission-model">Sicherheitsmodell<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/licences.md">Lizenzen<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Anmeldung</dt><dd>Zwei Faktoren mit einer Authenticator-App, Wiederherstellungscodes, eine Passwortrichtlinie, Grenzen für Fehlanmeldungen und gesperrte Adressen</dd></div>
+            <div><dt>Rollen</dt><dd>Administrator, Benutzer und Nur-Lesen; der Server prüft jede Anfrage, egal was die Oberfläche zeigt</dd></div>
+            <div><dt>Firewall</dt><dd>nftables, Regeln nach Dienst, Adresse oder Netz, die von Docker veröffentlichten Ports eingeschlossen; eine Änderung geht nach 90 Sekunden ohne Bestätigung zurück</dd></div>
+            <div><dt>HTTPS</dt><dd>TLS 1.2 oder neuer; das eigene Zertifikat des Rechners oder eines von Let’s Encrypt über HTTP-01 oder DNS-01</dd></div>
+            <div><dt>DNS-Anbieter <span class="badge badge-next">Testrelease</span></dt><dd>81 für DNS-01, von DynDNS-Diensten wie IPv64 bis zu Hostern und großen Clouds, jeder gegen Debians acme.sh geprüft</dd></div>
+            <div><dt>SSH</dt><dd>Für eine Aufgabe eingeschaltet, mit Port und der Wahl, wer sich anmelden darf; nach spätestens einem Tag schaltet es sich selbst wieder ab</dd></div>
+            <div><dt>Protokoll</dt><dd>Jede Änderung eines Administrators festgehalten; durchsuchbar und als CSV exportiert <span class="badge badge-next">Testrelease</span></dd></div>
+            <div><dt>Releases</dt><dd>Mit minisign signiert und vor der Installation geprüft</dd></div>
+            <div><dt>Stückliste der Software <span class="badge badge-next">Testrelease</span></dt><dd>CycloneDX für jedes Paket eines Releases, und die Lizenzen von allem, was es enthält</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: TLS, Fehlanmeldungen und gesperrte Adressen, Sitzungen, Zwei-Faktor-Anmeldung, die Firewall mit den Ports von Docker, SSH, das sich selbst abschaltet, Zertifikate über ACME.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="updates" aria-labelledby="updates-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#6ee7b7;--c2:#059669"><span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span>Updates und Wiederherstellung</span></p>
+        <h2 id="updates-title">Updates ohne Überraschungen, und ein Weg zurück.</h2>
+        <p>Einmal am Tag sucht zendiloOS nach Paket-Updates von Debian und nach neuen Releases von zendiloOS in Ihrem Kanal. Sie entscheiden, wann installiert wird, ein Release wird nur mit gültiger Signatur installiert, und das NAS startet nur neu, wenn Sie es sagen.</p>
+        <p>ZFS wird für jeden Kernel gebaut. Ein Kernel, für den das ZFS-Modul nicht gebaut werden konnte, startet nie: GRUB startet weiter den neuesten Kernel, der es hat, und die Seite Updates sagt, welcher als Nächstes startet und warum. <span class="badge badge-next">Testrelease</span></p>
+        <p>Eine Konfigurationssicherung hält Konten, Freigaben, Einstellungen und Zertifikate in einer Datei fest, mit einer Passphrase verschlüsselt. Auf einer frischen Installation statt der Ersteinrichtung wiederhergestellt, bringt sie den Rechner zurück: Die Pools der alten Installation werden importiert, wenn Sie es wollen, und ihre Netzwerk- und Firewall-Einstellungen nacheinander übernommen, jede bestätigt. <span class="badge badge-next">Testrelease</span></p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/releases.md">Releases und Kanäle<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#415-configuration-backup-and-recovery">Konfigurationssicherung und Wiederherstellung<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Kanäle</dt><dd>Stabil für Releases, Test auch für Release-Kandidaten, Entwicklung für jede Änderung; ein NAS nimmt nur eine neuere Version als seine eigene</dd></div>
+            <div><dt>Signatur</dt><dd>minisign über die Prüfsummen; die Signatur nennt die Version, und ein NAS nimmt einen Test- oder Entwicklungsstand nur in diesem Kanal</dd></div>
+            <div><dt>Downloads <span class="badge badge-next">Testrelease</span></dt><dd>Bis zu viermal versucht, wenn GitHub nicht antwortet</dd></div>
+            <div><dt>Konfigurationssicherung <span class="badge badge-next">Testrelease</span></dt><dd>Mit age und einer Passphrase von mindestens 12 Zeichen verschlüsselt; heruntergeladen, oder täglich oder wöchentlich in eine Freigabe oder auf ein USB-Laufwerk, die neuesten behalten</dd></div>
+            <div><dt>Wiederherstellung <span class="badge badge-next">Testrelease</span></dt><dd>Bei der Ersteinrichtung oder später; die ganze Datei geprüft, bevor sich etwas ändert; Pools auf Wunsch importiert; Netzwerk und Firewall erst nach Bestätigung übernommen</dd></div>
+            <div><dt>Rettung <span class="badge badge-next">Testrelease</span></dt><dd>„Rescue a zendiloOS system“ im Startmenü des ISO: eine Shell im installierten System, um von einem Rechner, der nicht mehr startet, eine Sicherung zu holen oder ihn zu reparieren</dd></div>
+            <div><dt>Noch nicht</dt><dd>Ein Wiederherstellungseintrag im Startmenü des installierten Systems und ein Live-Image mit ZFS für einen Rechner, dessen Systemplatte fehlt</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: Updates von Debian und zendiloOS, Verweigerungen, ein Kernel ohne ZFS, der nie startet, eine ältere Installation mit ihren Daten aktualisiert, eine Konfigurationssicherung auf einem frischen Rechner wiederhergestellt und ihr Pool importiert.</dd></div>
+        </dl>
+        <div class="reveal"><div class="stage" style="--c1:#6ee7b7;--c2:#059669"><picture class=""><source srcset="../../assets/img/updates-dark.webp" media="(prefers-color-scheme: dark)"><img src="../../assets/img/updates-light.webp" width="2064" height="1520" alt="Aktualisieren &amp; Wiederherstellen in der Systemsteuerung: zendiloOS 0.2.0 im stabilen Kanal und ein Sicherheitsupdate von Debian, bereit zur Installation." loading="lazy" decoding="async"></picture></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="monitor" aria-labelledby="monitor-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#5eead4;--c2:#0d9488"><span class="tile" style="--c1:#5eead4;--c2:#0d9488"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><span>Überwachung und Benachrichtigungen</span></p>
+        <h2 id="monitor-title">Probleme gemeldet, bevor sie wachsen.</h2>
+        <p>Widgets auf dem Desktop und die Ressourcenanzeige zeigen Prozessor, Speicher, Netzwerk und Platten im Verlauf. zendiloOS sieht jede Minute nach den Pools und alle sechs Stunden nach den SMART-Werten der Platten und sagt Bescheid, wenn sich etwas ändert.</p>
+        <p>Benachrichtigungen erreichen Sie im Browser, per E-Mail über einen Mailserver Ihrer Wahl und per Webhook, für jede Art einzeln gewählt. Eine, die nicht hinausgeht, weil das Netz noch nicht steht, wird später erneut versucht. <span class="badge badge-next">Testrelease</span></p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md#5-storage-concept">Überwachung<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>Kanäle</dt><dd>Im Browser, per E-Mail über einen Mailserver, per Webhook; für jede Art einzeln gewählt</dd></div>
+            <div><dt>Speicher</dt><dd>Ein Pool beeinträchtigt oder wieder intakt, ein Resilver oder Scrub fertig, ein Volume zu 80 oder 90 % voll, die SMART-Werte einer Platte schlechter</dd></div>
+            <div><dt>eMMC <span class="badge badge-next">Testrelease</span></dt><dd>Der Verschleiß einer eMMC-Systemplatte, die kein SMART kennt, wie auf Einplatinenrechnern, etwa dem ZimaBoard</dd></div>
+            <div><dt>Zustellung <span class="badge badge-next">Testrelease</span></dt><dd>Eine Warteschlange, die Neustarts übersteht: erneut versucht, anfangs nach einer Minute, später stündlich, etwa zwölf Stunden lang</dd></div>
+            <div><dt>Weniger Schreibzugriffe <span class="badge badge-next">Testrelease</span></dt><dd>Anfragen, die nur lesen, nur noch im Debug-Protokoll, das Journal auf 512 MiB begrenzt, systemd nur neu geladen, wenn sich etwas geändert hat</dd></div>
+            <div><dt>Getestet</dt><dd>In virtuellen Maschinen: E-Mail und Webhook, eine Zustellung erneut versucht, sobald der Empfänger zurück ist, auch über einen Neustart hinweg.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="hardware" aria-labelledby="hardware-title">
+    <div class="container area-grid">
+      <div class="area-text reveal">
+        <p class="eyebrow-app" style="--c1:#cbd5e1;--c2:#475569"><span class="tile" style="--c1:#cbd5e1;--c2:#475569"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></span><span>Hardware und Architekturen</span></p>
+        <h2 id="hardware-title">Vom Mini-PC bis zum NAS-Board.</h2>
+        <p>zendiloOS läuft auf Debian 13. Auf x86-64 ist das ein NAS-Gerät, ein Mini-PC oder ein eigener Rechner, mit UEFI oder BIOS. Es braucht eine Platte für das System, eine oder mehrere für Daten (SATA oder NVMe) und eine Netzwerkverbindung: Der Installer holt Debians Pakete von dessen Spiegelserver.</p>
+        <p>zendiloOS wird jetzt auch für arm64 gebaut: Pakete und ein Installations-ISO, das über UEFI startet, für NAS-Boards und Einplatinenrechner, deren Firmware einen USB-Stick über UEFI startet und deren Hardware Debians eigener Kernel unterstützt. Boards, die den Kernel ihres Herstellers brauchen, funktionieren nicht. <span class="badge badge-next">Testrelease</span></p>
+        <p>Getestet wird zendiloOS von Anfang bis Ende in virtuellen Maschinen. Der Probebetrieb auf echter NAS-Hardware steht noch aus, und auf einem echten arm64-Board lief es noch nicht.</p>
+        <div class="area-docs"><span>In der Dokumentation (englisch):</span><a class="link" href="https://github.com/mavnezz/zendiloOS#hardware">Hardware<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/testing.md#arm64">Tests auf arm64<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="link" href="https://github.com/mavnezz/zendiloOS/blob/main/docs/testing.md#not-tested-yet">Was noch nicht getestet ist<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="area-side">
+        <dl class="card specs reveal">
+            <div><dt>x86-64</dt><dd>UEFI oder BIOS; das ISO hat beide Startmenüs und den grafischen Installer</dd></div>
+            <div><dt>arm64 <span class="badge badge-next">Testrelease</span></dt><dd>Nur UEFI (EDK2 oder das von U-Boot), der Text-Installer, den auch eine serielle Konsole zeigt; in der CI gebaut und seine Tests auf arm64 ausgeführt; auf einem echten Board noch nicht ausprobiert</dd></div>
+            <div><dt>Virtuelle Maschinen</dt><dd>Nur auf x86-64, mit Intel VT-x oder AMD-V; PCI-Geräte brauchen eine IOMMU</dd></div>
+            <div><dt>Installer</dt><dd>Debians eigener, mit sechs Fragen: Sprache, Standort, Tastatur, Name, Passwort für root und die Platte für das System, die nie für Sie gewählt wird</dd></div>
+            <div><dt>Ein Release enthält</dt><dd>Die Pakete, signierte Prüfsummen und, bei stabilen Releases, die Installations-ISOs; Pakete für arm64 und eine Stückliste der Software je Paket <span class="badge badge-next">Testrelease</span></dd></div>
+            <div><dt>NAS-Modelle</dt><dd>Schachtaufbau bekannter Modelle, zuerst das UGREEN DXP4800 Plus, auf dem echten Gerät noch nicht bestätigt</dd></div>
+            <div><dt>Getestet</dt><dd>Die Installation vom ISO, unbeaufsichtigt in einer frischen virtuellen Maschine. Auf arm64 laufen die Tests des Backends nativ; die emulierte Installation lief noch nicht bis zum Ende.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cta">
+    <div class="container">
+      <div class="cta reveal">
+        <img src="../../favicon.svg" width="64" height="64" alt="">
+        <h2>Geben Sie Ihren Daten ein Zuhause.</h2>
+        <p>ISO herunterladen, auf einem freien Rechner installieren, und Ihr eigenes NAS läuft noch heute Nachmittag.</p>
+        <div class="actions">
+          <a class="btn btn-white" href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO herunterladen</span></a>
+          <a class="btn btn-glass" href="https://github.com/mavnezz/zendiloOS"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span>Auf GitHub ansehen</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../"><img src="../../favicon.svg" width="28" height="28" alt=""><span>zendiloOS</span></a>
+      <p>Ein NAS-Betriebssystem auf Debian, bedient über einen Desktop im Browser.</p>
+      <div class="lang" role="group" aria-label="Sprache"><a href="../../features/" hreflang="en" lang="en" data-lang="en">EN</a><a href="../../de/features/" hreflang="de" lang="de" data-lang="de" aria-current="page">DE</a></div>
+    </div>
+    <nav aria-label="Produkt">
+      <h2>Produkt</h2>
+      <a href="./">Funktionen im Detail</a>
+      <a href="../#install">Installation</a>
+      <a href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso">ISO herunterladen</a>
+      <a href="https://github.com/mavnezz/zendiloOS/releases">Releases</a>
+    </nav>
+    <nav aria-label="Projekt">
+      <h2>Projekt</h2>
+      <a href="https://github.com/mavnezz/zendiloOS">GitHub</a>
+      <a href="https://github.com/mavnezz/zendiloOS/blob/main/docs/architecture.md">Architektur</a>
+      <a href="https://github.com/mavnezz/zendiloOS/blob/main/docs/testing.md">Tests</a>
+      <a href="https://github.com/mavnezz/zendiloOS/blob/main/docs/licences.md">Lizenzen</a>
+      <a href="https://github.com/mavnezz/zendiloOS.community.applications">Community-Katalog</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Die Autoren von zendiloOS. Lizenziert unter Apache-2.0.</p>
+    <p>Debian ist eine eingetragene Marke von Software in the Public Interest, Inc. zendiloOS steht in keiner Verbindung zum Debian-Projekt.</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
