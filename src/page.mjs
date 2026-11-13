@@ -43,7 +43,7 @@ const ICONS = {
   cloudOff:
     '<path d="m2 2 20 20"/><path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"/><path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"/>',
   code: '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
-  chevron: '<path d="m6 9 6 6 6-6"/>',
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
   menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
   close: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
   alert:
@@ -204,7 +204,7 @@ ${Object.entries(c.alternates)
   .map(([lang, dir]) => `<link rel="alternate" hreflang="${lang}" href="${c.site}${dir}">`)
   .join('\n')}
 <link rel="alternate" hreflang="x-default" href="${c.site}${c.alternates.en}">
-<meta name="theme-color" content="#070a16">
+<meta name="theme-color" content="#1f43f5">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="${c.root}favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -217,6 +217,7 @@ ${Object.entries(c.alternates)
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="${c.root}assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${c.root}assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${c.root}${c.assets.css}">
 <script>document.documentElement.classList.add('js')${
@@ -252,7 +253,7 @@ try { if (!localStorage.getItem('zendiloos.lang') && /^de\\b/i.test(navigator.la
     <nav class="nav" id="nav" aria-label="${t.nav.label}">${nav}</nav>
     <div class="header-actions">
       <div class="lang" role="group" aria-label="${t.nav.language}">${langs}</div>
-      <a class="btn btn-small btn-glass" href="${c.repo}" aria-label="GitHub">${GITHUB}<span class="hide-sm">GitHub</span></a>
+      <a class="btn btn-small btn-line" href="${c.repo}" aria-label="GitHub">${GITHUB}<span class="hide-sm">GitHub</span></a>
       <button class="menu-button" type="button" aria-controls="nav" aria-expanded="false" aria-label="${t.nav.menu}">${icon('menu', 22)}${icon('close', 22)}</button>
     </div>
   </div>
@@ -261,15 +262,14 @@ try { if (!localStorage.getItem('zendiloos.lang') && /^de\\b/i.test(navigator.la
   }
 
   const cta = () => `
-  <section class="section section-cta">
-    <div class="container">
-      <div class="cta reveal">
-        <img src="${c.root}favicon.svg" width="64" height="64" alt="">
-        <h2>${t.cta.title}</h2>
+  <section class="cta">
+    <div class="container cta-grid reveal">
+      <h2>${t.cta.title}</h2>
+      <div>
         <p>${t.cta.lead}</p>
         <div class="actions">
-          <a class="btn btn-white" href="${c.iso}">${icon('download', 18)}<span>${t.hero.download}</span></a>
-          <a class="btn btn-glass" href="${c.repo}">${GITHUB}<span>${t.hero.github}</span></a>
+          <a class="btn btn-primary" href="${c.iso}">${icon('download', 18)}<span>${t.hero.download}</span></a>
+          <a class="btn btn-line" href="${c.repo}">${GITHUB}<span>${t.hero.github}</span></a>
         </div>
       </div>
     </div>
@@ -303,6 +303,7 @@ try { if (!localStorage.getItem('zendiloos.lang') && /^de\\b/i.test(navigator.la
     <p>${t.footer.license.replace('{year}', '2026')}</p>
     <p>${t.footer.trademark}${c.imprint ? ` · <a href="${c.imprint}">${t.footer.imprint}</a>` : ''}</p>
   </div>
+  <p class="wordmark" aria-hidden="true">zendiloOS</p>
 </footer>
 
 <script src="${c.root}${c.assets.js}" defer></script>
@@ -310,7 +311,15 @@ try { if (!localStorage.getItem('zendiloos.lang') && /^de\\b/i.test(navigator.la
 </html>
 `
 
-  return { features, badge, badges, fill, shot, stage, head, header, cta, footer }
+  // A section's head: its number and name as a label, the heading, and a
+  // lead beside it.
+  const sectionHead = (n, label, title, lead) => `
+      <header class="head reveal">
+        <p class="label"><b>${String(n).padStart(2, '0')}</b>${label}</p>
+        <h2>${title}</h2>${lead ? `\n        <p>${lead}</p>` : ''}
+      </header>`
+
+  return { features, badge, badges, fill, shot, stage, head, header, cta, footer, sectionHead }
 }
 
 export function renderHome(t, c) {
@@ -319,41 +328,49 @@ export function renderHome(t, c) {
 
   const features = t.features.items
     .map(
-      (f) => `
-        <a class="card feature reveal" href="${s.features}#${FEATURE_AREAS[f.id]}">
-          <span class="feature-top">${tile(f.id)}${s.badges(f.marks)}</span>
-          <h3><span>${f.title}</span>${icon('arrowRight', 16)}</h3>
+      (f, i) => `
+        <li class="reveal"><a class="index-row" href="${s.features}#${FEATURE_AREAS[f.id]}">
+          <span class="index-num">${String(i + 1).padStart(2, '0')}</span>
+          ${tile(f.id)}
+          <h3><span>${f.title}</span>${s.badges(f.marks)}</h3>
           <p>${fill(f.text)}</p>
-        </a>`,
+          ${icon('arrowRight', 18)}
+        </a></li>`,
     )
     .join('')
 
-  const rows = t.tour
-    .map((r, i) => {
-      const image = s.stage(r.id, TOUR_IMAGES[r.id])
-      return `
-      <div class="row${i % 2 ? ' flip' : ''} reveal" id="tour-${r.id}">
-        <div class="row-text">
-          <p class="eyebrow-app" style="${tint(r.id)}">${tile(r.id, 16)}<span>${r.eyebrow}</span>${s.badges(r.marks)}</p>
-          <h3>${r.title}</h3>
-          <p>${fill(r.text)}</p>
-          <ul class="checks">${r.checks.map((x) => `<li>${icon('check', 18)}<span>${fill(x)}</span></li>`).join('')}</ul>
-        </div>
-        ${image}
-      </div>`
-    })
+  // The tour: a tab and a panel per app. The first panel is the one shown.
+  const tabs = t.tour
+    .map(
+      (r, i) =>
+        `<button class="tab" type="button" role="tab" id="tab-${r.id}" aria-controls="tour-${r.id}" aria-selected="${i === 0}"${i ? ' tabindex="-1"' : ''}>${tile(r.id, 16)}<span>${r.eyebrow}</span></button>`,
+    )
+    .join('')
+  const panels = t.tour
+    .map(
+      (r, i) => `
+        <article class="panel${i === 0 ? ' active' : ''}" id="tour-${r.id}" role="tabpanel" aria-labelledby="tab-${r.id}">
+          <div class="panel-text">
+            <p class="panel-app"><span>${r.eyebrow}</span>${s.badges(r.marks)}</p>
+            <h3>${r.title}</h3>
+            <p>${fill(r.text)}</p>
+            <ul class="checks">${r.checks.map((x) => `<li>${icon('check', 18)}<span>${fill(x)}</span></li>`).join('')}</ul>
+          </div>
+          ${s.stage(r.id, TOUR_IMAGES[r.id])}
+        </article>`,
+    )
     .join('')
 
   const nodes = t.security.nodes
     .map(
       (n, i) => `
           <li class="node${i === 2 ? ' node-agent' : ''}">
-            <span class="node-icon">${icon(NODE_ICONS[i], 22)}</span>
+            <span class="node-top">${icon(NODE_ICONS[i], 22)}<small>0${i + 1}</small></span>
             <strong>${n.title}</strong>
             <span>${n.text}</span>
           </li>`,
     )
-    .join('<li class="link" aria-hidden="true"><span></span></li>')
+    .join('<li class="wire" aria-hidden="true"><span></span></li>')
 
   const guards = t.security.cards
     .map(
@@ -365,23 +382,11 @@ export function renderHome(t, c) {
     )
     .join('')
 
-  const hue = (name) => [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 360, 7)
-  const chips = (names, hidden) =>
-    names
-      .map(
-        (n) =>
-          `<li class="app-chip"${hidden ? ' aria-hidden="true"' : ''}><b style="--h:${hue(n)}">${esc(n[0].toUpperCase())}</b>${esc(n)}</li>`,
-      )
-      .join('')
-  const half = Math.ceil(APPS.length / 2)
-  const marquee = (names, reverse) =>
-    `<div class="marquee${reverse ? ' reverse' : ''}"><ul class="marquee-track">${chips(names, false)}${chips(names, true)}</ul></div>`
-
   const steps = t.install.steps
     .map(
       (st, i) => `
           <li class="step reveal">
-            <span class="step-num">0${i + 1}</span>
+            <span class="step-num">${i + 1}</span>
             <h3>${st.title}</h3>
             <p>${fill(st.text)}</p>
           </li>`,
@@ -391,8 +396,8 @@ export function renderHome(t, c) {
   const values = t.values.items
     .map(
       (v, i) => `
-        <article class="card value reveal">
-          <span class="value-icon">${icon(VALUE_ICONS[i], 22)}</span>
+        <article class="value reveal">
+          <span class="value-icon">${icon(VALUE_ICONS[i], 26)}</span>
           <h3>${v.title}</h3>
           <p>${v.text}</p>
         </article>`,
@@ -404,7 +409,7 @@ export function renderHome(t, c) {
     .map(
       (f) => `
           <details>
-            <summary><span>${f.q}</span>${icon('chevron', 20)}</summary>
+            <summary><span>${f.q}</span>${icon('plus', 22)}</summary>
             <div class="answer"><p>${fill(f.a)}</p></div>
           </details>`,
     )
@@ -413,8 +418,10 @@ export function renderHome(t, c) {
   const next = c.next
     ? `
       <div class="hero-next">
-        <a class="hero-next-link" href="${c.next.url}"><span>${fill(t.hero.next.link)}</span>${icon('arrowRight', 14)}</a>
-        <p>${fill(t.hero.next.text)}</p>
+        <div>
+          <a class="hero-next-link" href="${c.next.url}"><span>${fill(t.hero.next.link)}</span>${icon('arrowRight', 14)}</a>
+          <p>${fill(t.hero.next.text)}</p>
+        </div>
         <p class="hero-next-isos">${[
           ['amd64', t.hero.next.isoAmd64],
           ['arm64', t.hero.next.isoArm64],
@@ -441,55 +448,41 @@ export function renderHome(t, c) {
   return `${s.head({ title: t.title, description: t.description, ld })}${s.header()}
 <main id="main">
   <section class="hero">
-    <div class="container hero-text">
-      <a class="pill" href="${c.repo}/releases/latest" data-release="${esc(t.hero.release)}">
-        <span class="pill-dot"></span><span data-release-text>${t.hero.pill}</span>${icon('arrowRight', 14)}
+    <div class="container">
+      <a class="release" href="${c.repo}/releases/latest" data-release="${esc(t.hero.release)}">
+        <i class="led"></i><span data-release-text>${t.hero.pill}</span>${icon('arrowRight', 14)}
       </a>
       <h1>${t.hero.title}</h1>
-      <p class="lead">${t.hero.lead}</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="${c.iso}" data-download>${icon('download', 18)}<span>${t.hero.download}</span></a>
-        <a class="btn btn-glass" href="${c.repo}">${GITHUB}<span>${t.hero.github}</span></a>
-      </div>
-      <p class="hero-meta"><span data-download-meta data-template="${esc(t.hero.downloadMeta)}">${t.hero.meta}</span></p>${next}
-    </div>
-    <div class="container">
-      <div class="hero-visual">
-        <div class="frame">
-          <div class="frame-bar" aria-hidden="true">
-            <i></i><i></i><i></i>
-            <span class="frame-url">${icon('lock', 12)}192.168.1.20</span>
+      <div class="hero-grid">
+        <p class="lead">${t.hero.lead}</p>
+        <div>
+          <div class="actions">
+            <a class="btn btn-primary" href="${c.iso}" data-download>${icon('download', 18)}<span>${t.hero.download}</span></a>
+            <a class="btn btn-line" href="${c.repo}">${GITHUB}<span>${t.hero.github}</span></a>
           </div>
-          ${s.shot('hero', t.hero.alt, { eager: true })}
+          <p class="hero-meta"><span data-download-meta data-template="${esc(t.hero.downloadMeta)}">${t.hero.meta}</span></p>
         </div>
-        <div class="chip chip-a" aria-hidden="true">
-          ${tile('storage', 18)}
-          <span><strong>${t.hero.chipPool[0]}</strong><small><i class="ok"></i>${t.hero.chipPool[1]}</small></span>
-        </div>
-        <div class="chip chip-b" aria-hidden="true">
-          ${tile('updates', 18)}
-          <span><strong>${t.hero.chipUpdate[0]}</strong><small>${t.hero.chipUpdate[1]}</small></span>
-        </div>
-      </div>
+      </div>${next}
+    </div>
+    <div class="container hero-visual">
+      ${s.shot('hero', t.hero.alt, { eager: true })}
     </div>
   </section>
 
-  <section class="built-on" aria-label="${esc(t.builtOn.title)}">
+  <section class="zeros" aria-label="${esc(t.zeros.label)}">
     <div class="container">
-      <p>${t.builtOn.title}</p>
-      <ul>${['Debian', 'OpenZFS', 'Samba', 'NFS', 'Docker', 'nginx', 'Rust', 'Vue'].map((n) => `<li>${n}</li>`).join('')}</ul>
+      <ul class="zeros-list reveal">${t.zeros.items.map(([n, what]) => `<li><strong>${n}</strong><span>${what}</span></li>`).join('')}</ul>
+      <div class="built-on">
+        <p>${t.builtOn.title}</p>
+        <ul>${['Debian', 'OpenZFS', 'Samba', 'NFS', 'Docker', 'nginx', 'Rust', 'Vue'].map((n) => `<li>${n}</li>`).join('')}</ul>
+      </div>
     </div>
   </section>
 
   <section class="section" id="features">
-    <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">${t.features.eyebrow}</p>
-        <h2>${t.features.title}</h2>
-        <p>${t.features.lead}</p>
-      </header>
-      <div class="features">${features}
-      </div>
+    <div class="container">${s.sectionHead(1, t.features.eyebrow, t.features.title, t.features.lead)}
+      <ol class="index">${features}
+      </ol>
       <div class="features-more reveal">
         ${c.next ? `<p class="legend">${fill(t.features.legend)}</p>` : ''}
         <a class="link" href="${s.features}">${t.features.more}${icon('arrowRight', 16)}</a>
@@ -498,58 +491,41 @@ export function renderHome(t, c) {
   </section>
 
   <section class="section section-tour" aria-label="${esc(t.tourLabel)}">
-    <div class="container tour">${rows}
-    </div>
-  </section>
-
-  <section class="section" id="security">
-    <div class="container">
-      <div class="panel-dark reveal">
-        <header class="section-head">
-          <p class="eyebrow">${t.security.eyebrow}</p>
-          <h2>${t.security.title}</h2>
-          <p>${t.security.lead}</p>
-        </header>
-        <ol class="flow">${nodes}
-        </ol>
-        <div class="guards">${guards}
-        </div>
+    <div class="container reveal">
+      <div class="tabs" role="tablist" aria-label="${esc(t.tourLabel)}">${tabs}</div>
+      <div class="panels">${panels}
       </div>
     </div>
   </section>
 
-  <section class="section section-apps" id="apps">
-    <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">${t.apps.eyebrow}</p>
-        <h2>${t.apps.title}</h2>
-        <p>${t.apps.lead}</p>
-      </header>
+  <section class="band" id="security">
+    <div class="container">${s.sectionHead(2, t.security.eyebrow, t.security.title, t.security.lead)}
+      <ol class="flow reveal">${nodes}
+      </ol>
+      <div class="guards reveal">${guards}
+      </div>
     </div>
-    <div class="marquees reveal">
-      ${marquee(APPS.slice(0, half), false)}
-      ${marquee(APPS.slice(half), true)}
+  </section>
+
+  <section class="section" id="apps">
+    <div class="container">${s.sectionHead(3, t.apps.eyebrow, t.apps.title, t.apps.lead)}
+      <ul class="wall reveal">${APPS.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
+      <p class="wall-more"><a class="link" href="${c.catalog}">${t.apps.link}${icon('arrowRight', 16)}</a></p>
     </div>
-    <p class="center"><a class="link" href="${c.catalog}">${t.apps.link}${icon('arrowRight', 16)}</a></p>
   </section>
 
   <section class="section" id="install">
-    <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">${t.install.eyebrow}</p>
-        <h2>${t.install.title}</h2>
-        <p>${t.install.lead}</p>
-      </header>
+    <div class="container">${s.sectionHead(4, t.install.eyebrow, t.install.title, t.install.lead)}
       <ol class="steps">${steps}
       </ol>
       <div class="install-more">
-        <div class="card need reveal">
+        <div class="need reveal">
           <h3>${t.install.needTitle}</h3>
           <ul class="checks">${t.install.need.map((x) => `<li>${icon('check', 18)}<span>${fill(x)}</span></li>`).join('')}</ul>
           <p class="note">${icon('alert', 18)}<span>${t.install.note}</span></p>
           <p class="need-more"><a class="link" href="${s.features}#hardware">${t.install.needMore}${icon('arrowRight', 16)}</a></p>
         </div>
-        <div class="card debian reveal">
+        <div class="debian reveal">
           <h3>${t.install.debianTitle}</h3>
           <p>${t.install.debianText.replace('{releases}', `${c.repo}/releases/latest`)}</p>
           <div class="code">
@@ -565,11 +541,7 @@ sudo apt install ./zendiloos_<span data-version-text>&lt;version&gt;</span>_amd6
   </section>
 
   <section class="section" id="open-source">
-    <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">${t.values.eyebrow}</p>
-        <h2>${t.values.title}</h2>
-      </header>
+    <div class="container">${s.sectionHead(5, t.values.eyebrow, t.values.title)}
       <div class="values">${values}
       </div>
     </div>
@@ -578,7 +550,7 @@ sudo apt install ./zendiloos_<span data-version-text>&lt;version&gt;</span>_amd6
   <section class="section" id="faq">
     <div class="container faq">
       <header class="reveal">
-        <p class="eyebrow">${t.faq.eyebrow}</p>
+        <p class="label"><b>06</b>${t.faq.eyebrow}</p>
         <h2>${t.faq.title}</h2>
         <p>${t.faq.more.replace('{issues}', `${c.repo}/issues`)}</p>
       </header>
@@ -618,13 +590,13 @@ export function renderFeatures(t, c) {
   <section class="area" id="${a.id}" aria-labelledby="${a.id}-title">
     <div class="container area-grid">
       <div class="area-text reveal">
-        <p class="eyebrow-app" style="${tint(area.tile)}">${tile(area.tile, 16)}<span>${a.label}</span>${s.badges(a.marks)}</p>
+        <p class="panel-app">${tile(area.tile, 16)}<span>${a.label}</span>${s.badges(a.marks)}</p>
         <h2 id="${a.id}-title">${a.title}</h2>
         ${a.text.map((p) => `<p>${fill(p)}</p>`).join('\n        ')}
         <div class="area-docs"><span>${d.docs}</span>${docs}</div>
       </div>
       <div class="area-side">
-        <dl class="card specs reveal">${specs}
+        <dl class="specs reveal">${specs}
         </dl>${shots.length ? `\n        <div class="reveal">${s.stage(area.tile, shots)}</div>` : ''}
       </div>
     </div>
@@ -635,8 +607,8 @@ export function renderFeatures(t, c) {
   return `${s.head({ title: d.title, description: fill(d.description) })}${s.header()}
 <main id="main">
   <section class="hero hero-page">
-    <div class="container hero-text">
-      <p class="eyebrow">${d.eyebrow}</p>
+    <div class="container">
+      <p class="label"><i class="led"></i>${d.eyebrow}</p>
       <h1>${d.heading}</h1>
       <p class="lead">${d.lead}</p>
       <p class="hero-status">${fill(c.next ? d.legend : d.legendStable)}</p>

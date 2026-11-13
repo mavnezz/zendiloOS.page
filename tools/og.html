@@ -4,39 +4,29 @@
 <html><head><meta charset="utf-8">
 <style>
 @font-face { font-family: 'Geist'; src: url('../assets/fonts/geist.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'Archivo'; src: url('../assets/fonts/archivo.woff2') format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: 'JetBrains Mono'; src: url('../assets/fonts/jetbrains-mono.woff2') format('woff2'); font-weight: 100 800; }
 * { box-sizing: border-box; margin: 0; }
 html, body { width: 1200px; height: 630px; overflow: hidden; }
-body {
-  font-family: 'Geist', sans-serif; color: #fff;
-  background:
-    radial-gradient(700px 420px at 12% 0%, rgba(84, 104, 255, 0.45), transparent 70%),
-    radial-gradient(600px 400px at 100% 10%, rgba(32, 160, 140, 0.30), transparent 70%),
-    radial-gradient(800px 500px at 60% 120%, rgba(70, 60, 200, 0.35), transparent 70%),
-    #070a14;
-  position: relative;
-}
-.grid { position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-  background-size: 48px 48px; mask-image: radial-gradient(900px 600px at 30% 30%, #000, transparent 80%); }
-.left { position: absolute; left: 72px; top: 72px; bottom: 60px; width: 560px; display: flex; flex-direction: column; }
-.brand { display: flex; align-items: center; gap: 16px; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
-.brand img { width: 52px; height: 52px; }
-h1 { margin-top: 44px; font-size: 60px; line-height: 1.04; font-weight: 700; letter-spacing: -0.035em; }
-h1 em { font-style: normal; background: linear-gradient(95deg, #9db4ff 10%, #7fe3d3 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-p.lead { margin-top: 22px; width: 540px; font-size: 22px; line-height: 1.45; color: rgba(255,255,255,0.72); }
-.pills { margin-top: auto; display: flex; gap: 12px; }
-.pills span { padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); font-size: 18px; font-weight: 500; }
-.shot { position: absolute; left: 670px; top: 110px; width: 760px; height: 475px; border-radius: 14px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+body { font-family: 'Geist', sans-serif; color: #fff; background: #1f43f5; position: relative; }
+.left { position: absolute; left: 64px; top: 56px; bottom: 56px; width: 640px; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 14px; font-family: 'Archivo'; font-stretch: 112%; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+.brand img { width: 48px; height: 48px; border-radius: 11px; box-shadow: 0 0 0 1.5px rgba(255,255,255,.3); }
+h1 { margin-top: 40px; font-family: 'Archivo'; font-stretch: 122%; font-size: 66px; line-height: 0.96; font-weight: 800; letter-spacing: -0.035em; }
+h1 em { font-style: normal; color: #c8ff3d; }
+p.lead { margin-top: 26px; width: 520px; font-size: 22px; line-height: 1.4; color: rgba(255,255,255,0.88); }
+.facts { margin-top: auto; display: flex; gap: 22px; font-family: 'JetBrains Mono'; font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; }
+.facts span + span { padding-left: 22px; border-left: 1px solid rgba(255,255,255,0.4); }
+.shot { position: absolute; left: 730px; top: 96px; width: 760px; height: 475px; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(11,13,18,.5), 0 30px 70px -20px rgba(11,13,18,0.6); }
 .shot img { width: 760px; display: block; }
 </style></head>
 <body>
-<div class="grid"></div>
 <div class="left">
 <div class="brand"><img src="../favicon.svg" alt="">zendiloOS</div>
 <h1 id="t"></h1>
 <p class="lead" id="l"></p>
-<div class="pills"><span id="p1"></span><span>Debian 13</span></div>
+<div class="facts"><span>Apache-2.0</span><span>Debian 13</span><span>ZFS</span></div>
 </div>
 <div class="shot"><img src="../assets/img/hero-dark.webp" alt=""></div>
 <script>
@@ -45,6 +35,5 @@ document.getElementById('t').innerHTML = de ? 'Das Open-Source-NAS ohne <em>Hake
 document.getElementById('l').textContent = de
   ? 'Kein Konto, kein Abo, keine Telemetrie. ZFS-Speicher, freigegebene Ordner, Docker-Apps und signierte Updates im Browser.'
   : 'No account, no subscription, no telemetry. ZFS storage, shared folders, Docker apps and signed updates in your browser.'
-document.getElementById('p1').textContent = 'Apache-2.0'
 </script>
 </body></html>

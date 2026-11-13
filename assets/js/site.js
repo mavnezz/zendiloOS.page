@@ -1,6 +1,6 @@
 // The few things the page does: the header on scroll, the menu on small
-// screens, sections that appear, the copy button, the chosen language and
-// the newest release from GitHub.
+// screens, sections that appear, the tour's tabs, the copy button, the
+// chosen language and the newest release from GitHub.
 ;(() => {
   const header = document.querySelector('.header')
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24)
@@ -36,6 +36,36 @@
   } else {
     reveal.forEach((el) => el.classList.add('shown'))
   }
+
+  // The tour's tabs: one app's panel at a time, with the arrow keys from tab
+  // to tab, and a link to a panel (#tour-backup) opening it.
+  const tabs = [...document.querySelectorAll('[role="tab"]')]
+  const select = (tab, focus) => {
+    for (const other of tabs) {
+      const on = other === tab
+      other.setAttribute('aria-selected', String(on))
+      other.tabIndex = on ? 0 : -1
+      document.getElementById(other.getAttribute('aria-controls')).classList.toggle('active', on)
+    }
+    const row = tab.parentElement
+    row.scrollTo({ left: tab.offsetLeft - row.offsetLeft - 20, behavior: 'smooth' })
+    if (focus) tab.focus({ preventScroll: true })
+  }
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab))
+    tab.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0
+      if (!step) return
+      e.preventDefault()
+      select(tabs[(i + step + tabs.length) % tabs.length], true)
+    })
+  })
+  const linked = () => {
+    const tab = tabs.find((t) => `#${t.getAttribute('aria-controls')}` === location.hash)
+    if (tab) select(tab)
+  }
+  linked()
+  window.addEventListener('hashchange', linked)
 
   // The language picked here wins over the browser's from now on.
   document.querySelectorAll('[data-lang]').forEach((a) =>

@@ -9,7 +9,7 @@
 <link rel="alternate" hreflang="en" href="https://mavnezz.github.io/zendiloOS.page/">
 <link rel="alternate" hreflang="de" href="https://mavnezz.github.io/zendiloOS.page/de/">
 <link rel="alternate" hreflang="x-default" href="https://mavnezz.github.io/zendiloOS.page/">
-<meta name="theme-color" content="#070a16">
+<meta name="theme-color" content="#1f43f5">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -22,8 +22,9 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=f3205875d3e2">
+<link rel="stylesheet" href="../assets/css/site.css?v=0ff31d3ed882">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"zendiloOS","description":"zendiloOS macht aus Debian 13 ein NAS mit ZFS-Speicher, über SMB und NFS freigegebenen Ordnern, einem App Center für Docker-Apps, Zwei-Faktor-Anmeldung, Firewall und signierten Updates, bedient über einen Desktop im Browser. Kostenlos und Open Source.","url":"https://mavnezz.github.io/zendiloOS.page/de/","downloadUrl":"https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso","operatingSystem":"Debian 13","applicationCategory":"UtilitiesApplication","license":"https://www.apache.org/licenses/LICENSE-2.0","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"image":"https://mavnezz.github.io/zendiloOS.page/assets/img/og-de.jpg"}</script>
 </head>
@@ -39,7 +40,7 @@
     <nav class="nav" id="nav" aria-label="Hauptmenü"><a href="features/">Funktionen</a><a href="#security">Sicherheit</a><a href="#apps">Apps</a><a href="#install">Installation</a><a href="#faq">FAQ</a></nav>
     <div class="header-actions">
       <div class="lang" role="group" aria-label="Sprache"><a href="../" hreflang="en" lang="en" data-lang="en">EN</a><a href="../de/" hreflang="de" lang="de" data-lang="de" aria-current="page">DE</a></div>
-      <a class="btn btn-small btn-glass" href="https://github.com/mavnezz/zendiloOS" aria-label="GitHub"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span class="hide-sm">GitHub</span></a>
+      <a class="btn btn-small btn-line" href="https://github.com/mavnezz/zendiloOS" aria-label="GitHub"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span class="hide-sm">GitHub</span></a>
       <button class="menu-button" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menü"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     </div>
   </div>
@@ -47,120 +48,137 @@
 
 <main id="main">
   <section class="hero">
-    <div class="container hero-text">
-      <a class="pill" href="https://github.com/mavnezz/zendiloOS/releases/latest" data-release="zendiloOS {version} ist da">
-        <span class="pill-dot"></span><span data-release-text>Kostenlos und Open Source</span><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    <div class="container">
+      <a class="release" href="https://github.com/mavnezz/zendiloOS/releases/latest" data-release="zendiloOS {version} ist da">
+        <i class="led"></i><span data-release-text>Kostenlos und Open Source</span><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <h1>Das Open-Source-NAS ohne <em>Haken</em>.</h1>
-      <p class="lead">Kein Konto, kein Abo, keine Telemetrie. zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, freigegebene Ordner für jedes Gerät im Haus, Apps als Ihre eigenen Docker-Projekte und Updates per Klick.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso" data-download><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO herunterladen</span></a>
-        <a class="btn btn-glass" href="https://github.com/mavnezz/zendiloOS"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span>Auf GitHub ansehen</span></a>
+      <div class="hero-grid">
+        <p class="lead">Kein Konto, kein Abo, keine Telemetrie. zendiloOS macht aus einem gewöhnlichen Debian 13 ein NAS, das Sie im Browser bedienen: ZFS für Ihre Daten, freigegebene Ordner für jedes Gerät im Haus, Apps als Ihre eigenen Docker-Projekte und Updates per Klick.</p>
+        <div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso" data-download><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO herunterladen</span></a>
+            <a class="btn btn-line" href="https://github.com/mavnezz/zendiloOS"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span>Auf GitHub ansehen</span></a>
+          </div>
+          <p class="hero-meta"><span data-download-meta data-template="Version {version} · {size} · x86-64 · Apache-2.0">Für x86-64-Rechner · Debian 13 als Basis · Apache-2.0</span></p>
+        </div>
       </div>
-      <p class="hero-meta"><span data-download-meta data-template="Version {version} · {size} · x86-64 · Apache-2.0">Für x86-64-Rechner · Debian 13 als Basis · Apache-2.0</span></p>
       <div class="hero-next">
-        <a class="hero-next-link" href="https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1"><span>Testrelease 0.5.0~rc.1 ausprobieren</span><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        <p>Virtuelle Maschinen, Backups, Bridges und Bonds, arm64. Zum Ausprobieren, noch nicht für Daten, die Ihnen fehlen würden.</p>
+        <div>
+          <a class="hero-next-link" href="https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1"><span>Testrelease 0.5.0~rc.1 ausprobieren</span><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <p>Virtuelle Maschinen, Backups, Bridges und Bonds, arm64. Zum Ausprobieren, noch nicht für Daten, die Ihnen fehlen würden.</p>
+        </div>
         <p class="hero-next-isos"><a href="https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-amd64-netinst.iso"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO für x86-64</span></a><a href="https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-arm64-netinst.iso"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO für arm64</span></a></p>
       </div>
     </div>
-    <div class="container">
-      <div class="hero-visual">
-        <div class="frame">
-          <div class="frame-bar" aria-hidden="true">
-            <i></i><i></i><i></i>
-            <span class="frame-url"><svg class="i" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>192.168.1.20</span>
-          </div>
-          <picture class=""><source srcset="../assets/img/hero-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/hero-light.webp" width="2880" height="1800" alt="Der zendiloOS-Desktop im Browser: Der Datei-Explorer zeigt den Ordner documents, daneben zeigen Widgets Systemzustand, Auslastung, Netzwerk und Speicher." fetchpriority="high" decoding="async"></picture>
-        </div>
-        <div class="chip chip-a" aria-hidden="true">
-          <span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>
-          <span><strong>Pool tank</strong><small><i class="ok"></i>Spiegel · intakt</small></span>
-        </div>
-        <div class="chip chip-b" aria-hidden="true">
-          <span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
-          <span><strong>Update installiert</strong><small>Signatur geprüft</small></span>
-        </div>
-      </div>
+    <div class="container hero-visual">
+      <picture class=""><source srcset="../assets/img/hero-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/hero-light.webp" width="2880" height="1800" alt="Der zendiloOS-Desktop im Browser: Der Datei-Explorer zeigt den Ordner documents, daneben zeigen Widgets Systemzustand, Auslastung, Netzwerk und Speicher." fetchpriority="high" decoding="async"></picture>
     </div>
   </section>
 
-  <section class="built-on" aria-label="Gebaut auf Open Source, der Sie schon vertrauen">
+  <section class="zeros" aria-label="Was zendiloOS nicht von Ihnen verlangt">
     <div class="container">
-      <p>Gebaut auf Open Source, der Sie schon vertrauen</p>
-      <ul><li>Debian</li><li>OpenZFS</li><li>Samba</li><li>NFS</li><li>Docker</li><li>nginx</li><li>Rust</li><li>Vue</li></ul>
+      <ul class="zeros-list reveal"><li><strong>0</strong><span>Konten</span></li><li><strong>0</strong><span>Abos</span></li><li><strong>0</strong><span>Byte Telemetrie</span></li><li><strong>100 %</strong><span>Open Source</span></li></ul>
+      <div class="built-on">
+        <p>Gebaut auf Open Source, der Sie schon vertrauen</p>
+        <ul><li>Debian</li><li>OpenZFS</li><li>Samba</li><li>NFS</li><li>Docker</li><li>nginx</li><li>Rust</li><li>Vue</li></ul>
+      </div>
     </div>
   </section>
 
   <section class="section" id="features">
     <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">Funktionen</p>
+      <header class="head reveal">
+        <p class="label"><b>01</b>Funktionen</p>
         <h2>Alles, was ein NAS braucht, auf einem Desktop.</h2>
         <p>Speicher, freigegebene Ordner, Apps und das System drumherum, mit Fenstern, Dock und Widgets, wie Sie sie längst kennen.</p>
       </header>
-      <div class="features">
-        <a class="card feature reveal" href="features/#storage">
-          <span class="feature-top"><span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span></span>
-          <h3><span>Speicher mit ZFS</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+      <ol class="index">
+        <li class="reveal"><a class="index-row" href="features/#storage">
+          <span class="index-num">01</span>
+          <span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>
+          <h3><span>Speicher mit ZFS</span></h3>
           <p>Pools von der einzelnen Platte bis RAIDZ3, mit Leitplanken, die erklären, was jede Anordnung übersteht, und jede Platte in ihrem Schacht.</p>
-        </a>
-        <a class="card feature reveal" href="features/#files">
-          <span class="feature-top"><span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span></span>
-          <h3><span>Freigegebene Ordner</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#files">
+          <span class="index-num">02</span>
+          <span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span>
+          <h3><span>Freigegebene Ordner</span></h3>
           <p>Ordner auf einem Volume, freigegeben über SMB für Windows und macOS und NFS für Linux, mit Zugriff für jede Person und Gruppe.</p>
-        </a>
-        <a class="card feature reveal" href="features/#files">
-          <span class="feature-top"><span class="tile" style="--c1:#a5b4fc;--c2:#4f46e5"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></span></span>
-          <h3><span>Snapshots</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#files">
+          <span class="index-num">03</span>
+          <span class="tile" style="--c1:#a5b4fc;--c2:#4f46e5"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></span>
+          <h3><span>Snapshots</span></h3>
           <p>Snapshots, die Windows als vorherige Versionen anzeigt, und ein Papierkorb für alle Ordner.</p>
-        </a>
-        <a class="card feature reveal" href="features/#files">
-          <span class="feature-top"><span class="tile" style="--c1:#fde047;--c2:#eab308"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg></span></span>
-          <h3><span>Datei-Explorer</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#files">
+          <span class="index-num">04</span>
+          <span class="tile" style="--c1:#fde047;--c2:#eab308"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg></span>
+          <h3><span>Datei-Explorer</span></h3>
           <p>Ein Baum Ihrer Ordner, Ziehen und Ablegen, eine Suche durch alle Unterordner und USB-Laufwerke zum Kopieren.</p>
-        </a>
-        <a class="card feature reveal" href="features/#apps">
-          <span class="feature-top"><span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span></span>
-          <h3><span>App Center</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#apps">
+          <span class="index-num">05</span>
+          <span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+          <h3><span>App Center</span></h3>
           <p>Apps aus einem Community-Katalog, installiert als Ihre eigenen Docker-Projekte, die Sie ändern können.</p>
-        </a>
-        <a class="card feature reveal" href="features/#apps">
-          <span class="feature-top"><span class="tile" style="--c1:#7dd3fc;--c2:#0284c7"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span></span>
-          <h3><span>Docker</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#apps">
+          <span class="index-num">06</span>
+          <span class="tile" style="--c1:#7dd3fc;--c2:#0284c7"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+          <h3><span>Docker</span></h3>
           <p>Container, Images, Netzwerke und Compose-Projekte, mit Live-Logs, Terminal, Image-Updates und Backups der Volumes.</p>
-        </a>
-        <a class="card feature reveal" href="features/#vms">
-          <span class="feature-top"><span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span><span class="badges"><span class="badge badge-preview">Vorschau</span><span class="badge badge-next">Testrelease</span></span></span>
-          <h3><span>Virtuelle Maschinen</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#vms">
+          <span class="index-num">07</span>
+          <span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span>
+          <h3><span>Virtuelle Maschinen</span><span class="badges"><span class="badge badge-preview">Vorschau</span><span class="badge badge-next">Testrelease</span></span></h3>
           <p>VMs mit mehreren Platten und Netzwerkkarten, Konsole im Browser, Snapshots und Backups, dazu TPM und Secure Boot für Windows 11.</p>
-        </a>
-        <a class="card feature reveal" href="features/#backup">
-          <span class="feature-top"><span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span><span class="badges"><span class="badge badge-next">Testrelease</span></span></span>
-          <h3><span>Backups</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#backup">
+          <span class="index-num">08</span>
+          <span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span>
+          <h3><span>Backups</span><span class="badges"><span class="badge badge-next">Testrelease</span></span></h3>
           <p>Freigaben auf einen anderen Pool, ein USB-Laufwerk, einen rsync-Server, Google Drive oder OneDrive, auf Wunsch verschlüsselt, und die Konfiguration gesichert für einen Neuanfang.</p>
-        </a>
-        <a class="card feature reveal" href="features/#network">
-          <span class="feature-top"><span class="tile" style="--c1:#67e8f9;--c2:#0891b2"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span><span class="badges"><span class="badge badge-next">Testrelease</span></span></span>
-          <h3><span>Netzwerk</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#network">
+          <span class="index-num">09</span>
+          <span class="tile" style="--c1:#67e8f9;--c2:#0891b2"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span>
+          <h3><span>Netzwerk</span><span class="badges"><span class="badge badge-next">Testrelease</span></span></h3>
           <p>Adressen, Bridges, Bonds und VLANs; jede Änderung bleibt erst, wenn Sie sie bestätigen, und Änderungen an zendiloOS vorbei fallen auf.</p>
-        </a>
-        <a class="card feature reveal" href="features/#updates">
-          <span class="feature-top"><span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span></span>
-          <h3><span>Signierte Updates</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#updates">
+          <span class="index-num">10</span>
+          <span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+          <h3><span>Signierte Updates</span></h3>
           <p>Debian und zendiloOS an einer Stelle, aus dem Kanal Ihrer Wahl, jedes Release signiert.</p>
-        </a>
-        <a class="card feature reveal" href="features/#security">
-          <span class="feature-top"><span class="tile" style="--c1:#fda4af;--c2:#e11d48"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span></span>
-          <h3><span>Sicherheit</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#security">
+          <span class="index-num">11</span>
+          <span class="tile" style="--c1:#fda4af;--c2:#e11d48"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3><span>Sicherheit</span></h3>
           <p>Zwei-Faktor-Anmeldung, eine Firewall, Zertifikate von Let’s Encrypt, Grenzen für Fehlanmeldungen und SSH, das sich selbst abschaltet.</p>
-        </a>
-        <a class="card feature reveal" href="features/#monitor">
-          <span class="feature-top"><span class="tile" style="--c1:#5eead4;--c2:#0d9488"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span></span>
-          <h3><span>Überwachung</span><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></h3>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+        <li class="reveal"><a class="index-row" href="features/#monitor">
+          <span class="index-num">12</span>
+          <span class="tile" style="--c1:#5eead4;--c2:#0d9488"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span>
+          <h3><span>Überwachung</span></h3>
           <p>Prozessor, Speicher, Netzwerk und Platten im Verlauf, und Benachrichtigungen per E-Mail oder Webhook, bevor es ernst wird.</p>
-        </a>
-      </div>
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a></li>
+      </ol>
       <div class="features-more reveal">
         <p class="legend"><span class="badge badge-next">Testrelease</span> nur in 0.5.0~rc.1, noch nicht im stabilen Release</p>
         <a class="link" href="features/">Alle Funktionen im Detail<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -169,104 +187,106 @@
   </section>
 
   <section class="section section-tour" aria-label="Ein Rundgang durch zendiloOS">
-    <div class="container tour">
-      <div class="row reveal" id="tour-storage">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#a78bfa;--c2:#7c3aed"><span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><span>Speicher</span></p>
-          <h3>Ihre Daten auf ZFS, mit Leitplanken.</h3>
-          <p>Pools vom Spiegel bis RAIDZ3 entstehen mit wenigen Klicks. zendiloOS sagt Ihnen, was jede Anordnung übersteht, warnt, wenn ein Pool keine Redundanz mehr hat, und behält jede Platte im Blick.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SMART-Werte und Selbsttests nach Zeitplan</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Scrubs, die stille Fehler finden, bevor sie sich ausbreiten</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihr NAS gezeichnet, jede Platte in ihrem Schacht, und eine Platte, die zum Finden blinkt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ein Assistent, der Platz und Schutz jeder Anordnung abschätzt <span class="badge badge-next">Testrelease</span></span></li></ul>
-        </div>
-        <div class="stage stack" style="--c1:#a78bfa;--c2:#7c3aed"><picture class=""><source srcset="../assets/img/disks-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/disks-light.webp" width="2064" height="1520" alt="Die Laufwerke in der Systemsteuerung: ein Hinweis, dass der Pool apps keine Redundanz hat, und das NAS gezeichnet, jede Platte in ihrem Schacht mit Modell, Größe, Temperatur und Pool." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/pool-wizard-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/pool-wizard-light.webp" width="1792" height="1472" alt="Der Assistent für einen neuen Pool: zwei Platten gewählt, daraus ein Spiegel mit etwa 8 GiB nutzbarem Platz, doppeltem Lesetempo und einer Platte, die ausfallen darf." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row flip reveal" id="tour-shares">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#fdba74;--c2:#f97316"><span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span><span>Dateien und Ordner</span></p>
-          <h3>Ein freigegebener Ordner für jedes Gerät im Haus.</h3>
-          <p>Jeder Ordner auf einem Volume lässt sich freigeben, und Sie bestimmen, wer lesen oder schreiben darf. Windows und macOS finden ihn über SMB, Linux bindet ihn über NFS ein, und an die Dateien kommt jeder auch im Browser, in einem Explorer.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Zugriff für jede Person und Gruppe, gleich für SMB, NFS und den Explorer</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vorherige Versionen aus Snapshots, ein Papierkorb für alle Ordner</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>USB-Laufwerke im Explorer, zum Kopieren und Auswerfen</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Dateien als Liste oder Raster, mit einer Leiste der möglichen Aktionen <span class="badge badge-next">Testrelease</span></span></li></ul>
-        </div>
-        <div class="stage stack" style="--c1:#fdba74;--c2:#f97316"><picture class=""><source srcset="../assets/img/shares-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/shares-light.webp" width="1792" height="924" alt="Die Eigenschaften des Ordners documents: Die Gruppe family darf lesen und schreiben, guests darf lesen." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/files-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/files-light.webp" width="2064" height="1400" alt="Der Datei-Explorer im Browser mit dem Ordner documents, die Ordner und Dateien als Raster." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row reveal" id="tour-apps">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#93c5fd;--c2:#2563eb"><span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span>App Center</span></p>
-          <h3>Apps per Klick, und Sie können sie ändern.</h3>
-          <p>Wählen Sie eine App aus dem Community-Katalog oder fügen Sie einen eigenen Katalog hinzu. Sie wählen Ordner, Ports und Einstellungen und sehen die fertige compose.yaml, bevor sie startet; danach ist sie ein gewöhnliches Docker-Projekt von Ihnen. Was über ihren Container hinausgeht, etwa ein Gerät oder der Docker-Socket, braucht Ihre Zustimmung.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ordner und Ports wählen, die eine App nutzt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Passwörter und Schlüssel werden für Sie erzeugt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Bearbeiten, neu ausrollen und aktualisieren wie jedes Projekt</span></li></ul>
-        </div>
-        <div class="stage" style="--c1:#93c5fd;--c2:#2563eb"><picture class=""><source srcset="../assets/img/apps-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/apps-light.webp" width="2064" height="1480" alt="Das App Center mit Apps wie AdGuard Home, Immich, Jellyfin und Home Assistant." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row flip reveal" id="tour-docker">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#7dd3fc;--c2:#0284c7"><span class="tile" style="--c1:#7dd3fc;--c2:#0284c7"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><span>Docker</span></p>
-          <h3>Docker, wenn Sie es genau wissen wollen.</h3>
-          <p>Docker ist ein Plugin des App Centers: Installieren Sie es per Klick, wenn Sie es brauchen, und behalten Sie Container, Images, Netzwerke und Logs im Blick, oder betreiben Sie eigene Compose-Projekte.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Eine Seite für jeden Container, mit Live-Log und Terminal</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Container mit neuerem Image markiert und aus der Liste aktualisiert</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Volumes nach Zeitplan in einen freigegebenen Ordner gesichert und wiederhergestellt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Docker aus Debians eigenen Paketen</span></li></ul>
-        </div>
-        <div class="stage" style="--c1:#7dd3fc;--c2:#0284c7"><picture class=""><source srcset="../assets/img/docker-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/docker-light.webp" width="2064" height="1520" alt="Die Container in der Docker-App: Homarr und Uptime Kuma laufen und sind gesund, für Homarr gibt es ein Update." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row reveal" id="tour-vms">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#a78bfa;--c2:#4f46e5"><span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span><span>Virtuelle Maschinen</span><span class="badges"><span class="badge badge-preview">Vorschau</span><span class="badge badge-next">Testrelease</span></span></p>
-          <h3>Virtuelle Maschinen neben Ihren Daten.</h3>
-          <p>Installieren Sie das Plugin Virtuelle Maschinen aus dem App Center und betreiben Sie Linux oder Windows neben Ihren Freigaben, die Platten auf Ihren Pools. Jede VM öffnet ihre Konsole im Browser, erfasst alle ihre Platten auf einmal in Snapshots und wird in eine Freigabe oder auf ein USB-Laufwerk gesichert. Eine Vorschau, auf x86-64.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mehrere Platten und Netzwerkkarten, ISOs aus einer Image-Bibliothek</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>TPM und Secure Boot für Windows 11</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>USB- und PCI-Geräte des Rechners an eine VM durchgereicht</span></li></ul>
-        </div>
-        <div class="stage stack" style="--c1:#a78bfa;--c2:#4f46e5"><picture class=""><source srcset="../assets/img/vms-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/vms-light.webp" width="2064" height="1520" alt="Die App Virtuelle Maschinen: vier VMs, eine davon läuft und zeigt ihre Prozessor- und Speicherlast, darüber, wie viele laufen und was sie vom NAS belegen." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/vm-console-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/vm-console-light.webp" width="2048" height="1440" alt="Die Konsole einer laufenden VM im Browser, darin top unter Alpine Linux." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row flip reveal" id="tour-backup">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#fbbf24;--c2:#ea580c"><span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span><span>Backup</span><span class="badges"><span class="badge badge-next">Testrelease</span></span></p>
-          <h3>Eine zweite Kopie, an einem anderen Ort.</h3>
-          <p>Die Backup-App kopiert Ihre Freigaben auf einen anderen Pool, ein USB-Laufwerk, einen rsync-Server oder in eine Cloud, nach Zeitplan oder sobald das Laufwerk eingesteckt wird. Holen Sie eine ganze Version zurück oder nur die Ordner, die Sie auswählen, an ihren alten Ort oder anderswohin.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Spiegel, oder datierte Versionen, behalten nach Anzahl und Alter</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Namen und Inhalte auf Wunsch verschlüsselt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jeder Lauf protokolliert, ein fehlgeschlagener gemeldet</span></li></ul>
-        </div>
-        <div class="stage stack" style="--c1:#fbbf24;--c2:#ea580c"><picture class=""><source srcset="../assets/img/backup-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/backup-light.webp" width="2064" height="1520" alt="Die Aufgaben der Backup-App: die Dokumente stündlich als Spiegel in eine andere Freigabe, Versionen der Medien und, verschlüsselt, der Dokumente auf einem USB-Laufwerk, jede mit ihrem letzten Lauf." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/backup-restore-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/backup-restore-light.webp" width="2064" height="1520" alt="Wiederherstellen aus einem Backup: eine Version der Medien gewählt und darin nur der Ordner Movies." loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="row reveal" id="tour-updates">
-        <div class="row-text">
-          <p class="eyebrow-app" style="--c1:#6ee7b7;--c2:#059669"><span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span>Updates</span></p>
-          <h3>Updates ohne Überraschungen.</h3>
-          <p>Einmal am Tag sucht zendiloOS nach Updates: Debians Paketen und neuen Releases von zendiloOS selbst. Sie entscheiden, wann installiert wird, und das NAS startet nur neu, wenn Sie es sagen.</p>
-          <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Stabil, Test oder Entwicklung: Sie wählen den Kanal</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jedes Release signiert und vor der Installation geprüft</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>ZFS wird vor dem Neustart gegen einen neuen Kernel geprüft</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ein Kernel ohne sein ZFS-Modul startet nie: GRUB bleibt bei einem, der es hat <span class="badge badge-next">Testrelease</span></span></li></ul>
-        </div>
-        <div class="stage" style="--c1:#6ee7b7;--c2:#059669"><picture class=""><source srcset="../assets/img/updates-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/updates-light.webp" width="2064" height="1520" alt="Updates in der Systemsteuerung: zendiloOS 0.5.0~rc.1 ist installiert; der neueste Kernel hat noch kein ZFS-Modul, daher startet das NAS weiter den vorigen." loading="lazy" decoding="async"></picture></div>
+    <div class="container reveal">
+      <div class="tabs" role="tablist" aria-label="Ein Rundgang durch zendiloOS"><button class="tab" type="button" role="tab" id="tab-storage" aria-controls="tour-storage" aria-selected="true"><span class="tile" style="--c1:#a78bfa;--c2:#7c3aed"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><span>Speicher</span></button><button class="tab" type="button" role="tab" id="tab-shares" aria-controls="tour-shares" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#fdba74;--c2:#f97316"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span><span>Dateien und Ordner</span></button><button class="tab" type="button" role="tab" id="tab-apps" aria-controls="tour-apps" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#93c5fd;--c2:#2563eb"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span>App Center</span></button><button class="tab" type="button" role="tab" id="tab-docker" aria-controls="tour-docker" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#7dd3fc;--c2:#0284c7"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><span>Docker</span></button><button class="tab" type="button" role="tab" id="tab-vms" aria-controls="tour-vms" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#a78bfa;--c2:#4f46e5"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v4"/><path d="m14.305 7.53.923-.382"/><path d="m15.228 4.852-.923-.383"/><path d="m16.852 3.228-.383-.924"/><path d="m16.852 8.772-.383.923"/><path d="m19.148 3.228.383-.924"/><path d="m19.53 9.696-.382-.924"/><path d="m20.772 4.852.924-.383"/><path d="m20.772 7.148.924.383"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg></span><span>Virtuelle Maschinen</span></button><button class="tab" type="button" role="tab" id="tab-backup" aria-controls="tour-backup" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#fbbf24;--c2:#ea580c"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg></span><span>Backup</span></button><button class="tab" type="button" role="tab" id="tab-updates" aria-controls="tour-updates" aria-selected="false" tabindex="-1"><span class="tile" style="--c1:#6ee7b7;--c2:#059669"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span>Updates</span></button></div>
+      <div class="panels">
+        <article class="panel active" id="tour-storage" role="tabpanel" aria-labelledby="tab-storage">
+          <div class="panel-text">
+            <p class="panel-app"><span>Speicher</span></p>
+            <h3>Ihre Daten auf ZFS, mit Leitplanken.</h3>
+            <p>Pools vom Spiegel bis RAIDZ3 entstehen mit wenigen Klicks. zendiloOS sagt Ihnen, was jede Anordnung übersteht, warnt, wenn ein Pool keine Redundanz mehr hat, und behält jede Platte im Blick.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SMART-Werte und Selbsttests nach Zeitplan</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Scrubs, die stille Fehler finden, bevor sie sich ausbreiten</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihr NAS gezeichnet, jede Platte in ihrem Schacht, und eine Platte, die zum Finden blinkt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ein Assistent, der Platz und Schutz jeder Anordnung abschätzt <span class="badge badge-next">Testrelease</span></span></li></ul>
+          </div>
+          <div class="stage stack" style="--c1:#a78bfa;--c2:#7c3aed"><picture class=""><source srcset="../assets/img/disks-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/disks-light.webp" width="2064" height="1520" alt="Die Laufwerke in der Systemsteuerung: ein Hinweis, dass der Pool apps keine Redundanz hat, und das NAS gezeichnet, jede Platte in ihrem Schacht mit Modell, Größe, Temperatur und Pool." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/pool-wizard-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/pool-wizard-light.webp" width="1792" height="1472" alt="Der Assistent für einen neuen Pool: zwei Platten gewählt, daraus ein Spiegel mit etwa 8 GiB nutzbarem Platz, doppeltem Lesetempo und einer Platte, die ausfallen darf." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-shares" role="tabpanel" aria-labelledby="tab-shares">
+          <div class="panel-text">
+            <p class="panel-app"><span>Dateien und Ordner</span></p>
+            <h3>Ein freigegebener Ordner für jedes Gerät im Haus.</h3>
+            <p>Jeder Ordner auf einem Volume lässt sich freigeben, und Sie bestimmen, wer lesen oder schreiben darf. Windows und macOS finden ihn über SMB, Linux bindet ihn über NFS ein, und an die Dateien kommt jeder auch im Browser, in einem Explorer.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Zugriff für jede Person und Gruppe, gleich für SMB, NFS und den Explorer</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vorherige Versionen aus Snapshots, ein Papierkorb für alle Ordner</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>USB-Laufwerke im Explorer, zum Kopieren und Auswerfen</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Dateien als Liste oder Raster, mit einer Leiste der möglichen Aktionen <span class="badge badge-next">Testrelease</span></span></li></ul>
+          </div>
+          <div class="stage stack" style="--c1:#fdba74;--c2:#f97316"><picture class=""><source srcset="../assets/img/shares-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/shares-light.webp" width="1792" height="924" alt="Die Eigenschaften des Ordners documents: Die Gruppe family darf lesen und schreiben, guests darf lesen." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/files-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/files-light.webp" width="2064" height="1400" alt="Der Datei-Explorer im Browser mit dem Ordner documents, die Ordner und Dateien als Raster." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-apps" role="tabpanel" aria-labelledby="tab-apps">
+          <div class="panel-text">
+            <p class="panel-app"><span>App Center</span></p>
+            <h3>Apps per Klick, und Sie können sie ändern.</h3>
+            <p>Wählen Sie eine App aus dem Community-Katalog oder fügen Sie einen eigenen Katalog hinzu. Sie wählen Ordner, Ports und Einstellungen und sehen die fertige compose.yaml, bevor sie startet; danach ist sie ein gewöhnliches Docker-Projekt von Ihnen. Was über ihren Container hinausgeht, etwa ein Gerät oder der Docker-Socket, braucht Ihre Zustimmung.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ordner und Ports wählen, die eine App nutzt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Passwörter und Schlüssel werden für Sie erzeugt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Bearbeiten, neu ausrollen und aktualisieren wie jedes Projekt</span></li></ul>
+          </div>
+          <div class="stage" style="--c1:#93c5fd;--c2:#2563eb"><picture class=""><source srcset="../assets/img/apps-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/apps-light.webp" width="2064" height="1480" alt="Das App Center mit Apps wie AdGuard Home, Immich, Jellyfin und Home Assistant." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-docker" role="tabpanel" aria-labelledby="tab-docker">
+          <div class="panel-text">
+            <p class="panel-app"><span>Docker</span></p>
+            <h3>Docker, wenn Sie es genau wissen wollen.</h3>
+            <p>Docker ist ein Plugin des App Centers: Installieren Sie es per Klick, wenn Sie es brauchen, und behalten Sie Container, Images, Netzwerke und Logs im Blick, oder betreiben Sie eigene Compose-Projekte.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Eine Seite für jeden Container, mit Live-Log und Terminal</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Container mit neuerem Image markiert und aus der Liste aktualisiert</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Volumes nach Zeitplan in einen freigegebenen Ordner gesichert und wiederhergestellt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Docker aus Debians eigenen Paketen</span></li></ul>
+          </div>
+          <div class="stage" style="--c1:#7dd3fc;--c2:#0284c7"><picture class=""><source srcset="../assets/img/docker-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/docker-light.webp" width="2064" height="1520" alt="Die Container in der Docker-App: Homarr und Uptime Kuma laufen und sind gesund, für Homarr gibt es ein Update." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-vms" role="tabpanel" aria-labelledby="tab-vms">
+          <div class="panel-text">
+            <p class="panel-app"><span>Virtuelle Maschinen</span><span class="badges"><span class="badge badge-preview">Vorschau</span><span class="badge badge-next">Testrelease</span></span></p>
+            <h3>Virtuelle Maschinen neben Ihren Daten.</h3>
+            <p>Installieren Sie das Plugin Virtuelle Maschinen aus dem App Center und betreiben Sie Linux oder Windows neben Ihren Freigaben, die Platten auf Ihren Pools. Jede VM öffnet ihre Konsole im Browser, erfasst alle ihre Platten auf einmal in Snapshots und wird in eine Freigabe oder auf ein USB-Laufwerk gesichert. Eine Vorschau, auf x86-64.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mehrere Platten und Netzwerkkarten, ISOs aus einer Image-Bibliothek</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>TPM und Secure Boot für Windows 11</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>USB- und PCI-Geräte des Rechners an eine VM durchgereicht</span></li></ul>
+          </div>
+          <div class="stage stack" style="--c1:#a78bfa;--c2:#4f46e5"><picture class=""><source srcset="../assets/img/vms-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/vms-light.webp" width="2064" height="1520" alt="Die App Virtuelle Maschinen: vier VMs, eine davon läuft und zeigt ihre Prozessor- und Speicherlast, darüber, wie viele laufen und was sie vom NAS belegen." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/vm-console-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/vm-console-light.webp" width="2048" height="1440" alt="Die Konsole einer laufenden VM im Browser, darin top unter Alpine Linux." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-backup" role="tabpanel" aria-labelledby="tab-backup">
+          <div class="panel-text">
+            <p class="panel-app"><span>Backup</span><span class="badges"><span class="badge badge-next">Testrelease</span></span></p>
+            <h3>Eine zweite Kopie, an einem anderen Ort.</h3>
+            <p>Die Backup-App kopiert Ihre Freigaben auf einen anderen Pool, ein USB-Laufwerk, einen rsync-Server oder in eine Cloud, nach Zeitplan oder sobald das Laufwerk eingesteckt wird. Holen Sie eine ganze Version zurück oder nur die Ordner, die Sie auswählen, an ihren alten Ort oder anderswohin.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Spiegel, oder datierte Versionen, behalten nach Anzahl und Alter</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Namen und Inhalte auf Wunsch verschlüsselt</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jeder Lauf protokolliert, ein fehlgeschlagener gemeldet</span></li></ul>
+          </div>
+          <div class="stage stack" style="--c1:#fbbf24;--c2:#ea580c"><picture class=""><source srcset="../assets/img/backup-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/backup-light.webp" width="2064" height="1520" alt="Die Aufgaben der Backup-App: die Dokumente stündlich als Spiegel in eine andere Freigabe, Versionen der Medien und, verschlüsselt, der Dokumente auf einem USB-Laufwerk, jede mit ihrem letzten Lauf." loading="lazy" decoding="async"></picture><picture class="back"><source srcset="../assets/img/backup-restore-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/backup-restore-light.webp" width="2064" height="1520" alt="Wiederherstellen aus einem Backup: eine Version der Medien gewählt und darin nur der Ordner Movies." loading="lazy" decoding="async"></picture></div>
+        </article>
+        <article class="panel" id="tour-updates" role="tabpanel" aria-labelledby="tab-updates">
+          <div class="panel-text">
+            <p class="panel-app"><span>Updates</span></p>
+            <h3>Updates ohne Überraschungen.</h3>
+            <p>Einmal am Tag sucht zendiloOS nach Updates: Debians Paketen und neuen Releases von zendiloOS selbst. Sie entscheiden, wann installiert wird, und das NAS startet nur neu, wenn Sie es sagen.</p>
+            <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Stabil, Test oder Entwicklung: Sie wählen den Kanal</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jedes Release signiert und vor der Installation geprüft</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>ZFS wird vor dem Neustart gegen einen neuen Kernel geprüft</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ein Kernel ohne sein ZFS-Modul startet nie: GRUB bleibt bei einem, der es hat <span class="badge badge-next">Testrelease</span></span></li></ul>
+          </div>
+          <div class="stage" style="--c1:#6ee7b7;--c2:#059669"><picture class=""><source srcset="../assets/img/updates-dark.webp" media="(prefers-color-scheme: dark)"><img src="../assets/img/updates-light.webp" width="2064" height="1520" alt="Updates in der Systemsteuerung: zendiloOS 0.5.0~rc.1 ist installiert; der neueste Kernel hat noch kein ZFS-Modul, daher startet das NAS weiter den vorigen." loading="lazy" decoding="async"></picture></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="security">
+  <section class="band" id="security">
     <div class="container">
-      <div class="panel-dark reveal">
-        <header class="section-head">
-          <p class="eyebrow">Sicherheit</p>
-          <h2>Sicher von Grund auf, nicht nachträglich.</h2>
-          <p>Die Weboberfläche läuft ohne Rechte. Alles, was das System verändert, geht durch einen kleinen, abgeschotteten Agenten, der jede Anfrage gegen strenge Regeln prüft, bevor etwas passiert.</p>
-        </header>
-        <ol class="flow">
+      <header class="head reveal">
+        <p class="label"><b>02</b>Sicherheit</p>
+        <h2>Sicher von Grund auf, nicht nachträglich.</h2>
+        <p>Die Weboberfläche läuft ohne Rechte. Alles, was das System verändert, geht durch einen kleinen, abgeschotteten Agenten, der jede Anfrage gegen strenge Regeln prüft, bevor etwas passiert.</p>
+      </header>
+      <ol class="flow reveal">
           <li class="node">
-            <span class="node-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+            <span class="node-top"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg><small>01</small></span>
             <strong>Ihr Browser</strong>
             <span>HTTPS, TLS 1.2 oder neuer</span>
-          </li><li class="link" aria-hidden="true"><span></span></li>
+          </li><li class="wire" aria-hidden="true"><span></span></li>
           <li class="node">
-            <span class="node-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg></span>
+            <span class="node-top"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg><small>02</small></span>
             <strong>zendiloosd</strong>
             <span>Oberfläche und API, ohne Rechte</span>
-          </li><li class="link" aria-hidden="true"><span></span></li>
+          </li><li class="wire" aria-hidden="true"><span></span></li>
           <li class="node node-agent">
-            <span class="node-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span class="node-top"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><small>03</small></span>
             <strong>zendiloos-agent</strong>
             <span>Klein, abgeschottet, prüft jede Anfrage</span>
-          </li><li class="link" aria-hidden="true"><span></span></li>
+          </li><li class="wire" aria-hidden="true"><span></span></li>
           <li class="node">
-            <span class="node-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
+            <span class="node-top"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><small>04</small></span>
             <strong>Debian</strong>
             <span>ZFS, Samba, NFS, Docker</span>
           </li>
-        </ol>
-        <div class="guards">
+      </ol>
+      <div class="guards reveal">
           <div class="guard">
             <svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
             <div><strong>Grenzen bei der Anmeldung</strong><p>Zu viele Fehlversuche sperren die Adresse für eine Weile.</p></div>
@@ -291,63 +311,59 @@
             <svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg>
             <div><strong>Signierte Releases</strong><p>Ein Update wird nur mit gültiger Signatur installiert.</p></div>
           </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-apps" id="apps">
+  <section class="section" id="apps">
     <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">Apps</p>
+      <header class="head reveal">
+        <p class="label"><b>03</b>Apps</p>
         <h2>Ihre Lieblings-Apps sind dabei.</h2>
         <p>Medienserver, Fotoverwaltung, Hausautomation, Werbeblocker und mehr kommen aus dem Community-Katalog. Fügen Sie einen eigenen Katalog hinzu, und seine Apps stehen gleich daneben.</p>
       </header>
+      <ul class="wall reveal"><li>AdGuard Home</li><li>Home Assistant</li><li>Immich</li><li>Jellyfin</li><li>Plex Media Server</li><li>Pi-hole</li><li>Uptime Kuma</li><li>Homarr</li><li>qBittorrent</li><li>Sonarr</li><li>Radarr</li><li>Lidarr</li><li>Prowlarr</li><li>Bazarr</li><li>Seerr</li><li>Tdarr</li><li>Jellystat</li><li>Wizarr</li><li>Bookshelf</li><li>Kapowarr</li><li>Dispatcharr</li><li>FlareSolverr</li><li>autobrr</li><li>cross-seed</li><li>Unpackerr</li><li>Profilarr</li><li>Decluttarr</li><li>Janitorr</li></ul>
+      <p class="wall-more"><a class="link" href="https://github.com/mavnezz/zendiloOS.community.applications">Zum Community-Katalog<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
     </div>
-    <div class="marquees reveal">
-      <div class="marquee"><ul class="marquee-track"><li class="app-chip"><b style="--h:76">A</b>AdGuard Home</li><li class="app-chip"><b style="--h:156">H</b>Home Assistant</li><li class="app-chip"><b style="--h:156">I</b>Immich</li><li class="app-chip"><b style="--h:236">J</b>Jellyfin</li><li class="app-chip"><b style="--h:1">P</b>Plex Media Server</li><li class="app-chip"><b style="--h:61">P</b>Pi-hole</li><li class="app-chip"><b style="--h:135">U</b>Uptime Kuma</li><li class="app-chip"><b style="--h:234">H</b>Homarr</li><li class="app-chip"><b style="--h:109">Q</b>qBittorrent</li><li class="app-chip"><b style="--h:6">S</b>Sonarr</li><li class="app-chip"><b style="--h:131">R</b>Radarr</li><li class="app-chip"><b style="--h:193">L</b>Lidarr</li><li class="app-chip"><b style="--h:294">P</b>Prowlarr</li><li class="app-chip"><b style="--h:77">B</b>Bazarr</li><li class="app-chip" aria-hidden="true"><b style="--h:76">A</b>AdGuard Home</li><li class="app-chip" aria-hidden="true"><b style="--h:156">H</b>Home Assistant</li><li class="app-chip" aria-hidden="true"><b style="--h:156">I</b>Immich</li><li class="app-chip" aria-hidden="true"><b style="--h:236">J</b>Jellyfin</li><li class="app-chip" aria-hidden="true"><b style="--h:1">P</b>Plex Media Server</li><li class="app-chip" aria-hidden="true"><b style="--h:61">P</b>Pi-hole</li><li class="app-chip" aria-hidden="true"><b style="--h:135">U</b>Uptime Kuma</li><li class="app-chip" aria-hidden="true"><b style="--h:234">H</b>Homarr</li><li class="app-chip" aria-hidden="true"><b style="--h:109">Q</b>qBittorrent</li><li class="app-chip" aria-hidden="true"><b style="--h:6">S</b>Sonarr</li><li class="app-chip" aria-hidden="true"><b style="--h:131">R</b>Radarr</li><li class="app-chip" aria-hidden="true"><b style="--h:193">L</b>Lidarr</li><li class="app-chip" aria-hidden="true"><b style="--h:294">P</b>Prowlarr</li><li class="app-chip" aria-hidden="true"><b style="--h:77">B</b>Bazarr</li></ul></div>
-      <div class="marquee reverse"><ul class="marquee-track"><li class="app-chip"><b style="--h:220">S</b>Seerr</li><li class="app-chip"><b style="--h:186">T</b>Tdarr</li><li class="app-chip"><b style="--h:243">J</b>Jellystat</li><li class="app-chip"><b style="--h:256">W</b>Wizarr</li><li class="app-chip"><b style="--h:122">B</b>Bookshelf</li><li class="app-chip"><b style="--h:126">K</b>Kapowarr</li><li class="app-chip"><b style="--h:8">D</b>Dispatcharr</li><li class="app-chip"><b style="--h:136">F</b>FlareSolverr</li><li class="app-chip"><b style="--h:84">A</b>autobrr</li><li class="app-chip"><b style="--h:213">C</b>cross-seed</li><li class="app-chip"><b style="--h:76">U</b>Unpackerr</li><li class="app-chip"><b style="--h:142">P</b>Profilarr</li><li class="app-chip"><b style="--h:157">D</b>Decluttarr</li><li class="app-chip"><b style="--h:188">J</b>Janitorr</li><li class="app-chip" aria-hidden="true"><b style="--h:220">S</b>Seerr</li><li class="app-chip" aria-hidden="true"><b style="--h:186">T</b>Tdarr</li><li class="app-chip" aria-hidden="true"><b style="--h:243">J</b>Jellystat</li><li class="app-chip" aria-hidden="true"><b style="--h:256">W</b>Wizarr</li><li class="app-chip" aria-hidden="true"><b style="--h:122">B</b>Bookshelf</li><li class="app-chip" aria-hidden="true"><b style="--h:126">K</b>Kapowarr</li><li class="app-chip" aria-hidden="true"><b style="--h:8">D</b>Dispatcharr</li><li class="app-chip" aria-hidden="true"><b style="--h:136">F</b>FlareSolverr</li><li class="app-chip" aria-hidden="true"><b style="--h:84">A</b>autobrr</li><li class="app-chip" aria-hidden="true"><b style="--h:213">C</b>cross-seed</li><li class="app-chip" aria-hidden="true"><b style="--h:76">U</b>Unpackerr</li><li class="app-chip" aria-hidden="true"><b style="--h:142">P</b>Profilarr</li><li class="app-chip" aria-hidden="true"><b style="--h:157">D</b>Decluttarr</li><li class="app-chip" aria-hidden="true"><b style="--h:188">J</b>Janitorr</li></ul></div>
-    </div>
-    <p class="center"><a class="link" href="https://github.com/mavnezz/zendiloOS.community.applications">Zum Community-Katalog<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
   </section>
 
   <section class="section" id="install">
     <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">Installation</p>
+      <header class="head reveal">
+        <p class="label"><b>04</b>Installation</p>
         <h2>In vier Schritten startklar.</h2>
         <p>Der Installer ist Debians eigener, mit vorausgefüllten Antworten. Er stellt sechs Fragen und richtet den Rest ein.</p>
       </header>
       <ol class="steps">
           <li class="step reveal">
-            <span class="step-num">01</span>
+            <span class="step-num">1</span>
             <h3>Herunterladen</h3>
             <p>Laden Sie das Installations-ISO des neuesten stabilen Releases herunter, für arm64 das des <a href="https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1">Testreleases</a>.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">02</span>
+            <span class="step-num">2</span>
             <h3>Schreiben</h3>
             <p>Schreiben Sie es mit einem Werkzeug wie balenaEtcher, Rufus oder dd auf einen USB-Stick.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">03</span>
+            <span class="step-num">3</span>
             <h3>Installieren</h3>
             <p>Starten Sie den Rechner vom Stick und wählen Sie <b>Install zendiloOS</b>. Beantworten Sie Sprache, Standort, Tastatur, Name, das Passwort für root und die Platte für das System.</p>
           </li>
           <li class="step reveal">
-            <span class="step-num">04</span>
+            <span class="step-num">4</span>
             <h3>Einrichten</h3>
             <p>Nach dem Neustart zeigt der Bildschirm die Adresse. Öffnen Sie sie in einem Browser in Ihrem Netz und legen Sie gleich den ersten Administrator an: Wer zuerst kommt, richtet das NAS ein.</p>
           </li>
       </ol>
       <div class="install-more">
-        <div class="card need reveal">
+        <div class="need reveal">
           <h3>Was Sie brauchen</h3>
           <ul class="checks"><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Einen x86-64-Rechner: ein NAS, einen Mini-PC oder einen eigenen</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Oder ein arm64-Board, das einen USB-Stick über UEFI startet, installiert vom ISO des Testreleases <span class="badge badge-next">Testrelease</span></span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Eine Platte für das System, eine oder mehrere für Ihre Daten</span></li><li><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Eine Netzwerkverbindung: Die Pakete kommen von Debians Spiegelserver</span></li></ul>
           <p class="note"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>zendiloOS ist noch jung: Getestet wird es in virtuellen Maschinen, der Probebetrieb auf echter NAS-Hardware steht noch aus. Probieren Sie es auf Hardware aus, deren Platten nichts enthalten, das Ihnen fehlen würde.</span></p>
           <p class="need-more"><a class="link" href="features/#hardware">Hardware im Detail<svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
         </div>
-        <div class="card debian reveal">
+        <div class="debian reveal">
           <h3>Debian 13 läuft schon?</h3>
           <p>Installieren Sie das Paket aus dem <a href="https://github.com/mavnezz/zendiloOS/releases/latest">neuesten Release</a>. ZFS kommt aus Debians <code>contrib</code> und wird für Ihren Kernel gebaut.</p>
           <div class="code">
@@ -364,23 +380,23 @@ sudo apt install ./zendiloos_<span data-version-text>&lt;version&gt;</span>_amd6
 
   <section class="section" id="open-source">
     <div class="container">
-      <header class="section-head reveal">
-        <p class="eyebrow">Open Source</p>
+      <header class="head reveal">
+        <p class="label"><b>05</b>Open Source</p>
         <h2>Ihr NAS gehört Ihnen, sonst niemandem.</h2>
       </header>
       <div class="values">
-        <article class="card value reveal">
-          <span class="value-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 2 20 20"/><path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"/><path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"/></svg></span>
+        <article class="value reveal">
+          <span class="value-icon"><svg class="i" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 2 20 20"/><path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"/><path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"/></svg></span>
           <h3>Kein Konto, keine Cloud</h3>
           <p>zendiloOS braucht kein Konto und sammelt keine Telemetrie. Es spricht mit Debians Spiegelserver, mit GitHub für seine Releases und mit den Katalogen und Registries, aus denen Ihre Apps kommen.</p>
         </article>
-        <article class="card value reveal">
-          <span class="value-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
+        <article class="value reveal">
+          <span class="value-icon"><svg class="i" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
           <h3>Debian als Basis</h3>
           <p>zendiloOS ist ein Paket auf einem gewöhnlichen Debian 13. Entfernen Sie es, und Pools, Freigaben und Daten bleiben, wo sie sind.</p>
         </article>
-        <article class="card value reveal">
-          <span class="value-icon"><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span>
+        <article class="value reveal">
+          <span class="value-icon"><svg class="i" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span>
           <h3>Offen, dauerhaft</h3>
           <p>Unter Apache-2.0 lizenziert und offen entwickelt. Lesen Sie den Code, melden Sie ein Problem, schicken Sie einen Pull Request.</p>
         </article>
@@ -391,56 +407,55 @@ sudo apt install ./zendiloos_<span data-version-text>&lt;version&gt;</span>_amd6
   <section class="section" id="faq">
     <div class="container faq">
       <header class="reveal">
-        <p class="eyebrow">FAQ</p>
+        <p class="label"><b>06</b>FAQ</p>
         <h2>Fragen und Antworten</h2>
         <p>Etwas fehlt? <a href="https://github.com/mavnezz/zendiloOS/issues">Fragen Sie auf GitHub</a>.</p>
       </header>
       <div class="faq-list reveal">
           <details>
-            <summary><span>Was kostet zendiloOS?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Was kostet zendiloOS?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Nichts. zendiloOS ist kostenlos und Open Source unter der Apache-2.0-Lizenz.</p></div>
           </details>
           <details>
-            <summary><span>Auf welcher Hardware läuft es?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Auf welcher Hardware läuft es?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Auf jedem x86-64-Rechner mit einer Platte für das System, einer oder mehreren Platten für Daten und einer Netzwerkverbindung. Dazu arm64-Boards, die einen USB-Stick über UEFI starten und mit Debians eigenem Kernel laufen, installiert vom ISO des Testreleases <span class="badge badge-next">Testrelease</span>; auf einem echten arm64-Board lief es noch nicht. <a href="features/#hardware">Hardware im Detail</a>.</p></div>
           </details>
           <details>
-            <summary><span>Was ist das Testrelease?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Was ist das Testrelease?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Vor einem stabilen Release veröffentlicht zendiloOS Release-Kandidaten. 0.5.0~rc.1 bringt virtuelle Maschinen als Vorschau, die Backup-App, Bridges, Bonds und VLANs, eine Konfigurationssicherung, die eine frische Installation wiederherstellt, und arm64. Es ist zum Ausprobieren gedacht: Installieren Sie es frisch von seinem ISO, für <a href="https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-amd64-netinst.iso">x86-64</a> oder <a href="https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-arm64-netinst.iso">arm64</a>, oder spielen Sie sein Paket auf Debian 13 oder einer vorhandenen Installation ein: <code>sudo apt install ./zendiloos_0.5.0.rc.1_amd64.deb</code>, auf arm64 <code>./zendiloos_0.5.0.rc.1_arm64.deb</code>. Beides finden Sie auf <a href="https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1">der Seite des Releases</a>.</p></div>
           </details>
           <details>
-            <summary><span>Kann ich es auf einem vorhandenen Debian installieren?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Kann ich es auf einem vorhandenen Debian installieren?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Ja, auf Debian 13: Schalten Sie Debians Komponente <code>contrib</code> ein, installieren Sie die Kernel-Header und dann das zendiloOS-Paket aus einem Release. Die Befehle stehen oben bei der Installation und in der <a href="https://github.com/mavnezz/zendiloOS#install-on-an-existing-debian-13">README</a>.</p></div>
           </details>
           <details>
-            <summary><span>Was passiert mit meinen Daten, wenn ich zendiloOS entferne?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Was passiert mit meinen Daten, wenn ich zendiloOS entferne?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Pools, freigegebene Ordner und ihre Daten bleiben, wo sie sind, ebenso Docker und seine Apps. Seine eigenen Einstellungen behält zendiloOS in <code>/var/lib/zendiloos</code>, bis Sie auch die entfernen.</p></div>
           </details>
           <details>
-            <summary><span>Wie funktionieren Updates?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Wie funktionieren Updates?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Einmal am Tag sucht zendiloOS nach Paket-Updates von Debian und nach neuen Releases von zendiloOS in Ihrem Kanal: stabil, Test oder Entwicklung. Installieren ist ein Klick, und ein Release wird erst installiert, wenn Signatur und Prüfsumme stimmen.</p></div>
           </details>
           <details>
-            <summary><span>Telefoniert es nach Hause?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Telefoniert es nach Hause?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>Nein. Es gibt kein Konto und keine Telemetrie. Das NAS geht nur für Pakete, Releases und die App-Kataloge und Images online, die Sie nutzen.</p></div>
           </details>
           <details>
-            <summary><span>Kann ich ihm die einzige Kopie meiner Fotos anvertrauen?</span><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span>Kann ich ihm die einzige Kopie meiner Fotos anvertrauen?</span><svg class="i" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
             <div class="answer"><p>zendiloOS ist noch jung. ZFS schützt Ihre Daten vor einer ausfallenden Platte, aber kein NAS ersetzt ein Backup: Bewahren Sie eine Kopie von allem, was Sie nicht verlieren dürfen, an einem anderen Ort auf.</p></div>
           </details>
       </div>
     </div>
   </section>
 
-  <section class="section section-cta">
-    <div class="container">
-      <div class="cta reveal">
-        <img src="../favicon.svg" width="64" height="64" alt="">
-        <h2>Geben Sie Ihren Daten ein Zuhause.</h2>
+  <section class="cta">
+    <div class="container cta-grid reveal">
+      <h2>Geben Sie Ihren Daten ein Zuhause.</h2>
+      <div>
         <p>ISO herunterladen, auf einem freien Rechner installieren, und Ihr eigenes NAS läuft noch heute Nachmittag.</p>
         <div class="actions">
-          <a class="btn btn-white" href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO herunterladen</span></a>
-          <a class="btn btn-glass" href="https://github.com/mavnezz/zendiloOS"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span>Auf GitHub ansehen</span></a>
+          <a class="btn btn-primary" href="https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>ISO herunterladen</span></a>
+          <a class="btn btn-line" href="https://github.com/mavnezz/zendiloOS"><svg class="i" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><span>Auf GitHub ansehen</span></a>
         </div>
       </div>
     </div>
@@ -474,8 +489,9 @@ sudo apt install ./zendiloos_<span data-version-text>&lt;version&gt;</span>_amd6
     <p>© 2026 Die Autoren von zendiloOS. Lizenziert unter Apache-2.0.</p>
     <p>Debian ist eine eingetragene Marke von Software in the Public Interest, Inc. zendiloOS steht in keiner Verbindung zum Debian-Projekt.</p>
   </div>
+  <p class="wordmark" aria-hidden="true">zendiloOS</p>
 </footer>
 
-<script src="../assets/js/site.js?v=f038282a2af9" defer></script>
+<script src="../assets/js/site.js?v=71c472f6d806" defer></script>
 </body>
 </html>

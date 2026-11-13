@@ -42,8 +42,16 @@ export default {
       isoArm64: 'ISO for arm64',
     },
     alt: 'The zendiloOS desktop in a browser: the file explorer shows the documents folder, widgets beside it show the system status, resources, network and storage.',
-    chipPool: ['Pool tank', 'Mirror · healthy'],
-    chipUpdate: ['Update installed', 'Signature verified'],
+  },
+
+  zeros: {
+    label: 'What zendiloOS does not ask of you',
+    items: [
+      ['0', 'accounts'],
+      ['0', 'subscriptions'],
+      ['0', 'bytes of telemetry'],
+      ['100\u00a0%', 'open source'],
+    ],
   },
 
   builtOn: { title: 'Built on open source you already trust' },

@@ -60,7 +60,8 @@ missing: `tools/screenshots-needed.md`.
 
 ## Credits
 
-- [Geist](https://github.com/vercel/geist-font) and
+- [Archivo](https://github.com/Omnibus-Type/Archivo) for the headings,
+  [Geist](https://github.com/vercel/geist-font) and
   [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), SIL Open Font
   License 1.1 (`assets/fonts/`)
 - Icons from [Lucide](https://lucide.dev), ISC License
