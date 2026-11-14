@@ -552,6 +552,14 @@ code {
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.7);
 }
+.hero-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero-meta a:hover {
+  color: #fff;
+}
 @media (max-width: 860px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);

@@ -35,6 +35,7 @@ export default {
     github: 'Auf GitHub ansehen',
     meta: 'Für x86-64-Rechner · Debian 13 als Basis · Apache-2.0',
     downloadMeta: 'Version {version} · {size} · x86-64 · Apache-2.0',
+    arm64: 'ISO für arm64',
     next: {
       link: 'Testrelease {nextVersion} ausprobieren',
       text: 'Virtuelle Maschinen, Backups, Bridges und Bonds, arm64. Zum Ausprobieren, noch nicht für Daten, die Ihnen fehlen würden.',
@@ -263,7 +264,7 @@ export default {
     title: 'In vier Schritten startklar.',
     lead: 'Der Installer ist Debians eigener, mit vorausgefüllten Antworten. Er stellt sechs Fragen und richtet den Rest ein.',
     steps: [
-      { title: 'Herunterladen', text: 'Laden Sie das Installations-ISO des neuesten stabilen Releases herunter{{, für arm64 das des <a href="{next}">Testreleases</a>}}.' },
+      { title: 'Herunterladen', text: 'Laden Sie das Installations-ISO des neuesten Releases herunter, für <a href="{iso}">x86-64</a> oder <a href="{isoArm64}">arm64</a>.' },
       { title: 'Schreiben', text: 'Schreiben Sie es mit einem Werkzeug wie balenaEtcher, Rufus oder dd auf einen USB-Stick.' },
       {
         title: 'Installieren',
@@ -282,7 +283,7 @@ export default {
       'Eine Netzwerkverbindung: Die Pakete kommen von Debians Spiegelserver',
     ],
     needMore: 'Hardware im Detail',
-    note: 'zendiloOS ist noch jung: Getestet wird es in virtuellen Maschinen, der Probebetrieb auf echter NAS-Hardware steht noch aus. Probieren Sie es auf Hardware aus, deren Platten nichts enthalten, das Ihnen fehlen würde.',
+    note: 'zendiloOS ist noch jung: Getestet wird es in virtuellen Maschinen, auf echter Hardware lief es bisher nur wenige Tage auf einem kleinen x86-64-Board. Probieren Sie es auf Hardware aus, deren Platten nichts enthalten, das Ihnen fehlen würde.',
     debianTitle: 'Debian 13 läuft schon?',
     debianText:
       'Installieren Sie das Paket aus dem <a href="{releases}">neuesten Release</a>. ZFS kommt aus Debians <code>contrib</code> und wird für Ihren Kernel gebaut.',
@@ -381,9 +382,9 @@ export default {
     heading: 'Was zendiloOS kann, <em>Bereich für Bereich</em>.',
     lead: 'Jeder Bereich in wenigen Sätzen, mit den Einzelheiten, dem, was noch Vorschau ist, und dem Weg zur ausführlichen Dokumentation.',
     legend:
-      '[[next]] nur in {nextVersion}, noch nicht im stabilen Release · [[preview]] kann sich noch ändern · Getestet wird alles in virtuellen Maschinen; der Probebetrieb auf echter NAS-Hardware steht noch aus.',
+      '[[next]] nur in {nextVersion}, noch nicht im stabilen Release · [[preview]] kann sich noch ändern · Getestet wird alles in virtuellen Maschinen; auf echter Hardware lief es bisher nur auf einem kleinen x86-64-Board.',
     legendStable:
-      '[[preview]] kann sich noch ändern · Getestet wird alles in virtuellen Maschinen; der Probebetrieb auf echter NAS-Hardware steht noch aus.',
+      '[[preview]] kann sich noch ändern · Getestet wird alles in virtuellen Maschinen; auf echter Hardware lief es bisher nur auf einem kleinen x86-64-Board.',
     tocLabel: 'Bereiche',
     docs: 'In der Dokumentation (englisch):',
     areas: [
@@ -590,7 +591,7 @@ export default {
         text: [
           'zendiloOS läuft auf Debian 13. Auf x86-64 ist das ein NAS-Gerät, ein Mini-PC oder ein eigener Rechner, mit UEFI oder BIOS. Es braucht eine Platte für das System, eine oder mehrere für Daten (SATA oder NVMe) und eine Netzwerkverbindung: Der Installer holt Debians Pakete von dessen Spiegelserver.',
           'zendiloOS wird jetzt auch für arm64 gebaut: Pakete und ein Installations-ISO, das über UEFI startet, für NAS-Boards und Einplatinenrechner, deren Firmware einen USB-Stick über UEFI startet und deren Hardware Debians eigener Kernel unterstützt. Boards, die den Kernel ihres Herstellers brauchen, funktionieren nicht.{{ Bis ein stabiles Release es enthält, wird arm64 vom ISO des Testreleases installiert.}} [[next]]',
-          'Getestet wird zendiloOS von Anfang bis Ende in virtuellen Maschinen. Der Probebetrieb auf echter NAS-Hardware steht noch aus, und auf einem echten arm64-Board lief es noch nicht.',
+          'Getestet wird zendiloOS von Anfang bis Ende in virtuellen Maschinen. Auf echter Hardware lief es bisher nur auf einem kleinen x86-64-Board, und auf einem echten arm64-Board noch nicht.',
         ],
         specs: [
           ['x86-64', 'UEFI oder BIOS; das ISO hat beide Startmenüs und den grafischen Installer'],

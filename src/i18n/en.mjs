@@ -35,6 +35,7 @@ export default {
     github: 'View on GitHub',
     meta: 'For x86-64 computers · Debian 13 underneath · Apache-2.0',
     downloadMeta: 'Version {version} · {size} · x86-64 · Apache-2.0',
+    arm64: 'ISO for arm64',
     next: {
       link: 'Try the test release {nextVersion}',
       text: 'Virtual machines, backups, bridges and bonds, arm64. For trying out, not yet for data you would miss.',
@@ -263,7 +264,7 @@ export default {
     title: 'Up and running in four steps.',
     lead: 'The installer is Debian’s own, with the answers filled in. It asks six questions and sets up the rest.',
     steps: [
-      { title: 'Download', text: 'Get the installation ISO of the newest stable release{{, or for arm64 that of the <a href="{next}">test release</a>}}.' },
+      { title: 'Download', text: 'Get the installation ISO of the newest release, for <a href="{iso}">x86-64</a> or <a href="{isoArm64}">arm64</a>.' },
       { title: 'Write', text: 'Put it on a USB stick with a tool such as balenaEtcher, Rufus or dd.' },
       {
         title: 'Install',
@@ -282,7 +283,7 @@ export default {
       'A network connection: the packages come from Debian’s mirror',
     ],
     needMore: 'Hardware in detail',
-    note: 'zendiloOS is young: it is tested in virtual machines, and trial runs on real NAS hardware are still to come. Try it on hardware whose disks hold nothing you would miss.',
+    note: 'zendiloOS is young: it is tested in virtual machines, and on real hardware it has run only on one small x86-64 board, for a few days. Try it on hardware whose disks hold nothing you would miss.',
     debianTitle: 'Already running Debian 13?',
     debianText:
       'Install the package from the <a href="{releases}">newest release</a>. ZFS comes from Debian’s <code>contrib</code> and is built for your kernel.',
@@ -381,9 +382,9 @@ export default {
     heading: 'What zendiloOS does, <em>area by area</em>.',
     lead: 'Each area in a few sentences, with its specifics, what is still a preview, and where the documentation tells more.',
     legend:
-      '[[next]] only in {nextVersion}, not yet in the stable release · [[preview]] may still change · Everything is tested in virtual machines; trial runs on real NAS hardware are still to come.',
+      '[[next]] only in {nextVersion}, not yet in the stable release · [[preview]] may still change · Everything is tested in virtual machines; on real hardware it has run only on one small x86-64 board so far.',
     legendStable:
-      '[[preview]] may still change · Everything is tested in virtual machines; trial runs on real NAS hardware are still to come.',
+      '[[preview]] may still change · Everything is tested in virtual machines; on real hardware it has run only on one small x86-64 board so far.',
     tocLabel: 'Areas',
     docs: 'In the documentation:',
     areas: [
@@ -590,7 +591,7 @@ export default {
         text: [
           'zendiloOS runs on Debian 13. On x86-64 that is a NAS appliance, a mini PC or a machine of your own, with UEFI or a BIOS. It needs a disk for the system, one or more disks for data (SATA or NVMe) and a network connection: the installer fetches Debian’s packages from its mirror.',
           'zendiloOS is now built for arm64 too: packages, and an installation ISO that starts through UEFI, for NAS boards and single-board computers whose firmware starts a USB stick through UEFI and whose hardware Debian’s own kernel supports. Boards that need their vendor’s kernel do not work.{{ Until a stable release has it, arm64 is installed from the test release’s ISO.}} [[next]]',
-          'zendiloOS is tested end to end in virtual machines. Trial runs on real NAS hardware are still to come, and no real arm64 board has run it yet.',
+          'zendiloOS is tested end to end in virtual machines. On real hardware it has run only on one small x86-64 board so far, and no real arm64 board has run it yet.',
         ],
         specs: [
           ['x86-64', 'UEFI or BIOS; the ISO has both boot menus and the graphical installer'],

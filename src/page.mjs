@@ -164,6 +164,8 @@ function site(t, c, home) {
       .replaceAll('{nextDebAmd64}', c.next ? c.next.deb.amd64 : '')
       .replaceAll('{nextDebArm64}', c.next ? c.next.deb.arm64 : '')
       .replaceAll('{next}', c.next ? c.next.url : '')
+      .replaceAll('{isoArm64}', c.isoArm64)
+      .replaceAll('{iso}', c.iso)
       .replaceAll('{repo}', c.repo)
       .replaceAll('{features}', features)
   const badges = (marks = []) => {
@@ -460,7 +462,7 @@ export function renderHome(t, c) {
             <a class="btn btn-primary" href="${c.iso}" data-download>${icon('download', 18)}<span>${t.hero.download}</span></a>
             <a class="btn btn-line" href="${c.repo}">${GITHUB}<span>${t.hero.github}</span></a>
           </div>
-          <p class="hero-meta"><span data-download-meta data-template="${esc(t.hero.downloadMeta)}">${t.hero.meta}</span></p>
+          <p class="hero-meta"><span data-download-meta data-template="${esc(t.hero.downloadMeta)}">${t.hero.meta}</span> · <a href="${c.isoArm64}">${t.hero.arm64}</a></p>
         </div>
       </div>${next}
     </div>

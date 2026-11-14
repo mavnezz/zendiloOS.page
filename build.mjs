@@ -22,22 +22,15 @@ const project = {
   repo: 'https://github.com/mavnezz/zendiloOS',
   api: 'https://api.github.com/repos/mavnezz/zendiloOS/releases/latest',
   catalog: 'https://github.com/mavnezz/zendiloOS.community.applications',
-  // Only stable releases carry the ISO, under the same name every time.
+  // Only stable releases carry the ISOs, under the same names every time;
+  // arm64's since 0.5.0.
   iso: 'https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-amd64-netinst.iso',
+  isoArm64: 'https://github.com/mavnezz/zendiloOS/releases/latest/download/zendiloos-arm64-netinst.iso',
   // The test release beside the stable one, while there is one: the hero
   // points to it and its ISOs, and what only it has carries a badge. Set it
   // to null once that version is out as a stable release, and the pointer,
   // the badges and what the texts say only of it go.
-  next: {
-    version: '0.5.0~rc.1',
-    url: 'https://github.com/mavnezz/zendiloOS/releases/tag/v0.5.0-rc.1',
-    iso: {
-      amd64: 'https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-amd64-netinst.iso',
-      arm64: 'https://github.com/mavnezz/zendiloOS/releases/download/v0.5.0-rc.1/zendiloos-arm64-netinst.iso',
-    },
-    // Its packages as GitHub names them, with "." where the version has "~".
-    deb: { amd64: 'zendiloos_0.5.0.rc.1_amd64.deb', arm64: 'zendiloos_0.5.0.rc.1_arm64.deb' },
-  },
+  next: null,
   // A page with the provider's details (Impressum), if there is one.
   imprint: process.env.IMPRINT_URL ?? '',
 }
