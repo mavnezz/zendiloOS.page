@@ -21,23 +21,37 @@ Where `src/page.mjs` names a pair of images (`AREAS`, `TOUR_IMAGES`), the
 second stands in front of the first, smaller, bottom right. Each image's
 alt text is in `shots` of both `src/i18n` files.
 
-## Taken from 0.5.0~rc.1 (test VM 2, 2026-11-12)
+## Taken from 0.5.0 (test VM 2, 2026-11-14)
 
-| Image | View | Demo data, removed again afterwards |
+With the look of 0.5.0: solid windows, the display face in titles, the
+monospaced one in names, quiet states.
+
+| Image | View | Demo data |
+| --- | --- | --- |
+| `hero` | the desktop, Files on `documents` in the list view, 900 × 738 at 112, 36 so the widgets stay beside it | as the machine is; notifications marked read |
+| `files` | Files, the share `documents` in the grid view | as the machine is |
+| `disks` | Control panel → Disks | as the machine is |
+| `pool-wizard` | Control panel → Pools → New pool, step 1 | the two free disks chosen, Mirror; cancelled, nothing made |
+| `apps` | Apps → All apps | as the machine is |
+| `docker` | Docker → Containers | as the machine is: Homarr, Uptime Kuma, notes |
+| `updates` | Control panel → Updates | as the machine is: 0.5.0 from the stable channel, right after its update and a restart |
+
+A window is given its place and size through `zendiloos.desktop.<account>`
+in the browser's storage before the page is loaded, which also opens it on
+the page wanted, so no shot depends on where a window was left.
+
+## Still with the look of 0.5.0~rc.1 (test VM 2, 2026-11-12)
+
+These need their demo data made anew, and removed again afterwards.
+
+| Image | View | Demo data |
 | --- | --- | --- |
 | `vms` | Virtual machines → Machines | VMs `web` (running the Alpine ISO), `windows11` (TPM, Secure Boot, two disks), `homeassistant`, beside the machine's own `alpine` |
 | `vm-console` | the console of `web` | `top` after signing in as root |
 | `backup` | Backup → Tasks | share `backups` on `apps`, a USB drive `BACKUP` (an ext4 image plugged in through `vm.sh removable-attach`), three tasks run once |
 | `backup-restore` | Backup → Restore | the media task's version, only `Movies` chosen |
 | `config-backup` | Control panel → Configuration backup | weekly on Sunday at 03:00 into `backups/nas-config`, keep 7, run once |
-| `pool-wizard` | Control panel → Pools → New pool, step 1 | the two free disks chosen; cancelled, nothing made |
-| `disks` | Control panel → Disks | as the machine is |
-| `files` | Files, the share `documents` in the grid view | as the machine is |
-| `updates` | Control panel → Updates | as the machine is: 0.5.0~rc.1, a newer kernel without ZFS kept from starting |
-
-In 0.5.0~rc.1 the Backup app's name is missing from the interface's
-translations (`apps.backup` on the desktop and in its title bar); the shots
-show the title as it will read once that is fixed ("Backup").
+| `shares` | Files → `documents` → Properties → Permissions (from 0.2.0) | groups `family` and `guests`, accounts Anna and Ben Berger |
 
 ## Still needed
 
@@ -55,9 +69,3 @@ For the features page's "Network" section.
 - **Worth taking as well:** the same page right after a change, with the
   banner that asks to keep the settings and counts down the two minutes.
 - Then `AREAS.network.shots` in `src/page.mjs` and its alt text in `shots`.
-
-### Older shots, from 0.2.0
-
-`hero`, `shares` (a folder's properties), `apps` and `docker` still show
-0.2.0. They are not wrong, but the desktop and the windows have changed a
-little since; take them anew with the next round.

@@ -142,7 +142,7 @@ export default {
     'vm-console': 'Die Konsole einer laufenden VM im Browser, darin top unter Alpine Linux.',
     backup: 'Die Aufgaben der Backup-App: die Dokumente stündlich als Spiegel in eine andere Freigabe, Versionen der Medien und, verschlüsselt, der Dokumente auf einem USB-Laufwerk, jede mit ihrem letzten Lauf.',
     'backup-restore': 'Wiederherstellen aus einem Backup: eine Version der Medien gewählt und darin nur der Ordner Movies.',
-    updates: 'Updates in der Systemsteuerung: zendiloOS 0.5.0~rc.1 ist installiert; der neueste Kernel hat noch kein ZFS-Modul, daher startet das NAS weiter den vorigen.',
+    updates: 'Updates in der Systemsteuerung: zendiloOS 0.5.0 aus dem stabilen Kanal ist installiert, die Schritte des letzten Updates sind erledigt, alles ist aktuell.',
     'config-backup': 'Die Konfigurationssicherung in der Systemsteuerung: wöchentlich sonntags um 03:00 in die Freigabe backups, die neuesten 7 behalten, dazu die Datei der letzten Sicherung.',
   },
 
