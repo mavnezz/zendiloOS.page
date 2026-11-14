@@ -26,7 +26,7 @@ alt text is in `shots` of both `src/i18n` files.
 With the look of 0.5.0: solid windows, the display face in titles, the
 monospaced one in names, quiet states.
 
-| Image | View | Demo data |
+| Image | View | Demo data, removed again afterwards |
 | --- | --- | --- |
 | `hero` | the desktop, Files on `documents` in the list view, 900 × 738 at 112, 36 so the widgets stay beside it | as the machine is; notifications marked read |
 | `files` | Files, the share `documents` in the grid view | as the machine is |
@@ -35,23 +35,16 @@ monospaced one in names, quiet states.
 | `apps` | Apps → All apps | as the machine is |
 | `docker` | Docker → Containers | as the machine is: Homarr, Uptime Kuma, notes |
 | `updates` | Control panel → Updates | as the machine is: 0.5.0 from the stable channel, right after its update and a restart |
+| `shares` | Files → `documents` → Properties → Permissions | accounts Anna and Ben Berger in the group `family` (read and write), a group `guests` (read) |
+| `vms` | Virtual machines → Machines | VMs `web` (running the Alpine ISO), `windows11` (TPM, Secure Boot, disks of 32 and 8 GiB), `homeassistant`, beside the machine's own `alpine` |
+| `vm-console` | the console of `web`, 1024 × 720 | `top` after signing in as root |
+| `backup` | Backup → Tasks | a share `backups` on `apps`, a USB drive `BACKUP` (an ext4 image of 2 GiB plugged in through `vm.sh removable-attach`), three tasks run once; the folders they write into made first |
+| `backup-restore` | Backup → Restore | the media task's version, only `Movies` chosen |
+| `config-backup` | Control panel → Configuration backup, scrolled to the schedule | weekly on Sunday at 03:00 into `backups/nas-config`, keep 7, run once |
 
 A window is given its place and size through `zendiloos.desktop.<account>`
 in the browser's storage before the page is loaded, which also opens it on
 the page wanted, so no shot depends on where a window was left.
-
-## Still with the look of 0.5.0~rc.1 (test VM 2, 2026-11-12)
-
-These need their demo data made anew, and removed again afterwards.
-
-| Image | View | Demo data |
-| --- | --- | --- |
-| `vms` | Virtual machines → Machines | VMs `web` (running the Alpine ISO), `windows11` (TPM, Secure Boot, two disks), `homeassistant`, beside the machine's own `alpine` |
-| `vm-console` | the console of `web` | `top` after signing in as root |
-| `backup` | Backup → Tasks | share `backups` on `apps`, a USB drive `BACKUP` (an ext4 image plugged in through `vm.sh removable-attach`), three tasks run once |
-| `backup-restore` | Backup → Restore | the media task's version, only `Movies` chosen |
-| `config-backup` | Control panel → Configuration backup | weekly on Sunday at 03:00 into `backups/nas-config`, keep 7, run once |
-| `shares` | Files → `documents` → Properties → Permissions (from 0.2.0) | groups `family` and `guests`, accounts Anna and Ben Berger |
 
 ## Still needed
 
